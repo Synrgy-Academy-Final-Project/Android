@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Final Project</string>
+    <string name="welcome_login_title">Hi, Berjumpa Lagi!</string>
+    <string name="welcome_login_subtitle">Masuk dan Dapatkan Tiketnya!</string>
+    <string name="email_login_title">Email</string>
+    <string name="email_login_hint">Masukkan email pengguna</string>
+    <string name="password_login_title">Kata Sandi</string>
+    <string name="password_login_hint">Masukkan kata sandi</string>
+    <string name="forgot_password_title">Lupa Kata Sandi?</string>
+    <string name="login_btn_text">Masuk</string>
+    <string name="register_text">Belum punya akun?</string>
+    <string name="register_navigate">Daftar aja!</string>
 </resources>
