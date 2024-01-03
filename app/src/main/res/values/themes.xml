@@ -22,4 +22,12 @@
         <item name="android:paddingTop">18.5dp</item>
         <item name="android:paddingBottom">18.5dp</item>
     </style>
+
+    <style name="ButtonApp">
+        <item name="android:background">@drawable/bg_btn_login</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:padding">16dp</item>
+    </style>
 </resources>
