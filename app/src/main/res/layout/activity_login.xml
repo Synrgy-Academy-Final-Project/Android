@@ -6,23 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".ui.LoginActivity">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/logo_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/logo_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/welcome_login_title"
         style="@style/TextSemiBold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="29dp"
         android:text="@string/welcome_login_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_screen" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/welcome_login_subtitle"
         style="@style/TextSemiBold"
         android:layout_width="wrap_content"
-        android:layout_marginTop="4dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="@string/welcome_login_subtitle"
         android:textColor="#C2C2C2"
         android:textSize="14sp"
@@ -31,7 +41,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/email_login_title"
-        style="@style/TextSemiBold"
+        style="@style/TextRegular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -54,16 +64,17 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_login_edit_text"
-            android:layout_width="match_parent"
             style="@style/EditTextInput"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/email_login_hint" />
+            android:hint="@string/email_login_hint"
+            android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/password_login_title"
-        style="@style/TextSemiBold"
+        style="@style/TextRegular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -87,9 +98,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_login_edit_text"
+            style="@style/EditTextInput"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/EditTextInput"
             android:hint="@string/password_login_hint"
             android:inputType="textPassword" />
 
@@ -109,14 +120,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_btn"
+        style="@style/ButtonApp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/bg_btn_login"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
         android:text="@string/login_btn_text"
-        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="@+id/password_login_input"
         app:layout_constraintStart_toStartOf="@+id/password_login_input"
         app:layout_constraintTop_toBottomOf="@+id/forgot_password" />
@@ -137,7 +145,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="9dp"
-            android:fontFamily="@font/open_sans_semibold"
             android:text="@string/register_text"
             android:textColor="#C2C2C2"
             android:textSize="14sp" />
