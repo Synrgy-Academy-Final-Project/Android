@@ -38,7 +38,8 @@ platform :android do
 
   desc "Lint, test and build debug variant"
   lane :build_debug do
+    gradle(task: "lint")
     gradle(task: "test")
-    gradle(task: "clean buildDebug")
+    gradle(task: "clean assembleDebug")
   end
 end
