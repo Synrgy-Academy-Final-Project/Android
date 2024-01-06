@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    SPLASH-->
+    <style name="Theme.FinalProject.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primary_blue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.FinalProject</item>
+    </style>
+    
     <style name="TextRegular">
         <item name="android:fontFamily">@font/open_sans_regular</item>
         <item name="android:textColor">@color/black</item>
