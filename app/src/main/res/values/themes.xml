@@ -11,7 +11,7 @@
         <item name="colorSecondaryContainer">@color/primary_light_violet</item>
         <item name="colorOnSecondaryContainer">@color/primary_dark_violet</item>
 
-        <item name="fontFamily">@font/open_sans_regular_</item>
+        <item name="fontFamily">@font/open_sans_regular</item>
     </style>
 
     <style name="Theme.FinalProject" parent="Base.Theme.FinalProject" />

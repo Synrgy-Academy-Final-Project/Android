@@ -11,6 +11,6 @@
         <item name="colorSecondaryContainer">@color/primary_bright_violet</item>
         <item name="colorOnSecondaryContainer">@color/primary_light_violet</item>
 
-        <item name="fontFamily">@font/open_sans_regular_</item>
+        <item name="fontFamily">@font/open_sans_regular</item>
     </style>
 </resources>
