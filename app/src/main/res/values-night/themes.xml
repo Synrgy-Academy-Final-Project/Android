@@ -10,5 +10,7 @@
         <item name="colorOnSecondary">@color/primary_dark_violet</item>
         <item name="colorSecondaryContainer">@color/primary_bright_violet</item>
         <item name="colorOnSecondaryContainer">@color/primary_light_violet</item>
+
+        <item name="fontFamily">@font/open_sans_regular_</item>
     </style>
 </resources>
