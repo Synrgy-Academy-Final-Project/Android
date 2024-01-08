@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ticket_navigation"
+        android:icon="@drawable/ic_ticket"
+        android:title="@string/menu_ticket_title" />
+
+    <item
+        android:id="@+id/promo_navigation"
+        android:icon="@drawable/ic_promo"
+        android:title="@string/menu_promo_title" />
+
+    <item
+        android:id="@+id/order_navigation"
+        android:icon="@drawable/ic_order"
+        android:title="@string/menu_order_title" />
+
+    <item
+        android:id="@+id/profile_navigation"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/menu_profile_title" />
+</menu>
