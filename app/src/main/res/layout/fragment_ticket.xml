@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp"
-        android:paddingBottom="16dp"
-        android:paddingTop="?attr/actionBarSize">
+        android:paddingTop="?attr/actionBarSize"
+        android:paddingBottom="16dp">
 
         <TextView
             android:id="@+id/tv_search_ticket"
@@ -169,11 +169,11 @@
                     android:textColor="#8C8D89"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/sc_pp"
+                    app:layout_constraintEnd_toStartOf="@id/mc_pp"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/sc_pp"
+                    android:id="@+id/mc_pp"
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
                     android:scaleX="0.5"
@@ -182,6 +182,35 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_pp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_date_back"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_home_form_search"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_calendar_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/desc_pick_date"
+                    android:src="@drawable/ic_calendar" />
+
+                <TextView
+                    android:id="@+id/tv_selected_date_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_calendar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Jum, 24 Feb" />
             </LinearLayout>
 
             <LinearLayout
@@ -241,7 +270,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/text_search"
                 app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium" />
