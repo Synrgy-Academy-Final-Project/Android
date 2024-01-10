@@ -51,4 +51,9 @@
     <string name="text_child_age">(2 - 11 thn)</string>
     <string name="text_baby">Bayi</string>
     <string name="text_baby_age"><![CDATA[(< 2 thn)]]></string>
+    <string name="text_business">Bisnis</string>
+    <string name="text_economic_premium">Ekonomi Premium</string>
+    <string name="text_economic">Ekonomi</string>
+    <string name="text_class_title">Kelas</string>
+    <string name="text_main_class">Kelas Utama</string>
 </resources>
