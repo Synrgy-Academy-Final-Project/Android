@@ -45,4 +45,10 @@
     <string name="text_get_promo">Dapatkan Promo Terbaik</string>
     <string name="desc_get_promo">Dapatkan promo lainnya</string>
     <string name="symbol_bullet">•</string>
+    <string name="text_adult">Dewasa</string>
+    <string name="text_adult_age">(12 thn ke atas)</string>
+    <string name="text_child">Anak-anak</string>
+    <string name="text_child_age">(2 - 11 thn)</string>
+    <string name="text_baby">Bayi</string>
+    <string name="text_baby_age"><![CDATA[(< 2 thn)]]></string>
 </resources>
