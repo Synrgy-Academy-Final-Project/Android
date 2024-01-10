@@ -39,6 +39,9 @@ class TicketFragment : Fragment() {
         binding.llPassenger.setOnClickListener {
             PassengerDialogFragment().show(childFragmentManager, PassengerDialogFragment.TAG)
         }
+        binding.llClass.setOnClickListener {
+            ClassDialogFragment().show(childFragmentManager, ClassDialogFragment.TAG)
+        }
     }
 
     private fun showDatePicker(

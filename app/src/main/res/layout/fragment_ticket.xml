@@ -82,6 +82,8 @@
                     android:hint="@string/hint_departure"
                     android:importantForAutofill="no"
                     android:inputType="text"
+                    android:textColorHint="@color/neutral_06"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iv_plane_departure"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -114,6 +116,8 @@
                     android:hint="@string/hint_arrival"
                     android:importantForAutofill="no"
                     android:inputType="text"
+                    android:textColorHint="@color/neutral_06"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iv_plane_arrival"
                     app:layout_constraintTop_toBottomOf="@id/view_1" />
@@ -206,8 +210,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:textSize="14sp"
                     android:hint="Pilih tanggal"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_calendar"
                     app:layout_constraintTop_toTopOf="parent"
