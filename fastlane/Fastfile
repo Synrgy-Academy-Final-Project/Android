@@ -41,6 +41,11 @@ platform :android do
     gradle(task: "lint")
     gradle(task: "test")
     gradle(task: "clean assembleDebug")
+  end
+
+  desc "build debug variant and upload to app distribution"
+  lane :upload_firebase do
+    gradle(task: "clean assembleDebug")
     firebase_app_distribution(
         app: "1:143074951463:android:deb8071850856d978f6902",
         firebase_cli_token: "1//0gU23bcQ8fxyyCgYIARAAGBASNwF-L9IrZ1WO9otIOe0H072ra1K7elwpwU5bRs9OLIosVZBVDEn9kXH5nRU0EGsiyQF4zyDqNM8",
