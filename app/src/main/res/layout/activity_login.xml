@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/logo_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/logo_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/welcome_login_title"
+        style="@style/TextSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        android:text="@string/welcome_login_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_screen" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/welcome_login_subtitle"
+        style="@style/TextSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/welcome_login_subtitle"
+        android:textColor="#C2C2C2"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/welcome_login_title"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_login_title" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/email_login_title"
+        style="@style/TextRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/email_login_title"
+        android:textColor="#3E7BFA"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/welcome_login_subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_login_subtitle" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_login_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/email_login_title"
+        app:layout_constraintTop_toBottomOf="@+id/email_login_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_login_edit_text"
+            style="@style/EditTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/email_login_hint"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/password_login_title"
+        style="@style/TextRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/password_login_title"
+        android:textColor="#3E7BFA"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/welcome_login_subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/email_login_input" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_login_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/password_login_title"
+        app:layout_constraintTop_toBottomOf="@+id/password_login_title"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_login_edit_text"
+            style="@style/EditTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/password_login_hint"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/forgot_password"
+        style="@style/TextSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/forgot_password_title"
+        android:textColor="#7B52AB"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/password_login_input"
+        app:layout_constraintTop_toBottomOf="@+id/password_login_input" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_btn"
+        style="@style/ButtonApp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/login_btn_text"
+        app:layout_constraintEnd_toEndOf="@+id/password_login_input"
+        app:layout_constraintStart_toStartOf="@+id/password_login_input"
+        app:layout_constraintTop_toBottomOf="@+id/forgot_password" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/register_navigate_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/login_btn"
+        app:layout_constraintStart_toStartOf="@+id/login_btn"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/register_text"
+            style="@style/TextSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="9dp"
+            android:text="@string/register_text"
+            android:textColor="#C2C2C2"
+            android:textSize="14sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/register_navigate"
+            style="@style/TextSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_navigate"
+            android:textColor="#3E7BFA"
+            android:textSize="14sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "143074951463",
+    "project_id": "final-project-synrgy-aca-42fe0",
+    "storage_bucket": "final-project-synrgy-aca-42fe0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143074951463:android:deb8071850856d978f6902",
+        "android_client_info": {
+          "package_name": "com.synrgyacademy.finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKNmyInK3LRHqOWDYSUMNMrepgInCm9KA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

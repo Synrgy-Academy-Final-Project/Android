@@ -1,3 +1,59 @@
 <resources>
     <string name="app_name">Final Project</string>
+    <string name="welcome_login_title">Hi, Berjumpa Lagi!</string>
+    <string name="welcome_login_subtitle">Masuk dan Dapatkan Tiketnya!</string>
+    <string name="email_login_title">Email</string>
+    <string name="email_login_hint">Masukkan email pengguna</string>
+    <string name="password_login_title">Kata Sandi</string>
+    <string name="password_login_hint">Masukkan kata sandi</string>
+    <string name="forgot_password_title">Lupa Kata Sandi?</string>
+    <string name="login_btn_text">Masuk</string>
+    <string name="register_text">Belum punya akun?</string>
+    <string name="register_navigate">Daftar aja!</string>
+    <string name="welcome_register_title">Yuk Buat Akun!</string>
+    <string name="welcome_register_subtitle">Daftar dan Pesan Tiket Tinggal Klik!</string>
+    <string name="name_register_title">Nama Lengkap</string>
+    <string name="name_register_hint">Masukkan nama lengkap</string>
+    <string name="email_register_hint">Masukkan email pengguna</string>
+    <string name="phone_register_hint">Masukkan nomor ponsel</string>
+    <string name="phone_register_title">Nomor Ponsel</string>
+    <string name="login_text">Sudah punya akun nih?</string>
+    <string name="login_navigate">Masuk aja!</string>
+    <string name="register_btn_text">Daftar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--    MENU-->
+    <string name="menu_ticket_title">Tiket</string>
+    <string name="menu_promo_title">Promo</string>
+    <string name="menu_order_title">Pesanan</string>
+    <string name="menu_profile_title">Profil</string>
+    <string name="text_check_ticket">Cek Tiket</string>
+    <string name="desc_message">Melihat pesan</string>
+    <string name="desc_notification">Melihat notifikasi</string>
+    <string name="text_pp">Pulang Pergi?</string>
+    <string name="hint_departure">Asal</string>
+    <string name="hint_arrival">Tujuan</string>
+    <string name="desc_swap_ticket">Mengubah destinasi tiket</string>
+    <string name="desc_pick_date">Memilih tanggal keberangatan</string>
+    <string name="text_passenger">Penumpang</string>
+    <string name="text_ticket_class">Kelas</string>
+    <string name="text_search">Cari</string>
+    <string name="text_latest_Search">Pencarian Terakhir</string>
+    <string name="text_delete">Hapus</string>
+    <string name="text_get_promo">Dapatkan Promo Terbaik</string>
+    <string name="desc_get_promo">Dapatkan promo lainnya</string>
+    <string name="symbol_bullet">•</string>
+    <string name="text_adult">Dewasa</string>
+    <string name="text_adult_age">(12 thn ke atas)</string>
+    <string name="text_child">Anak-anak</string>
+    <string name="text_child_age">(2 - 11 thn)</string>
+    <string name="text_baby">Bayi</string>
+    <string name="text_baby_age"><![CDATA[(< 2 thn)]]></string>
+    <string name="text_business">Bisnis</string>
+    <string name="text_economic_premium">Ekonomi Premium</string>
+    <string name="text_economic">Ekonomi</string>
+    <string name="text_class_title">Kelas</string>
+    <string name="text_main_class">Kelas Utama</string>
 </resources>

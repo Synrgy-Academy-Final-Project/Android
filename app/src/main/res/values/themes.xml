@@ -1,8 +1,19 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.FinalProject" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorOnPrimary">@color/neutral_01</item>
+        <item name="colorPrimaryContainer">@color/primary_light_blue</item>
+        <item name="colorOnPrimaryContainer">@color/primary_dark_blue</item>
+        <item name="colorSecondary">@color/primary_violet</item>
+        <item name="colorOnSecondary">@color/neutral_01</item>
+        <item name="colorSecondaryContainer">@color/primary_light_violet</item>
+        <item name="colorOnSecondaryContainer">@color/primary_dark_violet</item>
+
+        <item name="fontFamily">@font/open_sans_regular</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="Theme.FinalProject" parent="Base.Theme.FinalProject" />
