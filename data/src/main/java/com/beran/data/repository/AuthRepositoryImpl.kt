@@ -1,5 +1,6 @@
 package com.beran.data.repository
 
+import com.beran.data.remote.request.LoginRequest
 import com.beran.data.remote.request.OTPRequest
 import com.beran.data.remote.request.RegisterRequest
 import com.beran.data.remote.retrofit.AuthService
@@ -31,6 +32,13 @@ class AuthRepositoryImpl @Inject constructor(
         safeApiRequest {
             val otpRequest =OTPRequest(otp = otp)
             authService.verifyAccount(email, otpRequest)
+        }
+    }
+
+    override suspend fun login(email: String, password: String) {
+        safeApiRequest {
+            val loginRequest = LoginRequest(email = email, password = password)
+            authService.login(loginRequest)
         }
     }
 }

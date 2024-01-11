@@ -2,14 +2,11 @@ package com.beran.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterResponse(
+data class LoginResponse(
 
 	@field:SerializedName("data")
 	val data: AuthData? = null,
 
-	@field:SerializedName("message")
-	val message: String? = null,
-
 	@field:SerializedName("status")
-	val status: Int? = null
+	val status: String? = null
 )

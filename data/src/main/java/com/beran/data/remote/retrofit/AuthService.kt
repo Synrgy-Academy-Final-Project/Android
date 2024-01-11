@@ -4,6 +4,7 @@ import com.beran.data.remote.request.LoginRequest
 import com.beran.data.remote.request.OTPRequest
 import com.beran.data.remote.request.RegisterRequest
 import com.beran.data.remote.response.AccountVerificationResponse
+import com.beran.data.remote.response.LoginResponse
 import com.beran.data.remote.response.RegenerateOTPResponse
 import com.beran.data.remote.response.RegisterResponse
 import retrofit2.Response
@@ -33,5 +34,5 @@ interface AuthService {
     @POST("auth/login")
     suspend fun login(
         @Body loginRequest: LoginRequest
-    ): Response<RegenerateOTPResponse>
+    ): Response<LoginResponse>
 }
