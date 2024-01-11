@@ -27,7 +27,7 @@ object RemoteModule {
 
     @Provides
     @Singleton
-    fun provideOkhttpClient(@Named("loggingInterceptor") loggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    fun provideOkhttpClient(@Named("loggingInterceptor") loggingInterceptor: Interceptor): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .connectTimeout(20, TimeUnit.SECONDS)
