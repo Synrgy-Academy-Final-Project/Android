@@ -30,7 +30,7 @@ jobs:
           bundler-cache: true
       - uses: maierj/fastlane-action@v3.0.0
         with:
-          lane: 'build_debug'
+          lane: ${{ github.ref == 'refs/heads/main' && 'upload_firebase' || github.ref == 'refs/heads/development' && 'build_debug' || 'build_debug' }}
       - uses: actions/upload-artifact@v3
         with:
           name: android-debug-apk

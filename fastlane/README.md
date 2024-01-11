@@ -47,6 +47,14 @@ Deploy a new version to the Google Play
 
 Lint, test and build debug variant
 
+### android upload_firebase
+
+```sh
+[bundle exec] fastlane android upload_firebase
+```
+
+build debug variant and upload to app distribution
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
