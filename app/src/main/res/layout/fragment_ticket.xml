@@ -69,19 +69,16 @@
                     android:layout_height="24dp"
                     android:importantForAccessibility="no"
                     android:src="@drawable/ic_plane_departure"
-                    app:layout_constraintBottom_toBottomOf="@+id/et_departure"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_departure"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/et_departure" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_departure" />
 
-                <EditText
-                    android:id="@+id/et_departure"
+                <TextView
+                    android:id="@+id/tv_departure"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:background="@null"
                     android:hint="@string/hint_departure"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
                     android:textColorHint="@color/neutral_06"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +91,7 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="16dp"
                     android:background="@color/neutral_03"
-                    app:layout_constraintTop_toBottomOf="@id/et_departure" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_departure" />
 
                 <ImageView
                     android:id="@+id/iv_plane_arrival"
@@ -102,20 +99,17 @@
                     android:layout_height="24dp"
                     android:importantForAccessibility="no"
                     android:src="@drawable/ic_plane_arrival"
-                    app:layout_constraintBottom_toBottomOf="@+id/et_arrival"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_arrival"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/et_arrival" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_arrival" />
 
-                <EditText
-                    android:id="@+id/et_arrival"
+                <TextView
+                    android:id="@+id/tv_arrival"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:background="@null"
                     android:hint="@string/hint_arrival"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
                     android:textColorHint="@color/neutral_06"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -127,6 +121,8 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/desc_swap_ticket"
                     android:src="@drawable/ic_swap"
+                    android:backgroundTint="@color/primary_blue"
+                    app:tint="@color/neutral_01"
                     app:layout_constraintBottom_toBottomOf="@+id/cl_destination"
                     app:layout_constraintEnd_toEndOf="@+id/cl_destination"
                     app:layout_constraintTop_toTopOf="@+id/cl_destination"
@@ -278,6 +274,8 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/text_search"
+                android:textStyle="bold"
+                android:textAppearance="@style/OpenSansBold14"
                 app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium" />
         </LinearLayout>
 
