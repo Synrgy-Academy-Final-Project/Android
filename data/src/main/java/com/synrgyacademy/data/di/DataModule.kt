@@ -1,5 +1,6 @@
 package com.synrgyacademy.data.di
 
+import com.synrgyacademy.data.local.pref.SessionManager
 import com.synrgyacademy.data.remote.retrofit.AuthService
 import com.synrgyacademy.data.repository.AuthRepositoryImpl
 import com.synrgyacademy.domain.repository.AuthRepository
@@ -15,7 +16,10 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideAuthRepository(authService: AuthService): AuthRepository =
-        AuthRepositoryImpl(authService)
+    fun provideAuthRepository(
+        authService: AuthService,
+        sessionManager: SessionManager
+    ): AuthRepository =
+        AuthRepositoryImpl(authService, sessionManager)
 
 }

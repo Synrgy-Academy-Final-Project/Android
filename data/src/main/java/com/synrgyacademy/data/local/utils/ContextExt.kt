@@ -1,4 +1,4 @@
-package com.synrgyacademy.data.utils
+package com.synrgyacademy.data.local.utils
 
 import android.content.Context
 import androidx.datastore.core.DataStore
