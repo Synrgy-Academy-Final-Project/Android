@@ -23,6 +23,14 @@ class TicketFragment : Fragment() {
 
         binding.tvSelectedDate.text = getCurrentDateEEEDDMMM()
 
+        binding.tvArrival.setOnClickListener {
+            AirportDialogFragment().show(childFragmentManager, AirportDialogFragment.TAG)
+        }
+
+        binding.tvDeparture.setOnClickListener {
+            AirportDialogFragment().show(childFragmentManager, AirportDialogFragment.TAG)
+        }
+
         binding.ivCalendar.setOnClickListener {
             showDatePicker(
                 onSelectedDate = { binding.tvSelectedDate.text = it }
