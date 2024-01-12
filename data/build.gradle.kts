@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.beran.data"
+    namespace = "com.synrgyacademy.data"
     compileSdk = 34
 
     defaultConfig {
