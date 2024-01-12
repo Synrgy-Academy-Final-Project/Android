@@ -1,13 +1,10 @@
-package com.synrgyacademy.data.repository.di
+package com.synrgyacademy.data.local.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import com.synrgyacademy.data.pref.SessionManager
-import com.synrgyacademy.data.remote.retrofit.AuthService
-import com.synrgyacademy.data.repository.AuthRepositoryImpl
-import com.synrgyacademy.data.utils.dataStore
-import com.synrgyacademy.domain.repository.AuthRepository
+import com.synrgyacademy.data.local.pref.SessionManager
+import com.synrgyacademy.data.local.utils.dataStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +14,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+object LocalModule {
 
     @Provides
     @Singleton
@@ -29,8 +26,5 @@ object RepositoryModule {
     fun provideSessionManager(dataStore: DataStore<Preferences>): SessionManager =
         SessionManager(dataStore)
 
-    @Provides
-    @Singleton
-    fun provideAuthRepository(authService: AuthService, sessionManager: SessionManager): AuthRepository =
-        AuthRepositoryImpl(authService, sessionManager)
+
 }

@@ -1,22 +1,22 @@
 package com.synrgyacademy.data.repository
 
-import com.synrgyacademy.data.mapper.mapToDomain
-import com.synrgyacademy.domain.model.UserData
-import com.synrgyacademy.data.pref.SessionManager
+import com.synrgyacademy.data.local.pref.SessionManager
+import com.synrgyacademy.data.mapper.toLoginDataModel
+import com.synrgyacademy.data.mapper.toUserData
 import com.synrgyacademy.data.remote.request.LoginRequest
 import com.synrgyacademy.data.remote.request.OTPRequest
 import com.synrgyacademy.data.remote.request.RegisterRequest
 import com.synrgyacademy.data.remote.retrofit.AuthService
 import com.synrgyacademy.data.remote.util.SafeApiRequest
-import com.synrgyacademy.domain.model.AuthData
+import com.synrgyacademy.domain.model.auth.LoginDataModel
 import com.synrgyacademy.domain.repository.AuthRepository
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val authService: AuthService,
     private val sessionManager: SessionManager
-): AuthRepository, SafeApiRequest() {
+) : AuthRepository, SafeApiRequest() {
     override suspend fun register(fullName: String, email: String, password: String) {
         safeApiRequest {
             val registerRequest = RegisterRequest(
@@ -36,26 +36,29 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun verifyAccount(email: String, otp: String) {
         safeApiRequest {
-            val otpRequest =OTPRequest(otp = otp)
+            val otpRequest = OTPRequest(otp = otp)
             authService.verifyAccount(email, otpRequest)
         }
     }
 
-    override suspend fun login(email: String, password: String): AuthData {
-        val loginRequest = LoginRequest(email = email, password = password)
-        val loginResponse = safeApiRequest { authService.login(loginRequest) }
-        return loginResponse.data?.mapToDomain() ?: throw Exception("Login failed")
+    override suspend fun login(
+        email: String,
+        password: String
+    ): LoginDataModel {
+        val request = LoginRequest(
+            email = email,
+            password = password
+        )
+        val response = safeApiRequest { authService.login(request) }
+        return response.data!!.toLoginDataModel()
     }
 
-    override fun isLogin(): Flow<Boolean> = sessionManager.isLogin()
+    override suspend fun isLogin(): Boolean = sessionManager.isLogin().first()
 
     override suspend fun createSession() = sessionManager.createSession()
-    override fun getSavedData(): Flow<UserData> = sessionManager.getUser()
 
 
-    override suspend fun saveUser(userData: UserData) {
-        sessionManager.saveUser(userData)
+    override suspend fun saveUser(userData: LoginDataModel) {
+        sessionManager.saveUser(userData.toUserData())
     }
-
-    override suspend fun logout() = sessionManager.logout()
 }

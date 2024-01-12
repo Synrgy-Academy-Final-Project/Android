@@ -1,23 +1,18 @@
 package com.synrgyacademy.domain.repository
 
+import com.synrgyacademy.domain.model.auth.LoginDataModel
 import kotlinx.coroutines.flow.Flow
-import com.synrgyacademy.domain.model.UserData
-import com.synrgyacademy.domain.model.AuthData
 
 interface AuthRepository {
 
     suspend fun register(fullName: String, email: String, password: String)
     suspend fun regenerateOTP(email: String)
     suspend fun verifyAccount(email: String, otp: String)
-    suspend fun login(email: String, password: String) : AuthData
+    suspend fun login(email: String, password: String) : LoginDataModel
 
-    fun isLogin(): Flow<Boolean>
+    suspend fun isLogin(): Boolean
 
     suspend fun createSession()
 
-    fun getSavedData(): Flow<UserData>
-
-    suspend fun saveUser(userData: UserData)
-
-    suspend fun logout()
+    suspend fun saveUser(userData: LoginDataModel)
 }

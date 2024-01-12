@@ -30,7 +30,7 @@ interface AuthService {
         @Query("email") email: String
     ): Response<RegenerateOTPResponse>
 
-    // change the response letter
+
     @POST("auth/login")
     suspend fun login(
         @Body loginRequest: LoginRequest

@@ -1,7 +1,6 @@
-package com.synrgyacademy.domain.model
+package com.synrgyacademy.domain.model.auth
 
 data class UserData(
-    val email: String,
     val name: String,
     val token: String
 )
