@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class AuthData(
 
+    @field:SerializedName("token")
+    val token: String? = null,
+
     @field:SerializedName("roles")
     val roles: List<String?>? = null,
 

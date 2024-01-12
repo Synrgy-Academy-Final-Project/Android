@@ -59,4 +59,9 @@
     <string name="text_search_title">Bandara atau Kota Populer</string>
     <string name="text_cancel">Batalkan</string>
     <string name="hint_search_airport">Cari Bandara atau Kota</string>
+    <string name="login_failed_please_try_again">Login failed, please try again</string>
+    <string name="email_tidak_boleh_kosong">Email tidak boleh kosong</string>
+    <string name="password_tidak_boleh_kosong">Password tidak boleh kosong</string>
+    <string name="password_minimal_8_karakter">Password minimal 8 karakter</string>
+    <string name="login_berhasil">Login berhasil</string>
 </resources>
