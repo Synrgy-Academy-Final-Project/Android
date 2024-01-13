@@ -15,7 +15,6 @@ import com.synrgyacademy.data.local.pref.SessionManager
 import com.synrgyacademy.data.local.utils.dataStore
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.FragmentLoginBinding
-import com.synrgyacademy.finalproject.ui.RegisterActivity
 import com.synrgyacademy.finalproject.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
@@ -66,9 +65,8 @@ class LoginFragment : Fragment() {
             }
         }
 
-        binding.registerNavigate.setOnClickListener {
-            val intent = Intent(requireContext(), RegisterActivity::class.java)
-            startActivity(intent)
+        binding.tvRegister.setOnClickListener {
+            findNavController().navigate(R.id.registerFragment)
         }
     }
 
