@@ -64,4 +64,15 @@
     <string name="password_tidak_boleh_kosong">Password tidak boleh kosong</string>
     <string name="password_minimal_8_karakter">Password minimal 8 karakter</string>
     <string name="login_berhasil">Login berhasil</string>
+    <string name="error_password_special_char"><![CDATA["Password harus mengandung karakter khusus seperti:  (?=.*[@#$%^&+=!])\"] "]]></string>
+    <string name="error_password_contain_digit">Password harus mengandung angka.</string>
+    <string name="error_password_contain_small_case">Password harus mengandung huruf kecil.</string>
+    <string name="error_password_contain_upper_case">Password harus mengandung huruf kapital.</string>
+    <string name="error_password_length">Password harus minimal 8 karakter.</string>
+    <string name="error_password_empty">Masukkan kata sandi</string>
+    <string name="error_phone_empty">Masukkan nomor telepon</string>
+    <string name="error_name_empty">Masukkan nama</string>
+    <string name="error_email_empty">Masukkan email yang valid</string>
+    <string name="error_empty_field">Isi semua kolom isian</string>
+    <string name="register_success">Register berhasil</string>
 </resources>

@@ -8,7 +8,7 @@ data class AuthData(
     val token: String? = null,
 
     @field:SerializedName("roles")
-    val roles: List<String?>? = null,
+    val roles: List<String>? = null,
 
     @field:SerializedName("fullName")
     val fullName: String? = null,
