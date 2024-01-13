@@ -75,4 +75,8 @@
     <string name="error_email_empty">Masukkan email yang valid</string>
     <string name="error_empty_field">Isi semua kolom isian</string>
     <string name="register_success">Register berhasil</string>
+    <string name="text_submit">Submit</string>
+    <string name="text_forgot_password_subtitle">Masukkan alamat email yang terhubung dengan akun anda.</string>
+    <string name="text_forgot_password_title">Lupa Kata Sandi?</string>
+    <string name="text_oke">Oke</string>
 </resources>

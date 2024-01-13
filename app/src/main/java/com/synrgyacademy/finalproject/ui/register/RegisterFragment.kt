@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.FragmentRegisterBinding
+import com.synrgyacademy.finalproject.utils.AuthUtil
+import com.synrgyacademy.finalproject.utils.AuthUtil.isValidEmail
 import com.synrgyacademy.finalproject.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.regex.Pattern
@@ -133,19 +135,6 @@ class RegisterFragment : Fragment() {
             return false
         }
         return true
-    }
-
-    private fun isValidEmail(email: String): Boolean {
-        val emailPattern = Pattern.compile(
-            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                    "\\@" +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                    "(" +
-                    "\\." +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                    ")+"
-        )
-        return emailPattern.matcher(email).matches()
     }
 
     override fun onCreateView(

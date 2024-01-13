@@ -62,4 +62,10 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun saveUser(userData: LoginDataModel) {
         sessionManager.saveUser(userData.toUserData())
     }
+
+    override suspend fun forgotPassword(email: String) {
+        safeApiRequest {
+            authService.forgotPassword(email)
+        }
+    }
 }
