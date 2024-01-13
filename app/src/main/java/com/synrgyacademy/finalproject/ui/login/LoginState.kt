@@ -7,3 +7,9 @@ sealed interface LoginState {
     data class Success(val authData: LoginDataModel) : LoginState
     data class Error(val error: String) : LoginState
 }
+
+sealed interface ForgetPasswordState {
+    data object Loading : ForgetPasswordState
+    data object Success : ForgetPasswordState
+    data class Error(val error: String) : ForgetPasswordState
+}

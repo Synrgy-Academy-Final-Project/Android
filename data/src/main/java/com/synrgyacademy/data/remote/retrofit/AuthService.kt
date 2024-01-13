@@ -30,9 +30,13 @@ interface AuthService {
         @Query("email") email: String
     ): Response<RegenerateOTPResponse>
 
-
     @POST("auth/login")
     suspend fun login(
         @Body loginRequest: LoginRequest
+    ): Response<LoginResponse>
+
+    @POST("auth/forgot-password")
+    suspend fun forgotPassword(
+        @Body email: String
     ): Response<LoginResponse>
 }

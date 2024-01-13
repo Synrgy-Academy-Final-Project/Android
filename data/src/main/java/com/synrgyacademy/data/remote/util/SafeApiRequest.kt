@@ -9,22 +9,42 @@ abstract class SafeApiRequest {
     suspend fun <T : Any> safeApiRequest(call: suspend () -> Response<T>): T {
         try {
             val response = call.invoke()
-            if (response.isSuccessful) {
-                return response.body()!!
-            } else {
-                val respErr = response.errorBody()?.string()
-                val message = StringBuilder()
-                respErr?.let {
-                    try {
-                        message.append(JSONObject(it).getString("message"))
-                    } catch (_: JSONException) {
-                        message.append("Error parsing response body")
-                    }
+            when {
+                response.isSuccessful -> {
+                    return response.body()!!
                 }
-                throw Exception(message.toString())
+
+                response.code() == 401 -> {
+                    throw UnauthorizedException("Tidak Diizinkan: Autentikasi pengguna gagal")
+                }
+
+                response.code() == 403 -> {
+                    throw ForbiddenException("Dilarang: Akses ditolak")
+                }
+
+                response.code() == 404 -> {
+                    throw NotFoundException("Tidak Ditemukan: Sumber daya tidak ditemukan")
+                }
+
+                response.code() == 500 -> {
+                    throw InternalServerException("Kesalahan Server Internal")
+                }
+
+                else -> {
+                    val respErr = response.errorBody()?.string()
+                    val message = StringBuilder()
+                    respErr?.let {
+                        try {
+                            message.append(JSONObject(it).getString("message"))
+                        } catch (_: JSONException) {
+                            message.append("Error parsing response body")
+                        }
+                    }
+                    throw Exception(message.toString())
+                }
             }
         } catch (_: IOException) {
-            throw Exception("Check you internet connection")
+            throw Exception("Periksa koneksi internet anda")
         }
     }
 }

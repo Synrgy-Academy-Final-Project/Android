@@ -50,6 +50,10 @@ class LoginFragment : Fragment() {
             }
         }
 
+        binding.forgotPassword.setOnClickListener {
+            ForgotPasswordFragment().show(childFragmentManager, ForgotPasswordFragment.TAG)
+        }
+
         onClick()
     }
 
