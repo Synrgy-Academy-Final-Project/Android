@@ -105,9 +105,9 @@
             tools:text="Tersisa 5" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:src="@drawable/dotted_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/divider_garis"
             app:layout_constraintBottom_toTopOf="@+id/flight_from"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +125,7 @@
             app:layout_constraintEnd_toEndOf="@+id/flight_to_arrow"
             app:layout_constraintStart_toStartOf="@+id/flight_to_arrow"
             app:layout_constraintTop_toTopOf="@+id/flight_to_arrow"
-            tools:text="1 j 15 m" />
+            tools:text="2 j 15 m" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/flight_to_arrow"
@@ -135,8 +135,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/flight_end"
             app:layout_constraintEnd_toStartOf="@+id/flight_to"
             app:layout_constraintStart_toEndOf="@+id/flight_from"
-            app:layout_constraintTop_toTopOf="@+id/flight_to"
-            app:layout_constraintVertical_bias="0.484" />
+            app:layout_constraintTop_toTopOf="@+id/flight_to" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/flight_to"
