@@ -74,9 +74,49 @@
     <string name="error_name_empty">Masukkan nama</string>
     <string name="error_email_empty">Masukkan email yang valid</string>
     <string name="error_empty_field">Isi semua kolom isian</string>
-    <string name="register_success">Register berhasil</string>
+    <string name="register_success">Register berhasil, saatnya verifikasi email kamu</string>
     <string name="text_submit">Submit</string>
     <string name="text_forgot_password_subtitle">Masukkan alamat email yang terhubung dengan akun anda.</string>
     <string name="text_forgot_password_title">Lupa Kata Sandi?</string>
-    <string name="text_oke">Oke</string>
+    <string name="text_oke">Ya</string>
+    <string name="text_batal">Batal</string>
+
+    <!--  Detail Ticket  -->
+    <string name="text_get_notification">Dapatkan Notifikasi</string>
+    <string name="text_ticket_type">Jenis Tiket</string>
+    <string name="text_cabin_item">Bagasi kabin 1 item (7 kg)</string>
+    <string name="text_cabin_item_2">Bagasi 1 item (20 kg)</string>
+    <string name="text_meal">Makanan di pesawat</string>
+    <string name="text_assurance">Tanpa ansuransi perjalanan</string>
+    <string name="text_entertainment">Hiburan di pesawat</string>
+    <string name="text_usb">Stopkontak atau USB</string>
+    <string name="text_wifi">Wifi</string>
+    <string name="text_reschedule">Bisa reschedule</string>
+    <string name="text_refund">Bisa refund 83%</string>
+    <string name="text_total_price_one_person">Harga total untuk 1 orang</string>
+    <string name="text_total_price">Rp.%1$d</string>
+    <string name="text_lanjut">Lanjut</string>
+
+    <!--  Reset Password  -->
+    <string name="text_reset_password_title">Konfirmasi Kode OTP</string>
+    <string name="text_reset_password_subtitle">Masukkan kode OTP yang sudah dikirimkan ke alamat email %1$s</string>
+    <string name="text_konfirmasi">Konfirmasi</string>
+    <string name="text_ask_confirmation">Belum dapat kode konfirmasi?</string>
+    <string name="text_resend_otp">Kirim ulang</string>
+
+    <!--  New Password  -->
+    <string name="text_new_password_title">Kata Sandi Baru</string>
+    <string name="text_new_password_subtitle">Masukkan kata sandi baru Anda, pastikan kata sandi mudah diingat ya!</string>
+    <string name="text_repeat_password">Ulangi Kata Sandi</string>
+    <string name="text_enter_new_password">Masukkan password baru</string>
+    <string name="text_repeat_new_password">Ulangi password baru</string>
+
+    <!--  New Password Dialog  -->
+    <string name="text_new_password_dialog_title">Kata sandi sudah diperbarui</string>
+    <string name="text_new_password_dialog_subtitle">Ayo pesan tiket sekarang!</string>
+
+    <!--  Profile Fragment  -->
+    <string name="text_logout">Keluar</string>
+    <string name="text_logout_dialog_title">Apakah anda yakin ingin keluar dari akun?</string>
+    <string name="error_password_not_same">Password tidak sama</string>
 </resources>
