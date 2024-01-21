@@ -18,6 +18,9 @@ fun Context.showAlert(title: String, message: String, positiveCallback: (DialogI
             positiveCallback(dialog)
             dialog.cancel()
         }
+        setNegativeButton(getString(R.string.text_batal)) { dialog, _ ->
+            dialog.cancel()
+        }
     }
 
     val alertDialog = builder.create()

@@ -1,16 +1,15 @@
-package com.synrgyacademy.finalproject.ui.promo
+package com.synrgyacademy.finalproject.ui.passenger
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.synrgyacademy.finalproject.R
-import com.synrgyacademy.finalproject.databinding.FragmentPromoBinding
+import androidx.fragment.app.Fragment
+import com.synrgyacademy.finalproject.databinding.FragmentInputPassengerBinding
 
-class PromoFragment : Fragment() {
+class InputPassengerFragment : Fragment() {
 
-    private var _binding: FragmentPromoBinding? = null
+    private var _binding: FragmentInputPassengerBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,10 +17,10 @@ class PromoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentPromoBinding.inflate(inflater, container, false)
+        _binding =
+            FragmentInputPassengerBinding.inflate(inflater, container, false)
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
