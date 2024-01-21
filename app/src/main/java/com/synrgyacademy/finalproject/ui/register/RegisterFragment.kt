@@ -4,16 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.FragmentRegisterBinding
-import com.synrgyacademy.finalproject.utils.AuthUtil
 import com.synrgyacademy.finalproject.utils.AuthUtil.isValidEmail
 import com.synrgyacademy.finalproject.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.regex.Pattern
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
@@ -21,27 +20,36 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
     private val registerViewModel: RegisterViewModel by viewModels<RegisterViewModel>()
-    private var error: Int = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         registerViewModel.registerState.observe(viewLifecycleOwner) { result ->
             when (result) {
-                is RegisterState.Loading -> binding.btnRegister.isEnabled = false
+                is RegisterState.Loading -> binding.progressBar.visibility = View.VISIBLE
+
                 is RegisterState.Error -> {
-                    binding.btnRegister.isEnabled = true
+                    binding.progressBar.visibility = View.GONE
+
                     requireContext().showToast(result.error)
                 }
 
                 is RegisterState.Success -> {
+                    binding.progressBar.visibility = View.GONE
+
                     requireContext().showToast(getString(R.string.register_success))
-                    findNavController().navigate(R.id.loginFragment)
+
+                    val bundle = Bundle().apply {
+                        putString("email", binding.etEmail.text.toString())
+                    }
+
+                    findNavController().navigate(R.id.verifyAccountFragment, bundle)
                 }
             }
         }
+
         binding.tvLogin.setOnClickListener {
-            findNavController().navigate(R.id.registerFragment)
+            findNavController().popBackStack()
         }
 
         binding.btnRegister.setOnClickListener {
@@ -130,6 +138,7 @@ class RegisterFragment : Fragment() {
             '\"',
             ']'
         )
+
         if (!password.any { allowedCharacter.contains(it) }) {
             binding.etPassword.error = getString(R.string.error_password_special_char)
             return false
@@ -142,6 +151,13 @@ class RegisterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRegisterBinding.inflate(layoutInflater, container, false)
+
+        // Handle the back button event
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            findNavController().popBackStack(R.id.main_nav_graph, false)
+            findNavController().navigate(R.id.loginFragment)
+        }
+
         return binding.root
     }
 
