@@ -74,6 +74,10 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // otp view
+    implementation("com.github.aabhasr1:OtpView:v1.1.2-ktx")
+
 }
 kapt {
     correctErrorTypes = true
