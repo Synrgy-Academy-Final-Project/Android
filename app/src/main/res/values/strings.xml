@@ -119,4 +119,5 @@
     <string name="text_logout">Keluar</string>
     <string name="text_logout_dialog_title">Apakah anda yakin ingin keluar dari akun?</string>
     <string name="error_password_not_same">Password tidak sama</string>
+    <string name="toast_otp_sent">Kode OTP telah di kirim, silahkan cek email anda dan masukkan kode OTP untuk reset password</string>
 </resources>
