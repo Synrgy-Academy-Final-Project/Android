@@ -4,6 +4,7 @@ import com.synrgyacademy.data.local.pref.SessionManager
 import com.synrgyacademy.data.mapper.toAuthDataModel
 import com.synrgyacademy.data.mapper.toLoginDataModel
 import com.synrgyacademy.data.mapper.toUserData
+import com.synrgyacademy.data.remote.request.ChangePasswordRequest
 import com.synrgyacademy.data.remote.request.LoginRequest
 import com.synrgyacademy.data.remote.request.OTPRequest
 import com.synrgyacademy.data.remote.request.RegisterRequest
@@ -19,14 +20,19 @@ class AuthRepositoryImpl @Inject constructor(
     private val authService: AuthService,
     private val sessionManager: SessionManager
 ) : AuthRepository, SafeApiRequest() {
-    override suspend fun register(fullName: String, email: String, password: String): AuthDataModel {
+
+    override suspend fun register(
+        fullName: String,
+        email: String,
+        password: String
+    ): AuthDataModel {
         val registerRequest = RegisterRequest(
             fullName = fullName,
             email = email,
             password = password
         )
         val response = safeApiRequest { authService.register(registerRequest) }
-        return  response.data!!.toAuthDataModel()
+        return response.data!!.toAuthDataModel()
     }
 
     override suspend fun regenerateOTP(email: String) {
@@ -35,11 +41,10 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun verifyAccount(email: String, otp: String) {
-        safeApiRequest {
-            val otpRequest = OTPRequest(otp = otp)
-            authService.verifyAccount(email, otpRequest)
-        }
+    override suspend fun verifyAccount(email: String, otp: String) : AuthDataModel {
+        val otpRequest = OTPRequest(otp = otp)
+        val response = safeApiRequest { authService.verifyAccount(email, otpRequest) }
+        return response.data!!.toAuthDataModel()
     }
 
     override suspend fun login(
@@ -55,9 +60,9 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override suspend fun isLogin(): Boolean = sessionManager.isLogin().first()
+    override suspend fun logout() = sessionManager.logout()
 
     override suspend fun createSession() = sessionManager.createSession()
-
 
     override suspend fun saveUser(userData: LoginDataModel) {
         sessionManager.saveUser(userData.toUserData())
@@ -68,4 +73,24 @@ class AuthRepositoryImpl @Inject constructor(
             authService.forgotPassword(email)
         }
     }
+
+    override suspend fun verifiedOTP(email: String, otp: String) : String {
+        val response = safeApiRequest {  authService.verifiedOTP(email, otp) }
+        return response.data!!.token!!
+    }
+
+    override suspend fun changePassword(
+        email: String,
+        token: String,
+        newPassword: String,
+        confirmationPassword: String
+    ) {
+        safeApiRequest {
+            authService.changePassword(
+                email,
+                ChangePasswordRequest(token, newPassword, confirmationPassword)
+            )
+        }
+    }
+
 }
