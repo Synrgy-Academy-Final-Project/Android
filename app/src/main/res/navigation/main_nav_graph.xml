@@ -35,4 +35,19 @@
         android:name="com.synrgyacademy.finalproject.ui.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/confirmationOtpFragment"
+        android:name="com.synrgyacademy.finalproject.ui.resetpassword.ConfirmationOtpFragment"
+        android:label="fragment_confirmation_otp"
+        tools:layout="@layout/fragment_confirmation_otp" />
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.synrgyacademy.finalproject.ui.resetpassword.NewPasswordFragment"
+        android:label="fragment_new_password"
+        tools:layout="@layout/fragment_new_password" />
+    <fragment
+        android:id="@+id/verifyAccountFragment"
+        android:name="com.synrgyacademy.finalproject.ui.login.VerifyAccountFragment"
+        android:label="fragment_verify_account"
+        tools:layout="@layout/fragment_verify_account" />
 </navigation>

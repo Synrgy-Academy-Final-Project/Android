@@ -2,7 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue_btn">#3E7BFA</color>
 
     <!--    NEUTRAL-->
     <color name="neutral_01">#FFFFFF</color>
@@ -35,4 +34,5 @@
     <!--    TINT-->
     <color name="tint_black">#40000000</color>
     <color name="tint_red">#1ACB3A31</color>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.synrgyacademy.data.remote.retrofit
 
+import com.synrgyacademy.data.remote.request.ChangePasswordRequest
 import com.synrgyacademy.data.remote.request.LoginRequest
 import com.synrgyacademy.data.remote.request.OTPRequest
 import com.synrgyacademy.data.remote.request.RegisterRequest
@@ -7,8 +8,10 @@ import com.synrgyacademy.data.remote.response.AccountVerificationResponse
 import com.synrgyacademy.data.remote.response.LoginResponse
 import com.synrgyacademy.data.remote.response.RegenerateOTPResponse
 import com.synrgyacademy.data.remote.response.RegisterResponse
+import com.synrgyacademy.data.remote.response.VerifiedOTP
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Query
@@ -39,4 +42,16 @@ interface AuthService {
     suspend fun forgotPassword(
         @Body email: String
     ): Response<LoginResponse>
+
+    @PUT("auth/verify-account-forgot")
+    suspend fun verifiedOTP(
+        @Query("email") email: String,
+        @Body otpRequest: String
+    ): Response<VerifiedOTP>
+
+    @PATCH("auth/change-password")
+    suspend fun changePassword(
+        @Query("email") email: String,
+        @Body changePasswordRequest: ChangePasswordRequest
+    ): Response<VerifiedOTP>
 }

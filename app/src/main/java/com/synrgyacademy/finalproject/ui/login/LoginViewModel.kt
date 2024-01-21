@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.synrgyacademy.common.Resource
 import com.synrgyacademy.domain.usecase.auth.ForgetPasswordUseCase
 import com.synrgyacademy.domain.usecase.auth.LoginUseCase
+import com.synrgyacademy.domain.usecase.auth.VerifyAccountUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
@@ -16,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
-    private val forgetPasswordUseCase: ForgetPasswordUseCase
+    private val forgetPasswordUseCase: ForgetPasswordUseCase,
+    private val verifyAccountUseCase: VerifyAccountUseCase
 ) : ViewModel() {
 
     private var _sessionState = MutableLiveData<LoginState>()
@@ -24,6 +26,9 @@ class LoginViewModel @Inject constructor(
 
     private var _forgotState = MutableLiveData<ForgetPasswordState>()
     val forgotState: LiveData<ForgetPasswordState> get() = _forgotState
+
+    private var _verifyAccountState = MutableLiveData<VerifyAccountState>()
+    val verifyAccountState: LiveData<VerifyAccountState> get() = _verifyAccountState
 
     fun login(email: String, password: String) {
         loginUseCase.invoke(email, password).onEach { result ->
@@ -45,6 +50,15 @@ class LoginViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
+    fun verifyAccount(email: String, otp: String) {
+        verifyAccountUseCase.invoke(email, otp).onEach { result ->
+            when (result) {
+                is Resource.Loading -> _verifyAccountState.value = VerifyAccountState.Loading
+                is Resource.Error -> _verifyAccountState.value = VerifyAccountState.Error(result.error)
+                is Resource.Success -> _verifyAccountState.value = VerifyAccountState.Success(result.data)
+            }
+        }.launchIn(viewModelScope)
+    }
 
     override fun onCleared() {
         super.onCleared()

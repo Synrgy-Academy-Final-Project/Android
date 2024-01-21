@@ -36,17 +36,21 @@ class TicketFragment : Fragment() {
                 onSelectedDate = { binding.tvSelectedDate.text = it }
             )
         }
+
         binding.ivCalendarBack.setOnClickListener {
             showDatePicker(
                 onSelectedDate = { binding.tvSelectedDateBack.text = it }
             )
         }
+
         binding.mcPp.setOnCheckedChangeListener { _, isChecked ->
             binding.llDateBack.visibility = if (isChecked) View.VISIBLE else View.GONE
         }
+
         binding.llPassenger.setOnClickListener {
             PassengerDialogFragment().show(childFragmentManager, PassengerDialogFragment.TAG)
         }
+
         binding.llClass.setOnClickListener {
             ClassDialogFragment().show(childFragmentManager, ClassDialogFragment.TAG)
         }
