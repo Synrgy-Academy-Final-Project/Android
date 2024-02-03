@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
 
@@ -23,10 +24,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "API_KEY", "\"https://fly-id-1999ce14c36e.herokuapp.com/api/v1/\"")
+            buildConfigField("String", "API_KEY", "\"https://fly-id-1999ce14c36e.herokuapp.com/\"")
         }
         debug {
-            buildConfigField("String", "API_KEY", "\"https://fly-id-1999ce14c36e.herokuapp.com/api/v1/\"")
+            buildConfigField("String", "API_KEY", "\"https://fly-id-1999ce14c36e.herokuapp.com/\"")
         }
     }
     compileOptions {
@@ -68,7 +69,15 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // room db
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
 }
+
 kapt {
     correctErrorTypes = true
 }

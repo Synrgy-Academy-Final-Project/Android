@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/ticket_navigation"
-        android:icon="@drawable/ic_ticket"
+        android:icon="@drawable/ic_plane"
         android:title="@string/menu_ticket_title" />
 
     <item
-        android:id="@+id/promo_navigation"
-        android:icon="@drawable/ic_promo"
-        android:title="@string/menu_promo_title" />
+        android:id="@+id/populer_places"
+        android:icon="@drawable/ic_images"
+        android:title="@string/menu_popular_places" />
 
     <item
         android:id="@+id/order_navigation"

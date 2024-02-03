@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.passenger.DetailPassengerFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/header_picture"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/darkened_image_plane"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/filled_data_title"
+            style="@style/OpenSansSemiBold20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/text_passenger_data"
+            android:textColor="@color/neutral_01"
+            app:layout_constraintBottom_toBottomOf="@+id/header_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ic_circle_profile"
+            android:layout_width="28dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_circle_profile"
+            app:layout_constraintBottom_toBottomOf="@+id/filled_data_title"
+            app:layout_constraintEnd_toEndOf="@+id/header_picture"
+            app:layout_constraintTop_toTopOf="@+id/filled_data_title" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/filled_data_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/filled_data_title" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_detail_booker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_picture">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_rounded_10_stroke_blue">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_name"
+                    style="@style/OpenSansSemiBold16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/text_detail_order"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ic_user_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_user_check"
+                    app:layout_constraintStart_toStartOf="@+id/text_name"
+                    app:layout_constraintTop_toBottomOf="@+id/text_name" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_name_booker"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/text_booker"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_user_check"
+                    app:layout_constraintStart_toEndOf="@+id/ic_user_check"
+                    app:layout_constraintTop_toTopOf="@+id/ic_user_check" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_name_booker_value"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    tools:text="Aria"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_name_booker"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/text_name_booker"
+                    app:layout_constraintTop_toTopOf="@+id/text_name_booker" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ic_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_phone_alt"
+                    app:layout_constraintStart_toStartOf="@+id/ic_user_check"
+                    app:layout_constraintTop_toBottomOf="@+id/text_name_booker_value" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_phone_booker"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/text_passenger_phone_number"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_phone"
+                    app:layout_constraintStart_toStartOf="@+id/text_name_booker"
+                    app:layout_constraintTop_toTopOf="@+id/ic_phone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_phone_booker_value"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    tools:text="08123456789"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_phone_booker"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/text_name_booker_value"
+                    app:layout_constraintTop_toTopOf="@+id/text_phone_booker" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ic_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/ic_envelope"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/ic_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/text_phone_booker_value" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_email_booker"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_passenger_email"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_email"
+                    app:layout_constraintStart_toStartOf="@+id/text_phone_booker"
+                    app:layout_constraintTop_toTopOf="@+id/ic_email" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_email_booker_value"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    tools:text="ariella@gmail.com"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_email"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/text_phone_booker_value"
+                    app:layout_constraintTop_toTopOf="@+id/ic_email" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_detail_passenger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/card_detail_booker"
+            app:layout_constraintStart_toStartOf="@+id/card_detail_booker"
+            app:layout_constraintTop_toBottomOf="@id/card_detail_booker">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_rounded_10_stroke_blue">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_passenger"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_passenger_detail"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_lanjut"
+            style="@style/ButtonApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_lanjut"
+            android:layout_marginTop="50dp"
+            android:textSize="16sp"
+            android:padding="13dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_detail_passenger" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

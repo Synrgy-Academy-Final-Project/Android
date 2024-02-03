@@ -14,7 +14,7 @@ fun Context.showAlert(title: String, message: String, positiveCallback: (DialogI
     with(builder) {
         setTitle(title)
         setMessage(message)
-        setPositiveButton(getString(R.string.text_oke)) { dialog, _ ->
+        setPositiveButton(getString(R.string.text_ya)) { dialog, _ ->
             positiveCallback(dialog)
             dialog.cancel()
         }

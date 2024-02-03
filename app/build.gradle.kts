@@ -78,6 +78,14 @@ dependencies {
     // otp view
     implementation("com.github.aabhasr1:OtpView:v1.1.2-ktx")
 
+    // range seekbar
+    implementation("com.github.Jay-Goo:RangeSeekBar:v3.0.0")
+
+    // circle image
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    // glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
 kapt {
     correctErrorTypes = true

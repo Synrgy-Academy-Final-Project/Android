@@ -120,6 +120,28 @@
                     tools:src="@drawable/lion_air_logo" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_date"
+                    style="@style/OpenSansRegular10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/airline_logo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/airline_logo"
+                    tools:text="Sab, 23 Feb 2024" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/divider_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/divider_garis"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/airline_logo" />
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/flight_from_city"
                     style="@style/TextRegular"
                     android:layout_width="wrap_content"
@@ -154,28 +176,6 @@
                     app:layout_constraintStart_toStartOf="@+id/flight_from_airport"
                     app:layout_constraintTop_toBottomOf="@+id/flight_from_airport"
                     tools:text="08:00 AM" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/flight_date"
-                    style="@style/OpenSansRegular10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/airline_logo"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/airline_logo"
-                    tools:text="Sab, 23 Feb 2024" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/divider_line"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:src="@drawable/divider_garis"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/airline_logo" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/flight_duration"
@@ -275,7 +275,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_rounded_10_stroke_blue">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/flight_class"
@@ -316,9 +317,12 @@
                     android:id="@+id/divider_benefit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
                     android:src="@drawable/divider_garis"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/flight_person" />
 
@@ -329,7 +333,7 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:src="@drawable/ic_shopping_bag"
-                    app:layout_constraintStart_toStartOf="@+id/divider_benefit"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider_benefit" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -492,7 +496,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/text_reschedule"
+                    android:text="@string/text_reschedule_available"
                     android:textColor="@color/secondary_success"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_calendar"
                     app:layout_constraintStart_toEndOf="@+id/iv_calendar"
@@ -515,7 +519,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/text_refund"
+                    android:text="@string/text_refund_up_to"
                     android:textColor="@color/secondary_success"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_money"
                     app:layout_constraintStart_toEndOf="@+id/iv_money"

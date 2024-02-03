@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.EditProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_container"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/edit_profile_title"
+            style="@style/OpenSansSemiBold20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/text_change_profile"
+            android:textColor="@color/neutral_01"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="27dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/edit_profile_title" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="1dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/profile_circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_container" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/edit_photo_button"
+            style="@style/OpenSansRegular14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/text_photo_change"
+            android:textColor="@color/primary_blue"
+            app:layout_constraintEnd_toEndOf="@+id/profile_image"
+            app:layout_constraintStart_toStartOf="@+id/profile_image"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/name_register_title"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_photo_button" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/name_title"
+            app:layout_constraintTop_toBottomOf="@+id/name_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_edit_text"
+                style="@style/EditTextEditProfile"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/name_register_hint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/phone_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_phone_number"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/name_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            app:endIconDrawable="@drawable/ic_address_book"
+            app:endIconMode="custom"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/phone_title"
+            app:layout_constraintTop_toBottomOf="@+id/phone_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/phone_register_hint"
+                android:inputType="phone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/email_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_email"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/phone_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/email_title"
+            app:layout_constraintTop_toBottomOf="@+id/email_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/email_register_hint"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/gender_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_gender"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/email_input" />
+
+        <Spinner
+            android:id="@+id/spinner_metode_pembayaran"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_spinner"
+            app:layout_constraintEnd_toEndOf="@+id/email_input"
+            app:layout_constraintStart_toStartOf="@+id/gender_title"
+            app:layout_constraintTop_toBottomOf="@+id/gender_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/born_date_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_born_date"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_metode_pembayaran" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/born_date_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            app:hintEnabled="false"
+            app:endIconDrawable="@drawable/ic_calendar"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/born_date_title"
+            app:layout_constraintTop_toBottomOf="@+id/born_date_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/born_date_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_born_date_hint"
+                android:inputType="date" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/nationality_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_nationality"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/born_date_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nationality_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            app:hintEnabled="false"
+            app:endIconDrawable="@drawable/ic_flag"
+            app:endIconMode="custom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/nationality_title"
+            app:layout_constraintTop_toBottomOf="@+id/nationality_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nationality_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_nationality_hint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_button"
+            style="@style/ButtonApp"
+            android:layout_width="0dp"
+            android:layout_marginVertical="16dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_simpan"
+            android:textSize="16sp"
+            android:padding="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/nationality_input"
+            app:layout_constraintStart_toStartOf="@+id/nationality_input"
+            app:layout_constraintTop_toBottomOf="@+id/nationality_input" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

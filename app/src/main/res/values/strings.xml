@@ -20,6 +20,7 @@
     <string name="login_text">Sudah punya akun nih?</string>
     <string name="login_navigate">Masuk aja!</string>
     <string name="register_btn_text">Daftar</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -29,6 +30,7 @@
     <string name="menu_promo_title">Promo</string>
     <string name="menu_order_title">Pesanan</string>
     <string name="menu_profile_title">Profil</string>
+    <string name="menu_popular_places">Tempat Populer</string>
     <string name="text_check_ticket">Cek Tiket</string>
     <string name="desc_message">Melihat pesan</string>
     <string name="desc_notification">Melihat notifikasi</string>
@@ -43,6 +45,7 @@
     <string name="text_latest_Search">Pencarian Terakhir</string>
     <string name="text_delete">Hapus</string>
     <string name="text_get_promo">Dapatkan Promo Terbaik</string>
+    <string name="text_promo">Promo</string>
     <string name="desc_get_promo">Dapatkan promo lainnya</string>
     <string name="symbol_bullet">•</string>
     <string name="text_adult">Dewasa</string>
@@ -78,8 +81,11 @@
     <string name="text_submit">Submit</string>
     <string name="text_forgot_password_subtitle">Masukkan alamat email yang terhubung dengan akun anda.</string>
     <string name="text_forgot_password_title">Lupa Kata Sandi?</string>
-    <string name="text_oke">Ya</string>
+    <string name="text_ya">Ya</string>
     <string name="text_batal">Batal</string>
+    <string name="text_pilih_tanggal">Pilih tanggal</string>
+    <string name="text_no_history_searching">Yahh, belum ada riwayat pencarian</string>
+    <string name="passenger_total">%1$d Penumpang</string>
 
     <!--  Detail Ticket  -->
     <string name="text_get_notification">Dapatkan Notifikasi</string>
@@ -91,8 +97,10 @@
     <string name="text_entertainment">Hiburan di pesawat</string>
     <string name="text_usb">Stopkontak atau USB</string>
     <string name="text_wifi">Wifi</string>
-    <string name="text_reschedule">Bisa reschedule</string>
-    <string name="text_refund">Bisa refund 83%</string>
+    <string name="text_reschedule">Reschedule</string>
+    <string name="text_reschedule_available">Bisa reschedule</string>
+    <string name="text_refund_up_to">Bisa refund 83%</string>
+    <string name="text_refund">Refund</string>
     <string name="text_total_price_one_person">Harga total untuk 1 orang</string>
     <string name="text_total_price">Rp.%1$d</string>
     <string name="text_lanjut">Lanjut</string>
@@ -120,4 +128,143 @@
     <string name="text_logout_dialog_title">Apakah anda yakin ingin keluar dari akun?</string>
     <string name="error_password_not_same">Password tidak sama</string>
     <string name="toast_otp_sent">Kode OTP telah di kirim, silahkan cek email anda dan masukkan kode OTP untuk reset password</string>
+    <string name="text_edit_profil">Edit Profil</string>
+    <string name="text_notification">Notifikasi</string>
+    <string name="text_notification_desc">Dapatkan notifikasi terkini</string>
+    <string name="text_pengembalian_dana">Pengembalian Dana</string>
+    <string name="text_perubahan_jadwal">Perubahan Jadwal</string>
+    <string name="text_perubahan_jadwal_desc">Cek status perubahan jadwalmu</string>
+    <string name="text_pengaturan">Pengaturan</string>
+    <string name="text_keluar">Keluar</string>
+    <string name="text_member">Anggota Fly.id</string>
+    <string name="text_masuk">Masuk</string>
+    <string name="text_fly">Pesan tiket jadi mudah dan cepat!</string>
+    <string name="text_fly_desc">Ayo masuk atau registrasi untuk nikmati layanan terbaik Fly.id</string>
+
+    <!--  Filter Ticket Dialog  -->
+    <string name="text_saved_filter">Simpan filter untuk pencarian berikutnya</string>
+    <string name="text_pagi">Pagi</string>
+    <string name="pagi_time">00:00 – 11:59</string>
+    <string name="text_departure_time">Waktu Keberangkatan</string>
+    <string name="text_siang">Siang</string>
+    <string name="siang_time">12:00 – 14:59</string>
+    <string name="text_sore">Sore</string>
+    <string name="sore_time">15:00 - 17:59</string>
+    <string name="text_malam">Malam</string>
+    <string name="malam_time">18:00 - 23:59</string>
+    <string name="text_harga">Harga</string>
+    <string name="text_harga_min">harga min</string>
+    <string name="text_harga_max">harga max</string>
+    <string name="text_maskapai">Maskapai</string>
+    <string name="text_fasilitas">Fasilitas</string>
+    <string name="text_bagasi">Bagasi</string>
+    <string name="text_refund_reschedule"><![CDATA[Refund & Reschedule]]></string>
+    <string name="text_simpan">Simpan</string>
+    <string name="text_reset">Reset</string>
+    <string name="text_filter">Filter</string>
+
+    <!--  Transaction Process Dialog  -->
+    <string name="text_transaction_wait">Mohon ditunggu ya…</string>
+    <string name="text_transaction_process">Pembayaranmu sedang diproses</string>
+    <string name="text_payment_success">Pembayaran berhasil</string>
+    <string name="text_eticket_available">E-tiketmu sudah terbit!\n Lihat dan selamat menikmati perjalananmu</string>
+    <string name="text_oke">Oke</string>
+
+    <!--  Transaction Success  -->
+    <string name="text_status_pembayaran">Status Pembayaran</string>
+    <string name="text_unduh_bukti_pembayaran">Unduh Bukti Pembayaran</string>
+    <string name="text_kembali_ke_beranda">Kembali ke Beranda</string>
+    <string name="text_sukses">Sukses</string>
+    <string name="text_payment_method">Metode Pembayaran</string>
+    <string name="text_kode_transaksi">Kode Transaksi</string>
+    <string name="text_total_harga">Total Harga</string>
+    <string name="text_status">Status</string>
+
+    <!--  Not Login Dialog  -->
+    <string name="text_already_have_account">Sudah punya akun? Login dulu yuk!</string>
+    <string name="text_register_account">Atau registrasi jika belum punya akun</string>
+    <string name="text_login">Login</string>
+    <string name="text_register">Register</string>
+
+    <!--  Input Passenger  -->
+    <string name="text_filled_data">Isi Data</string>
+    <string name="text_detail_order">Detail Pemesanan</string>
+    <string name="text_detail_order_subtitle">Data pemesan akan digunakan untuk mengirimkan semua e-tiket dari pesanan</string>
+    <string name="text_tuan">Tuan</string>
+    <string name="text_nyonya">Nyonya</string>
+    <string name="text_nona">Nona</string>
+    <string name="text_filled_identity">Isi sesuai KTP/SIM/Paspor (tanpa tanda baca dan gelar)</string>
+    <string name="text_full_name">Nama Lengkap</string>
+    <string name="text_email">Email</string>
+    <string name="text_phone_number">Nomor Ponsel</string>
+    <string name="text_email_ticket">Email digunakan untuk mengirim e-tiket</string>
+    <string name="text_detail_passenger">Detail Penumpang</string>
+    <string name="text_child_two_until_eleven">Anak – anak usia 2 – 11 tahun</string>
+    <string name="text_baby_under_two">Bayi di bawah 2 tahun</string>
+    <string name="text_born_date">Tanggal Lahir</string>
+    <string name="text_same_as_booker">Sama dengan data pemesan</string>
+    <string name="text_pengembalian_dana_desc">Cek status pengembalian danamu</string>
+    <string name="text_pengaturan_desc">Lihat dan atur akun Anda</string>
+    <string name="text_pusat_bantuan">Pusat Bantuan</string>
+    <string name="text_pusat_bantuan_desc">Temukan jawaban dari pertanyaan Anda</string>
+    <string name="text_hubungi_kami">Hubungi Kami</string>
+    <string name="text_hubungi_kami_desc">Customer Service kami siap membantu Anda</string>
+
+    <!--  Additional Facilities  -->
+    <string name="text_fasilitas_pesawat">Fasilitas Pesawat</string>
+    <string name="text_tambah_bagasi">Tambah Bagasi</string>
+    <string name="text_tambah_bagasi_deskripsi">Barang bawaanmu banyak? Tambah bagasi saja!</string>
+    <string name="text_tambah_bagasi_price">Mulai dari Rp250.000</string>
+    <string name="text_pilih_kursi">Pilih Kursi</string>
+    <string name="text_pilih_kursi_deskripsi">Ayo amankan kursi pilihanmu</string>
+    <string name="text_pilih_kursi_price">Mulai dari Rp72.500/pax</string>
+    <string name="text_asuransi_perjalanan">Asuransi Perjalanan</string>
+    <string name="text_asuransi_perjalanan_deskripsi">Tambahkan asuransi agar perjalananmu tenang sampai tujuan</string>
+    <string name="text_asuransi_perjalanan_price">Mulai dari Rp72.500/pax</string>
+
+    <!--  Detail Transaction  -->
+    <string name="text_detail_pembayaran">Detail Pembayaran</string>
+    <string name="text_bayar">Bayar</string>
+    <string name="text_hint_promo">XXXXX</string>
+    <string name="text_rincian_harga">Rincian Harga</string>
+    <string name="text_dewasa">Dewasa</string>
+    <string name="text_anak">Anak</string>
+    <string name="text_harga_dasar">Harga Dasar</string>
+    <string name="text_pajak">Pajak dan biaya \nlainnya</string>
+    <string name="text_diskon">Diskon</string>
+    <string name="text_hint_cvv">***</string>
+    <string name="text_hint_kartu_kredit">****-****-****-****</string>
+    <string name="text_cvv">CVV</string>
+    <string name="text_kadaluwarsa">Kadaluwarsa</string>
+    <string name="text_mm_yy">MM/YY</string>
+    <string name="text_nama">Nama</string>
+    <string name="text_nomor_kartu_kredit">Nomor Kartu Kredit/Debit</string>
+    <string name="text_payment_agreement">Dengan melakukan pembayaran ini, saya telah menyetujui segala Ketentuan Pengguna dan Kebijakan Privasi Fly.id</string>
+    <string name="text_enter_promo_code">Masukkan Kode Promo</string>
+    <string name="text_safety_information">Semua informasi kartu sepenuhnya aman dan terlindungi</string>
+    <string name="text_payment">PEMBAYARAN</string>
+
+    <!--  Item Passenger Detail  -->
+    <string name="text_card_holder_name">Nama Pemegang Kartu</string>
+    <string name="tools_passenger_name">Nama Penumpang \t\t:</string>
+    <string name="tools_born_date">Tanggal lahir \t\t\t\t\t\t\t\t:</string>
+
+    <!--  Item Ticket  -->
+    <string name="text_available">Tersedia</string>
+    <string name="text_tersisa">Tersisa %1$d</string>
+    <string name="text_passenger_data">Data Penumpang</string>
+    <string name="text_passenger_email">Email \t\t\t\t\t\t\t\t:</string>
+    <string name="text_booker">Pemesan \t\t\t:</string>
+    <string name="text_passenger_phone_number">No ponsel \t\t:</string>
+    <string name="text_gender">Jenis Kelamin</string>
+    <string name="text_born_date_hint">Masukkan Tanggal Lahir</string>
+    <string name="text_nationality">Kewarganegaraan</string>
+    <string name="text_nationality_hint">Masukkan Kewarganegaraan</string>
+    <string name="text_photo_change">Ubah Foto</string>
+    <string name="text_change_profile">Edit Profil</string>
+
+    <array name="initial_slider_values">
+        <item>20.0</item>
+        <item>70.0</item>
+    </array>
 </resources>

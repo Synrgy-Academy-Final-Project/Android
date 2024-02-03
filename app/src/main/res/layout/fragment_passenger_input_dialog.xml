@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.passenger.PassengerInputDialogFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_passenger_title"
+            style="@style/OpenSansBold16"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dewasa 1" />
+
+        <RadioGroup
+            android:id="@+id/rb_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/tv_passenger_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_passenger_title"
+            app:layout_constraintTop_toBottomOf="@+id/cb_same_as_passenger">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_tuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:text="@string/text_tuan" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_nyonya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:text="@string/text_nyonya" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_nona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_nona" />
+
+        </RadioGroup>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name"
+            style="@style/OpenSansRegular10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/text_filled_identity"
+            android:textColor="@color/neutral_07"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/rb_group"
+            app:layout_constraintStart_toStartOf="@+id/rb_group"
+            app:layout_constraintTop_toBottomOf="@+id/rb_group" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_edit_text"
+                style="@style/EditTextInputPassenger"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_full_name"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/born_date_title"
+            style="@style/OpenSansRegular10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/text_child_two_until_eleven"
+            android:textColor="@color/neutral_07"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/name_input"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/name_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/date_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="@+id/born_date_title"
+            app:layout_constraintStart_toStartOf="@+id/born_date_title"
+            app:layout_constraintTop_toBottomOf="@+id/born_date_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/date_edit_text"
+                style="@style/EditTextInputPassenger"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_born_date"
+                android:inputType="date" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cb_same_as_passenger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_same_as_booker"
+            app:layout_constraintEnd_toEndOf="@+id/tv_passenger_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_passenger_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_passenger_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            style="@style/ButtonApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp"
+            android:text="@string/text_simpan"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/name_input"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/date_input" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
