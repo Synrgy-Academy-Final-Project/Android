@@ -30,7 +30,7 @@
     <string name="menu_promo_title">Promo</string>
     <string name="menu_order_title">Pesanan</string>
     <string name="menu_profile_title">Profil</string>
-    <string name="menu_populer_places">Tempat Populer</string>
+    <string name="menu_popular_places">Tempat Populer</string>
     <string name="text_check_ticket">Cek Tiket</string>
     <string name="desc_message">Melihat pesan</string>
     <string name="desc_notification">Melihat notifikasi</string>

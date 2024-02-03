@@ -2,6 +2,7 @@ package com.synrgyacademy.data.remote.di
 
 
 import com.synrgyacademy.data.BuildConfig
+import com.synrgyacademy.data.remote.retrofit.AirportService
 import com.synrgyacademy.data.remote.retrofit.AuthService
 import dagger.Module
 import dagger.Provides
@@ -53,5 +54,12 @@ object RemoteModule {
     fun provideAuthService(
         retrofit: Retrofit
     ): AuthService = retrofit.create(AuthService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideAirportService(
+        retrofit: Retrofit
+    ): AirportService = retrofit.create(AirportService::class.java)
+
 
 }
