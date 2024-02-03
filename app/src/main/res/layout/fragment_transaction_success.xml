@@ -228,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/text_metode_pembayaran"
+                android:text="@string/text_payment_method"
                 android:textColor="@color/neutral_06_more"
                 app:layout_constraintEnd_toEndOf="@+id/divider_garis_2"
                 app:layout_constraintTop_toBottomOf="@+id/divider_garis_2" />
