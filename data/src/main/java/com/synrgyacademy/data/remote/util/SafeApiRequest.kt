@@ -14,6 +14,10 @@ abstract class SafeApiRequest {
                     return response.body()!!
                 }
 
+                response.code() == 400 -> {
+                    throw BadRequestException("Permintaan tidak valid: Server tidak dapat memahami permintaan")
+                }
+
                 response.code() == 401 -> {
                     throw UnauthorizedException("Tidak Diizinkan: Autentikasi pengguna gagal")
                 }
