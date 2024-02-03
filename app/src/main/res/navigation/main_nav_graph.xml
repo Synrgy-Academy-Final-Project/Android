@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/ticket_navigation">
 
     <fragment
         android:id="@+id/ticket_navigation"
@@ -11,10 +11,10 @@
         android:label="fragment_ticket"
         tools:layout="@layout/fragment_ticket" />
     <fragment
-        android:id="@+id/promo_navigation"
-        android:name="com.synrgyacademy.finalproject.ui.promo.PromoFragment"
-        android:label="fragment_promo"
-        tools:layout="@layout/fragment_promo" />
+        android:id="@+id/populer_places"
+        android:name="com.synrgyacademy.finalproject.ui.popular.PopularPlacesFragment"
+        android:label="fragment_popular_places"
+        tools:layout="@layout/fragment_popular_places" />
     <fragment
         android:id="@+id/order_navigation"
         android:name="com.synrgyacademy.finalproject.ui.order.OrderFragment"
@@ -50,4 +50,9 @@
         android:name="com.synrgyacademy.finalproject.ui.login.VerifyAccountFragment"
         android:label="fragment_verify_account"
         tools:layout="@layout/fragment_verify_account" />
+    <fragment
+        android:id="@+id/ticketListFragment"
+        android:name="com.synrgyacademy.finalproject.ui.ticket.TicketListFragment"
+        android:label="fragment_ticket_list"
+        tools:layout="@layout/fragment_ticket_list" />
 </navigation>
