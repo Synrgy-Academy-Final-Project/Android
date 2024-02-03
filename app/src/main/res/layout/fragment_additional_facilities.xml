@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.additionalfacilities.AdditionalFacilitiesFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/header_picture"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/filled_data_title"
+        style="@style/OpenSansSemiBold20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/text_fasilitas_pesawat"
+        android:textColor="@color/neutral_01"
+        app:layout_constraintBottom_toBottomOf="@+id/header_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ic_circle_profile"
+        android:layout_width="28dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_circle_profile"
+        app:layout_constraintBottom_toBottomOf="@+id/filled_data_title"
+        app:layout_constraintEnd_toEndOf="@+id/header_picture"
+        app:layout_constraintTop_toTopOf="@+id/filled_data_title" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:tint="@color/white"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintBottom_toBottomOf="@+id/filled_data_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/filled_data_title" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAddingBaggage"
+        android:layout_width="0dp"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/header_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_picture">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_btn_rounded_blue">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivAddingBaggage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_shopping_bag"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAddingBaggage"
+                style="@style/OpenSansSemiBold14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/text_tambah_bagasi"
+                app:layout_constraintBottom_toBottomOf="@+id/ivAddingBaggage"
+                app:layout_constraintStart_toEndOf="@+id/ivAddingBaggage"
+                app:layout_constraintTop_toTopOf="@+id/ivAddingBaggage" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivArrowAddingBaggage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_angle_right"
+                android:layout_marginEnd="16dp"
+                android:tint="@color/primary_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/ivAddingBaggage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivAddingBaggage" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAddingBaggageDescription"
+                style="@style/OpenSansRegular10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/text_tambah_bagasi_deskripsi"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/ivArrowAddingBaggage"
+                app:layout_constraintStart_toStartOf="@+id/ivAddingBaggage"
+                app:layout_constraintTop_toBottomOf="@+id/ivArrowAddingBaggage" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAddingBaggagePrice"
+                style="@style/OpenSansRegular10"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/text_tambah_bagasi_price"
+                android:textColor="@color/primary_blue"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvAddingBaggageDescription"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddingBaggageDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSelectSeat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/header_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvAddingBaggage">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_btn_rounded_blue">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivSelectSeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_loveseat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSelectSeat"
+                style="@style/OpenSansSemiBold14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/text_pilih_kursi"
+                app:layout_constraintBottom_toBottomOf="@+id/ivSelectSeat"
+                app:layout_constraintStart_toEndOf="@+id/ivSelectSeat"
+                app:layout_constraintTop_toTopOf="@+id/ivSelectSeat" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivArrowSelectSeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_angle_right"
+                android:tint="@color/primary_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/ivSelectSeat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivSelectSeat" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSelectSeatDescription"
+                style="@style/OpenSansRegular10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/text_pilih_kursi_deskripsi"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/ivArrowSelectSeat"
+                app:layout_constraintStart_toStartOf="@+id/ivSelectSeat"
+                app:layout_constraintTop_toBottomOf="@+id/ivArrowSelectSeat" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSelectSeatPrice"
+                style="@style/OpenSansRegular10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/text_pilih_kursi_price"
+                android:textColor="@color/primary_blue"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvSelectSeatDescription"
+                app:layout_constraintTop_toBottomOf="@+id/tvSelectSeatDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTravelInsurance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/header_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvSelectSeat">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_btn_rounded_blue">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivTravelInsurance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_file_plus"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTravelInsurance"
+                style="@style/OpenSansSemiBold14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/text_asuransi_perjalanan"
+                app:layout_constraintBottom_toBottomOf="@+id/ivTravelInsurance"
+                app:layout_constraintStart_toEndOf="@+id/ivTravelInsurance"
+                app:layout_constraintTop_toTopOf="@+id/ivTravelInsurance" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivArrowTravelInsurance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_checklist_box"
+                android:tint="@color/primary_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/ivTravelInsurance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivTravelInsurance" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTravelInsuranceDescription"
+                style="@style/OpenSansRegular10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/text_asuransi_perjalanan_deskripsi"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/ivArrowTravelInsurance"
+                app:layout_constraintStart_toStartOf="@+id/ivTravelInsurance"
+                app:layout_constraintTop_toBottomOf="@+id/ivArrowTravelInsurance" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTravelInsurancePrice"
+                style="@style/OpenSansRegular10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/text_asuransi_perjalanan_price"
+                android:textColor="@color/primary_blue"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvTravelInsuranceDescription"
+                app:layout_constraintTop_toBottomOf="@+id/tvTravelInsuranceDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTotalPriceTitle"
+        style="@style/OpenSansSemiBold14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/text_total_harga"
+        app:layout_constraintBottom_toTopOf="@+id/tvTotalPriceValue"
+        app:layout_constraintStart_toStartOf="@+id/tvTotalPriceValue" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTotalPriceValue"
+        style="@style/OpenSansBold16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:textColor="@color/primary_blue"
+        app:layout_constraintBottom_toTopOf="@+id/btnLanjut"
+        app:layout_constraintStart_toStartOf="@+id/btnLanjut"
+        tools:text="Rp1.572.000" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLanjut"
+        style="@style/ButtonApp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="13dp"
+        android:text="@string/text_lanjut"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
