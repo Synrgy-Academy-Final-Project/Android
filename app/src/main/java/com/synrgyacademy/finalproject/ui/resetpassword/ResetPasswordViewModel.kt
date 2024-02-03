@@ -10,6 +10,7 @@ import com.synrgyacademy.domain.usecase.auth.NewPasswordUseCase
 import com.synrgyacademy.domain.usecase.auth.VerifiedOTPUseCase
 import com.synrgyacademy.finalproject.ui.login.ForgetPasswordState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -58,5 +59,10 @@ class ResetPasswordViewModel @Inject constructor(
                 is Resource.Success -> _changePassword.value = ChangePasswordState.Success
             }
         }.launchIn(viewModelScope)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelScope.cancel()
     }
 }
