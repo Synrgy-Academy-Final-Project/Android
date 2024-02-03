@@ -2,7 +2,6 @@ package com.synrgyacademy.domain.repository
 
 import com.synrgyacademy.domain.model.auth.AuthDataModel
 import com.synrgyacademy.domain.model.auth.LoginDataModel
-import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
 
