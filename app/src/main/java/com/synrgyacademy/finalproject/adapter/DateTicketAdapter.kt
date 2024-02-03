@@ -46,11 +46,9 @@ class DateTicketAdapter(
 
         init {
             binding.root.setOnClickListener {
-                val oldSelected = selectedItem
                 selectedItem = adapterPosition
                 onclick?.invoke(getItem(adapterPosition))
-                notifyItemChanged(oldSelected) // Refresh the old selected item
-                notifyItemChanged(selectedItem) // Refresh the new selected item
+                notifyDataSetChanged()
             }
         }
     }
