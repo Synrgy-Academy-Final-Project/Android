@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.popular.DetailPopularPlacesFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="20dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:elevation="32dp"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_love"
+            style="@style/FloatingCircle"
+            android:layout_width="wrap_content"
+            app:tint="@null"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_love"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_places"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_places" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_places"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/image_container" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_places_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_places"
+            tools:text="Bromo" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_places_location"
+            style="@style/OpenSansRegular14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_places_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_places_title"
+            tools:text="Malang, Jawa Timur" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_places_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:justificationMode="inter_word"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_places_location"
+            app:layout_constraintTop_toBottomOf="@+id/tv_places_location"
+            tools:text="Gunung Bromo, sebuah ikon wisata alam di Jawa Timur, Indonesia, menawarkan pemandangan spektakuler dengan lautan pasir, kaldera, dan pemandangan matahari terbit yang menakjubkan. Dengan ketinggian sekitar 2.329 meter di atas permukaan laut, Gunung Bromo adalah salah satu gunung berapi paling aktif di Indonesia. Pengunjung sering melakukan perjalanan dini hari ke Puncak Penanjakan untuk menyaksikan matahari terbit yang dramatis di atas kabut dan kaldera. Selain itu, pendakian ke kawah Bromo dan puncaknya memberikan pengalaman mendalam kepada pengunjung." />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_likes"
+            app:layout_constraintEnd_toEndOf="@+id/tv_places_description"
+            app:layout_constraintTop_toBottomOf="@+id/tv_places_description" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_likes"
+            style="@style/OpenSansSemiBold14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textColor="@color/primary_violet"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_likes"
+            app:layout_constraintEnd_toStartOf="@+id/iv_likes"
+            app:layout_constraintTop_toTopOf="@+id/iv_likes"
+            tools:text="25" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
