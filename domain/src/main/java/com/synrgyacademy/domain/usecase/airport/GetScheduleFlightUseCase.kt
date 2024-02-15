@@ -1,6 +1,7 @@
 package com.synrgyacademy.domain.usecase.airport
 
 import com.synrgyacademy.common.Resource
+import com.synrgyacademy.domain.model.query.GetScheduleFlightQuery
 import com.synrgyacademy.domain.model.airport.ScheduleDataModel
 import com.synrgyacademy.domain.repository.AirportRepository
 import kotlinx.coroutines.Dispatchers
@@ -13,19 +14,11 @@ class GetScheduleFlightUseCase @Inject constructor(
     private val repository: AirportRepository
 ) {
     operator fun invoke(
-        departureCode: String,
-        arrivalCode: String,
-        departureDate: String,
-        airplaneClass: String
+        getScheduleFlightQuery: GetScheduleFlightQuery
     ): Flow<Resource<List<ScheduleDataModel>>> = flow {
         emit(Resource.Loading)
         try {
-            val result = repository.getScheduleFlight(
-                departureCode = departureCode,
-                arrivalCode = arrivalCode,
-                departureDate = departureDate,
-                airplaneClass = airplaneClass
-            )
+            val result = repository.getScheduleFlight(getScheduleFlightQuery)
             emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))

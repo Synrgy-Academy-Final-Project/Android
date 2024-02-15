@@ -87,8 +87,20 @@ data class ScheduleData(
     @field:SerializedName("departureCode")
     val departureCode: String? = null,
 
+    @field:SerializedName("departureCityCode")
+    val departureCityCode: String? = null,
+
+    @field:SerializedName("departureNameAirport")
+    val departureNameAirport: String? = null,
+
     @field:SerializedName("arrivalCode")
     val arrivalCode: String? = null,
+
+    @field:SerializedName("arrivalCityCode")
+    val arrivalCityCode: String? = null,
+
+    @field:SerializedName("arrivalNameAirport")
+    val arrivalNameAirport: String? = null,
 
     @field:SerializedName("departureTime")
     val departureTime: String? = null,

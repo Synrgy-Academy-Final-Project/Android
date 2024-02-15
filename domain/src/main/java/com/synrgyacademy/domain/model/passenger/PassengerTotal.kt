@@ -1,4 +1,4 @@
-package com.synrgyacademy.domain.model.airport
+package com.synrgyacademy.domain.model.passenger
 
 import android.os.Parcelable
 

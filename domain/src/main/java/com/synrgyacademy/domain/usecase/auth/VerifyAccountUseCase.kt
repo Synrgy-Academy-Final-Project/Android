@@ -3,7 +3,6 @@ package com.synrgyacademy.domain.usecase.auth
 import com.synrgyacademy.common.Resource
 import com.synrgyacademy.domain.model.auth.AuthDataModel
 import com.synrgyacademy.domain.repository.AuthRepository
-import com.synrgyacademy.domain.utils.toLoginDataModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

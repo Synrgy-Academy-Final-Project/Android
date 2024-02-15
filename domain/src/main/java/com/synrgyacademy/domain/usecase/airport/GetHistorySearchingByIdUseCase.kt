@@ -1,7 +1,7 @@
 package com.synrgyacademy.domain.usecase.airport
 
 import com.synrgyacademy.common.Resource
-import com.synrgyacademy.domain.model.airport.AirplaneDataModel
+import com.synrgyacademy.domain.model.airport.HistoryDataModel
 import com.synrgyacademy.domain.repository.AirportRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 class GetHistorySearchingByIdUseCase @Inject constructor(
     private val repository: AirportRepository
 ) {
-    operator fun invoke(id: Int): Flow<Resource<AirplaneDataModel>> = flow {
+    operator fun invoke(id: Int): Flow<Resource<HistoryDataModel>> = flow {
         emit(Resource.Loading)
         try {
             val result = repository.getHistorySearchingById(id)
