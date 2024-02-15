@@ -1,6 +1,13 @@
 # FINAL PROJECT KELOMPOK 4 Android Engineering - Fly.id
 
-Fly.id merupakan aplikasi yang dapat digunakan untuk melakukan pemesanan tiket pesawat dengan mudah dan tanpa kendala. link aplikasi (soon to be changed to firebase): [Fly.id](https://drive.google.com/file/d/1xYwQzvmzFEb1S5y_8sLwMI_5fbYZJARK/view?usp=sharing)
+Fly.id merupakan aplikasi yang dapat digunakan untuk melakukan pemesanan tiket pesawat dengan mudah dan tanpa kendala. 
+
+Tata cara mencoba aplikasi terbaru milik kami
+1. Buka link [berikut ini](https://appdistribution.firebase.dev/i/adda39f2b4fce11b), lalu masukkan email anda yang bisa dihubungi
+2. Cek email anda dan pastikan buka email tersebut dari handphone
+3. Setelah itu klik Get Started dan Terima undangannya
+4. Lalu klik download, kalau sudah selesai instal aplikasinya, jangan lupa untuk mengaktifkan izin instalasi dari sumber yang tidak diketahui
+5. Selamat menggunakan aplikasi kami 😊
 
 ## Team Member
 1. Kevin Malik Fajar
