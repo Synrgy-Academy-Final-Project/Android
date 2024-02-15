@@ -46,11 +46,18 @@ dependencies {
     testImplementation("junit:junit:4.12")
     kapt("com.google.dagger:hilt-android-compiler:2.48.1")
 
+    // network
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
+
     testImplementation("junit:junit:4.13.2")
     testImplementation ("org.mockito:mockito-core:5.8.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // gson
+    implementation("com.google.code.gson:gson:2.8.5")
 }
 kapt {
     correctErrorTypes = true

@@ -6,4 +6,5 @@ plugins {
     id("com.android.library") version "8.2.0" apply false
     id("com.google.dagger.hilt.android") version "2.48.1" apply false
     id("com.google.devtools.ksp") version "1.9.0-1.0.13" apply false
+    id("com.google.firebase.crashlytics") version "2.9.9" apply false
 }
