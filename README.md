@@ -38,6 +38,7 @@ Tata cara mencoba aplikasi terbaru milik kami
 
 - Menerapkan architecture pattern MVVM dengan clean architecture
 - Menerapkan modularization
+- Mengimplementasikan offline first (menyimpan data) agar dapat menampilkan data sementara ketika device sedang offline
 - Menggunakan Room untuk menyimpan data ke local database
 - Menerapkan data store/shared preferences untuk penyimpanan key-value
 - Menerapkan coroutine/rxjava untuk background process
@@ -47,19 +48,22 @@ Tata cara mencoba aplikasi terbaru milik kami
 - Menggunakan Retrofit
 - Menggunakan salah satu fitur Firebase contoh crashlytics
 - Menggunakan CI/CD pada salah satu branch untuk auto membuild APK/AAB
+- dll
 
 ## Additional Feature
 - Menggunakan fitur push notification
 - Menggunakan navigation component
 - UI testing
-- Analytic
-- etc
+- Firebase Analytic
+- Menambahkan fitur Customer satisfying (FAQ atau Email untuk Report dll)
+- dll
 
 ## Technologies Used
 
 - Kotlin
 - Clean Architecture MVVM
 - Retrofit
+- OtpView
 - RangeSeekBar
 - Material Design
 - Room Database
@@ -69,4 +73,4 @@ Tata cara mencoba aplikasi terbaru milik kami
 - Coroutine
 - Glide
 - Notify
-- Etc
+- dll
