@@ -12,12 +12,12 @@ object DateUtils {
     fun getCurrentDateEEEDDMMM(): String {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val date = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("EEE, dd MMM")
+            val formatter = DateTimeFormatter.ofPattern("EEE, dd MMM", Locale("in", "ID"))
             date.format(formatter)
         } else {
             val calendar = Calendar.getInstance()
             val date = calendar.time
-            val formatter = SimpleDateFormat("EEE, dd MMM", Locale.getDefault())
+            val formatter = SimpleDateFormat("EEE, dd MMM", Locale("in", "ID"))
             formatter.format(date)
         }
     }

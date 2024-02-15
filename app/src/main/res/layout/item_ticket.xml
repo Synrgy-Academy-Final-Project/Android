@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/airline_name"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Lion Air" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/airline_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginTop="5dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="@+id/airline_name"
+            app:layout_constraintTop_toBottomOf="@+id/airline_name"
+            tools:src="@drawable/lion_air_logo" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flight_from"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textColor="#8C8D89"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/airline_logo"
+            app:layout_constraintTop_toBottomOf="@+id/airline_logo"
+            tools:text="Jakarta (CGK)" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flight_start"
+            style="@style/TextSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/flight_from"
+            app:layout_constraintTop_toBottomOf="@+id/flight_from"
+            tools:text="08:00 AM" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flight_price"
+            style="@style/TextBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="@color/primary_blue"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/flight_person"
+            app:layout_constraintTop_toTopOf="@+id/airline_name"
+            tools:text="Rp1.500.000/" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flight_person"
+            style="@style/TextSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:textColor="@color/neutral_06"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/flight_arrow"
+            app:layout_constraintTop_toTopOf="@+id/airline_name"
+            tools:text="org" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/flight_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flight_seat"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/secondary_danger"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/flight_person"
+            app:layout_constraintTop_toBottomOf="@+id/flight_price"
+            tools:text="Tersisa 5" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/divider_garis"
+            app:layout_constraintBottom_toTopOf="@+id/flight_from"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/airline_logo" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flight_duration"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            android:textColor="@color/primary_blue"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/flight_to_arrow"
+            app:layout_constraintEnd_toEndOf="@+id/flight_to_arrow"
+            app:layout_constraintStart_toStartOf="@+id/flight_to_arrow"
+            app:layout_constraintTop_toTopOf="@+id/flight_to_arrow"
+            tools:text="2 j 15 m" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/flight_to_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wraper"
+            app:layout_constraintBottom_toBottomOf="@+id/flight_end"
+            app:layout_constraintEnd_toStartOf="@+id/flight_to"
+            app:layout_constraintStart_toEndOf="@+id/flight_from"
+            app:layout_constraintTop_toTopOf="@+id/flight_to" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flight_to"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="12dp"
+            android:textColor="#8C8D89"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/airline_logo"
+            tools:text="Yogyakarta (YIA)" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flight_end"
+            style="@style/TextSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/flight_to"
+            app:layout_constraintTop_toBottomOf="@+id/flight_to"
+            tools:text="09:00 AM" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

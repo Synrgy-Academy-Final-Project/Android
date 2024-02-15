@@ -11,10 +11,10 @@
         android:label="fragment_ticket"
         tools:layout="@layout/fragment_ticket" />
     <fragment
-        android:id="@+id/promo_navigation"
-        android:name="com.synrgyacademy.finalproject.ui.promo.PromoFragment"
-        android:label="fragment_promo"
-        tools:layout="@layout/fragment_promo" />
+        android:id="@+id/populer_places"
+        android:name="com.synrgyacademy.finalproject.ui.popular.PopularPlacesFragment"
+        android:label="fragment_popular_places"
+        tools:layout="@layout/fragment_popular_places" />
     <fragment
         android:id="@+id/order_navigation"
         android:name="com.synrgyacademy.finalproject.ui.order.OrderFragment"
@@ -25,4 +25,34 @@
         android:name="com.synrgyacademy.finalproject.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.synrgyacademy.finalproject.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.synrgyacademy.finalproject.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/confirmationOtpFragment"
+        android:name="com.synrgyacademy.finalproject.ui.resetpassword.ConfirmationOtpFragment"
+        android:label="fragment_confirmation_otp"
+        tools:layout="@layout/fragment_confirmation_otp" />
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.synrgyacademy.finalproject.ui.resetpassword.NewPasswordFragment"
+        android:label="fragment_new_password"
+        tools:layout="@layout/fragment_new_password" />
+    <fragment
+        android:id="@+id/verifyAccountFragment"
+        android:name="com.synrgyacademy.finalproject.ui.login.VerifyAccountFragment"
+        android:label="fragment_verify_account"
+        tools:layout="@layout/fragment_verify_account" />
+    <fragment
+        android:id="@+id/ticketListFragment"
+        android:name="com.synrgyacademy.finalproject.ui.ticket.TicketListFragment"
+        android:label="fragment_ticket_list"
+        tools:layout="@layout/fragment_ticket_list" />
 </navigation>

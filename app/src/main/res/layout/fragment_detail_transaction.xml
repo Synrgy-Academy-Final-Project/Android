@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.transaction.DetailTransactionFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="160dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/header_picture"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/filled_data_title"
+                style="@style/OpenSansSemiBold20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="@string/text_detail_pembayaran"
+                android:textColor="@color/neutral_01"
+                app:layout_constraintBottom_toBottomOf="@+id/header_picture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_circle_profile"
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_circle_profile"
+                app:layout_constraintBottom_toBottomOf="@+id/filled_data_title"
+                app:layout_constraintEnd_toEndOf="@+id/header_picture"
+                app:layout_constraintTop_toTopOf="@+id/filled_data_title" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="@+id/filled_data_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/filled_data_title" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_flight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_picture">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/airline_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="12dp"
+                        android:adjustViewBounds="true"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@drawable/lion_air_logo" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/flight_date"
+                        style="@style/OpenSansRegular10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/airline_logo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/airline_logo"
+                        tools:text="Sab, 23 Feb 2024" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/divider_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/divider_garis"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/airline_logo" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/flight_from_city"
+                        style="@style/TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textColor="#8C8D89"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/airline_logo"
+                        app:layout_constraintTop_toBottomOf="@+id/divider_line"
+                        tools:text="Jakarta (CGK)" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/flight_from_airport"
+                        style="@style/TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#8C8D89"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@+id/flight_from_city"
+                        app:layout_constraintTop_toBottomOf="@+id/flight_from_city"
+                        tools:text="Soekarno Hatta IA" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/flight_start"
+                        style="@style/OpenSansSemiBold14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/flight_from_airport"
+                        app:layout_constraintTop_toBottomOf="@+id/flight_from_airport"
+                        tools:text="08:00 AM" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/flight_duration"
+                        style="@style/TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elevation="2dp"
+                        android:textColor="@color/primary_blue"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/flight_to_arrow"
+                        app:layout_constraintEnd_toEndOf="@+id/flight_to_arrow"
+                        app:layout_constraintStart_toStartOf="@+id/flight_to_arrow"
+                        app:layout_constraintTop_toTopOf="@+id/flight_to_arrow"
+                        tools:text="2 j 15 m" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/flight_to_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_wraper"
+                        app:layout_constraintBottom_toBottomOf="@+id/flight_start"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/flight_from_city" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/flight_to_city"
+                        style="@style/TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#8C8D89"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/flight_from_city"
+                        tools:text="Yogyakarta (YIA)" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/flight_to_airport"
+                        style="@style/TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:textColor="#8C8D89"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/flight_to_city"
+                        tools:text="Yogyakarta IA" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/flight_end"
+                        style="@style/TextSemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/flight_to_airport"
+                        app:layout_constraintTop_toBottomOf="@+id/flight_to_airport"
+                        tools:text="09:00 AM" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_promo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/card_flight"
+                app:layout_constraintStart_toStartOf="@+id/card_flight"
+                app:layout_constraintTop_toBottomOf="@id/card_flight">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_promo_title"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:text="@string/text_enter_promo_code"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/promo_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="12dp"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/tv_promo_title"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_promo_title">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/promo_edit_text"
+                            style="@style/EditTextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/text_hint_promo"
+                            android:inputType="text"
+                            android:paddingStart="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="10dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_confirmation_promo_code"
+                        style="@style/ButtonApp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="12dp"
+                        android:background="@drawable/bg_btn_white"
+                        android:padding="9dp"
+                        android:textSize="16sp"
+                        android:text="@string/text_oke"
+                        android:textColor="@color/primary_blue"
+                        app:backgroundTint="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/promo_layout" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_detail_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_promo">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_rounded_10_greylight">
+
+                    <View
+                        android:id="@+id/view_header_harga"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:background="#EEF0EB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_rincian_harga"
+                        style="@style/OpenSansSemiBold14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="@string/text_rincian_harga"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_dewasa"
+                        style="@style/OpenSansSemiBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:text="@string/text_dewasa"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_header_harga" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_dewasa_price"
+                        style="@style/OpenSansSemiBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/view_header_harga"
+                        app:layout_constraintTop_toTopOf="@+id/tv_dewasa"
+                        tools:text="Rp1500.000 x 1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_adult"
+                        style="@style/OpenSansSemiBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:text="@string/text_anak"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_dewasa" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_adult_price"
+                        style="@style/OpenSansSemiBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/view_header_harga"
+                        app:layout_constraintTop_toTopOf="@+id/tv_adult"
+                        tools:text="Rp1500.000 x 1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_harga_dasar"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/text_harga_dasar"
+                        app:layout_constraintStart_toStartOf="@+id/tv_dewasa"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_adult" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_harga_dasar_price"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="@id/tv_dewasa_price"
+                        app:layout_constraintTop_toTopOf="@id/tv_harga_dasar"
+                        tools:text="Rp1000.000" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_tax_and_other"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/text_pajak"
+                        app:layout_constraintStart_toStartOf="@id/tv_harga_dasar"
+                        app:layout_constraintTop_toBottomOf="@id/tv_harga_dasar" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_tax_and_other_price"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_tax_and_other"
+                        app:layout_constraintEnd_toEndOf="@id/tv_harga_dasar_price"
+                        app:layout_constraintTop_toTopOf="@id/tv_tax_and_other"
+                        tools:text="Rp.500.000" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_diskon"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/text_diskon"
+                        app:layout_constraintStart_toStartOf="@id/tv_tax_and_other"
+                        app:layout_constraintTop_toBottomOf="@id/tv_tax_and_other" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_diskon_value"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/secondary_success"
+                        app:layout_constraintEnd_toEndOf="@id/tv_tax_and_other_price"
+                        app:layout_constraintTop_toTopOf="@id/tv_diskon"
+                        tools:text="-Rp25.000" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_price_before_diskon"
+                        style="@style/OpenSansSemiBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/text_total_harga"
+                        app:layout_constraintStart_toStartOf="@id/tv_tax_and_other"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_diskon" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_price_before_diskon_value"
+                        style="@style/OpenSansSemiBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="@id/tv_tax_and_other_price"
+                        app:layout_constraintTop_toTopOf="@id/tv_price_before_diskon"
+                        tools:text="Rp.1500.000" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_final_price"
+                        style="@style/OpenSansBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:textColor="@color/primary_blue"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_price_before_diskon_value"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_price_before_diskon_value"
+                        tools:text="Rp1475.000" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_payment_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/payment_detail"
+                app:layout_constraintStart_toStartOf="@+id/cv_detail_price"
+                app:layout_constraintTop_toBottomOf="@+id/cv_detail_price" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_payment_detail"
+                style="@style/OpenSansBold16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/text_safety_information"
+                android:textColor="@color/primary_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_payment_detail"
+                app:layout_constraintEnd_toEndOf="@id/cv_detail_price"
+                app:layout_constraintStart_toEndOf="@id/iv_payment_detail"
+                app:layout_constraintTop_toTopOf="@id/iv_payment_detail" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_payment_with"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginBottom="60dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_payment_detail">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_payment_with_title"
+                        style="@style/OpenSansBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="9dp"
+                        android:elevation="2dp"
+                        android:text="@string/text_payment"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view_header_payment"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:background="@color/primary_blue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_metode_pembayaran"
+                        style="@style/OpenSansSemiBold14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/text_payment_method"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view_header_payment" />
+
+                    <Spinner
+                        android:id="@+id/spinner_metode_pembayaran"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/bg_spinner"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_metode_pembayaran"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_metode_pembayaran" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_nama_pemegang_kartu"
+                        style="@style/OpenSansSemiBold14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:text="@string/text_card_holder_name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/spinner_metode_pembayaran" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/user_name_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="@+id/spinner_metode_pembayaran"
+                        app:layout_constraintStart_toStartOf="@+id/tv_nama_pemegang_kartu"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_nama_pemegang_kartu">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_name_edit_text"
+                            style="@style/EditTextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/text_nama"
+                            android:inputType="textPersonName"
+                            android:paddingStart="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_nomor_kartu"
+                        style="@style/OpenSansSemiBold14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/text_nomor_kartu_kredit"
+                        app:layout_constraintStart_toStartOf="@+id/user_name_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/user_name_layout" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nomor_kartu_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="@+id/user_name_layout"
+                        app:layout_constraintStart_toStartOf="@+id/user_name_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_nomor_kartu">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nomor_kartu_edit_text"
+                            style="@style/EditTextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/text_hint_kartu_kredit"
+                            android:inputType="number"
+                            android:paddingStart="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_cvv"
+                        style="@style/OpenSansSemiBold14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/text_cvv"
+                        app:layout_constraintStart_toStartOf="@+id/nomor_kartu_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/nomor_kartu_layout" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cvv_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="@+id/nomor_kartu_layout"
+                        app:layout_constraintStart_toStartOf="@+id/nomor_kartu_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_cvv">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/cvv_edit_text"
+                            style="@style/EditTextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/text_hint_cvv"
+                            android:inputType="number"
+                            android:paddingStart="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_expired"
+                        style="@style/OpenSansSemiBold14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/text_kadaluwarsa"
+                        app:layout_constraintStart_toStartOf="@+id/cvv_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/cvv_layout" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/expired_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="16dp"
+                        app:hintEnabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/cvv_layout"
+                        app:layout_constraintStart_toStartOf="@+id/cvv_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_expired">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/expired_edit_text"
+                            style="@style/EditTextInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/text_mm_yy"
+                            android:inputType="number"
+                            android:paddingStart="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_bottom_payment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/view_divider"
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:background="@color/neutral_03"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_agreement"
+                style="@style/OpenSansRegular10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_horizontal"
+                android:text="@string/text_payment_agreement"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/checkbox_agreement"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/checkbox_agreement"
+                app:layout_constraintTop_toTopOf="@+id/checkbox_agreement" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_bayar"
+                style="@style/ButtonApp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:padding="13dp"
+                android:text="@string/text_bayar"
+                app:icon="@drawable/ic_shield_check"
+                app:iconGravity="textStart"
+                app:iconSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_agreement"
+                app:layout_constraintStart_toStartOf="@+id/checkbox_agreement"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_agreement" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.detailticket.DetailTicketFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:background="@null"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/airline_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+            app:layout_constraintEnd_toStartOf="@+id/notification_container"
+            app:layout_constraintStart_toEndOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="@+id/btn_back">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_airline_name"
+                style="@style/OpenSansSemiBold14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/neutral_09"
+                app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintTop_toTopOf="@+id/btn_back"
+                tools:text="Garuda Indonesia" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_route"
+                style="@style/OpenSansRegular10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_blue"
+                app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintTop_toTopOf="@+id/btn_back"
+                tools:text="Jakarta (CGK) - Yogyakarta (YIA)" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/notification_container"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_back">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_bell"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_back" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_notification"
+                style="@style/OpenSansRegular10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_get_notification" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/divider_top"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/dotted_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/airline_info" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_flight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider_top"
+            tools:layout_editor_absoluteX="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/airline_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/lion_air_logo" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_date"
+                    style="@style/OpenSansRegular10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/airline_logo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/airline_logo"
+                    tools:text="Sab, 23 Feb 2024" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/divider_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/divider_garis"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/airline_logo" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_from_city"
+                    style="@style/TextRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#8C8D89"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/airline_logo"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_line"
+                    tools:text="Jakarta (CGK)" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_from_airport"
+                    style="@style/TextRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#8C8D89"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/flight_from_city"
+                    app:layout_constraintTop_toBottomOf="@+id/flight_from_city"
+                    tools:text="Soekarno Hatta IA" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_start"
+                    style="@style/OpenSansSemiBold14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/flight_from_airport"
+                    app:layout_constraintTop_toBottomOf="@+id/flight_from_airport"
+                    tools:text="08:00 AM" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_duration"
+                    style="@style/TextRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="2dp"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/flight_to_arrow"
+                    app:layout_constraintEnd_toEndOf="@+id/flight_to_arrow"
+                    app:layout_constraintStart_toStartOf="@+id/flight_to_arrow"
+                    app:layout_constraintTop_toTopOf="@+id/flight_to_arrow"
+                    tools:text="2 j 15 m" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/flight_to_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_wraper"
+                    app:layout_constraintBottom_toBottomOf="@+id/flight_start"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/flight_from_city" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_to_city"
+                    style="@style/TextRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="#8C8D89"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/flight_from_city"
+                    tools:text="Yogyakarta (YIA)" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_to_airport"
+                    style="@style/TextRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="#8C8D89"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/flight_to_city"
+                    tools:text="Yogyakarta IA" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_end"
+                    style="@style/TextSemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/flight_to_airport"
+                    app:layout_constraintTop_toBottomOf="@+id/flight_to_airport"
+                    tools:text="09:00 AM" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/divider_card"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/divider_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_flight" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ticket_type"
+            style="@style/OpenSansSemiBold12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="@string/text_ticket_type"
+            app:layout_constraintStart_toStartOf="@+id/card_flight"
+            app:layout_constraintTop_toBottomOf="@+id/divider_card" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_flight_benefit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ticket_type">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_rounded_10_stroke_blue">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_class"
+                    style="@style/OpenSansSemiBold14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Ekonomi" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_price"
+                    style="@style/OpenSansBold20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/primary_blue"
+                    app:layout_constraintStart_toStartOf="@+id/flight_class"
+                    app:layout_constraintTop_toBottomOf="@+id/flight_class"
+                    tools:text="Rp.1.500.000/" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flight_person"
+                    style="@style/OpenSansSemiBold12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/neutral_06"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/flight_price"
+                    app:layout_constraintStart_toEndOf="@+id/flight_price"
+                    app:layout_constraintTop_toTopOf="@+id/flight_price"
+                    tools:text="orang" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/divider_benefit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/divider_garis"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/flight_person" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_baggage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_shopping_bag"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_benefit" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_baggage"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_cabin_item"
+                    android:textColor="@color/neutral_09"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_baggage"
+                    app:layout_constraintStart_toEndOf="@+id/iv_baggage"
+                    app:layout_constraintTop_toTopOf="@+id/iv_baggage" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_baggage_per_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_shopping_bag"
+                    app:layout_constraintStart_toStartOf="@+id/iv_baggage"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_baggage" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_bag_per_item"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_cabin_item_2"
+                    android:textColor="@color/neutral_09"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_baggage_per_item"
+                    app:layout_constraintStart_toEndOf="@+id/iv_baggage_per_item"
+                    app:layout_constraintTop_toTopOf="@+id/iv_baggage_per_item" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_meal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_utensils"
+                    app:layout_constraintStart_toStartOf="@+id/iv_baggage_per_item"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_baggage_per_item" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_meal"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_meal"
+                    android:textColor="@color/neutral_09"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_meal"
+                    app:layout_constraintStart_toEndOf="@+id/iv_meal"
+                    app:layout_constraintTop_toTopOf="@+id/iv_meal" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_assurance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_file_minus"
+                    android:tint="@color/neutral_06"
+                    app:layout_constraintStart_toStartOf="@+id/iv_meal"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_meal" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_assurance"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_assurance"
+                    android:textColor="@color/neutral_06"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_assurance"
+                    app:layout_constraintStart_toEndOf="@+id/iv_assurance"
+                    app:layout_constraintTop_toTopOf="@+id/iv_assurance" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_youtube"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_youtube_square"
+                    android:tint="@color/neutral_06"
+                    app:layout_constraintStart_toStartOf="@+id/iv_assurance"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_assurance" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_youtube"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_entertainment"
+                    android:textColor="@color/neutral_06"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_youtube"
+                    app:layout_constraintStart_toEndOf="@+id/iv_youtube"
+                    app:layout_constraintTop_toTopOf="@+id/iv_youtube" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_usb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_usb"
+                    android:tint="@color/neutral_06"
+                    app:layout_constraintStart_toStartOf="@+id/iv_youtube"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_youtube" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_usb"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_usb"
+                    android:textColor="@color/neutral_06"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_usb"
+                    app:layout_constraintStart_toEndOf="@+id/iv_usb"
+                    app:layout_constraintTop_toTopOf="@+id/iv_usb" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_wifi_slash"
+                    android:tint="@color/neutral_06"
+                    app:layout_constraintStart_toStartOf="@+id/iv_youtube"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_usb" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_wifi"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_wifi"
+                    android:textColor="@color/neutral_06"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_wifi"
+                    app:layout_constraintStart_toEndOf="@+id/iv_wifi"
+                    app:layout_constraintTop_toTopOf="@+id/iv_wifi" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_calendar"
+                    android:tint="@color/secondary_success"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/iv_youtube"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_wifi" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_calendar"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_reschedule_available"
+                    android:textColor="@color/secondary_success"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_calendar"
+                    app:layout_constraintStart_toEndOf="@+id/iv_calendar"
+                    app:layout_constraintTop_toTopOf="@+id/iv_calendar" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_money_check_edit"
+                    android:tint="@color/secondary_success"
+                    app:layout_constraintStart_toEndOf="@+id/tv_calendar"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_wifi" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_money"
+                    style="@style/OpenSansRegular14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/text_refund_up_to"
+                    android:textColor="@color/secondary_success"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_money"
+                    app:layout_constraintStart_toEndOf="@+id/iv_money"
+                    app:layout_constraintTop_toTopOf="@+id/iv_money" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ticket_price_text"
+            style="@style/OpenSansSemiBold14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_total_price_one_person"
+            app:layout_constraintStart_toStartOf="@+id/card_flight_benefit"
+            app:layout_constraintTop_toBottomOf="@+id/card_flight_benefit" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ticket_price_total"
+            style="@style/OpenSansBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/text_total_price"
+            android:textColor="@color/primary_blue"
+            app:layout_constraintStart_toStartOf="@+id/card_flight_benefit"
+            app:layout_constraintTop_toBottomOf="@+id/ticket_price_text" />
+
+        <Button
+            android:id="@+id/btn_lanjut"
+            style="@style/ButtonApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/text_lanjut"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ticket_price_total" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
