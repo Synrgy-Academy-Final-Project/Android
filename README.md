@@ -25,6 +25,7 @@ Fly.id merupakan aplikasi yang dapat digunakan untuk melakukan pemesanan tiket p
 - Cetak Tiket
 - History Pemesanan
 - Detail Tiket
+- etc
 
 ## Requirement Implement
 
@@ -45,7 +46,7 @@ Fly.id merupakan aplikasi yang dapat digunakan untuk melakukan pemesanan tiket p
 - Menggunakan navigation component
 - UI testing
 - Analytic
-- dll
+- etc
 
 ## Technologies Used
 
