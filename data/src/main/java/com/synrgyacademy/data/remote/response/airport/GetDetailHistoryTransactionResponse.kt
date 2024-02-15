@@ -1,10 +1,10 @@
-package com.synrgyacademy.data.remote.response
+package com.synrgyacademy.data.remote.response.airport
 
 import com.google.gson.annotations.SerializedName
 
-data class EticketResponse(
+data class GetDetailHistoryTransactionResponse(
     @field:SerializedName("data")
-    val data: String? = null,
+    val data: List<HistoryItem>? = null,
 
     @field:SerializedName("message")
     val message: String? = null,

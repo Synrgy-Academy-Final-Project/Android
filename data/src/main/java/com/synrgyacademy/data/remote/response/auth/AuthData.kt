@@ -1,4 +1,4 @@
-package com.synrgyacademy.data.remote.response
+package com.synrgyacademy.data.remote.response.auth
 
 import com.google.gson.annotations.SerializedName
 

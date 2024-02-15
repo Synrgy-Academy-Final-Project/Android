@@ -2,7 +2,6 @@ package com.synrgyacademy.data.repository
 
 import com.synrgyacademy.data.local.pref.SessionManager
 import com.synrgyacademy.data.mapper.toAuthDataModel
-import com.synrgyacademy.data.mapper.toLoginDataModel
 import com.synrgyacademy.data.remote.request.ChangePasswordRequest
 import com.synrgyacademy.data.remote.request.LoginRequest
 import com.synrgyacademy.data.remote.request.OTPRequest

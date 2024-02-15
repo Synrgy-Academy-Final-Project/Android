@@ -1,4 +1,4 @@
-package com.synrgyacademy.data.remote.response
+package com.synrgyacademy.data.remote.response.airport
 
 import com.google.gson.annotations.SerializedName
 import com.synrgyacademy.domain.model.airport.PassengerSaved

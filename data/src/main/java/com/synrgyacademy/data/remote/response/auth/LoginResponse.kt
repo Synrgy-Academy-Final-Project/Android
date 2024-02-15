@@ -1,6 +1,7 @@
-package com.synrgyacademy.data.remote.response
+package com.synrgyacademy.data.remote.response.auth
 
 import com.google.gson.annotations.SerializedName
+import com.synrgyacademy.domain.model.auth.LoginDataModel
 
 data class LoginResponse(
 
@@ -27,4 +28,14 @@ data class LoginData(
 
 	@field:SerializedName("token")
 	val token: String? = null
-)
+) {
+	fun toLoginDataModel(): LoginDataModel {
+		return LoginDataModel(
+			roles = roles.orEmpty(),
+			fullName = fullName.orEmpty(),
+			type = type.orEmpty(),
+			email = email.orEmpty(),
+			token = token.orEmpty()
+		)
+	}
+}

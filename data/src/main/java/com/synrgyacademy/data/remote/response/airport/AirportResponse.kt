@@ -1,6 +1,8 @@
-package com.synrgyacademy.data.remote.response
+package com.synrgyacademy.data.remote.response.airport
 
 import com.google.gson.annotations.SerializedName
+import com.synrgyacademy.data.remote.response.Pageable
+import com.synrgyacademy.data.remote.response.Sort
 
 data class AirportResponse(
 

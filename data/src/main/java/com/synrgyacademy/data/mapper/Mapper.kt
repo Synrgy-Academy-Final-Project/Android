@@ -1,11 +1,11 @@
 package com.synrgyacademy.data.mapper
 
 import com.synrgyacademy.data.local.model.HistorySearchingEntity
-import com.synrgyacademy.data.remote.response.AirplaneServicesItem
-import com.synrgyacademy.data.remote.response.AirportListItem
-import com.synrgyacademy.data.remote.response.AuthData
-import com.synrgyacademy.data.remote.response.MinimumPriceItem
-import com.synrgyacademy.data.remote.response.ScheduleData
+import com.synrgyacademy.data.remote.response.airport.AirplaneServicesItem
+import com.synrgyacademy.data.remote.response.airport.AirportListItem
+import com.synrgyacademy.data.remote.response.auth.AuthData
+import com.synrgyacademy.data.remote.response.airport.MinimumPriceItem
+import com.synrgyacademy.data.remote.response.airport.ScheduleData
 import com.synrgyacademy.domain.model.airport.AirportDataModel
 import com.synrgyacademy.domain.model.airport.HistoryDataModel
 import com.synrgyacademy.domain.model.airport.MinimumDataModel

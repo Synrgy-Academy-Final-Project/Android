@@ -1,15 +1,15 @@
-package com.synrgyacademy.data.remote.response
+package com.synrgyacademy.data.remote.response.auth
 
 import com.google.gson.annotations.SerializedName
 
 data class RegisterResponse(
 
-	@field:SerializedName("data")
+    @field:SerializedName("data")
 	val data: AuthData? = null,
 
-	@field:SerializedName("message")
+    @field:SerializedName("message")
 	val message: String? = null,
 
-	@field:SerializedName("status")
+    @field:SerializedName("status")
 	val status: Int? = null
 )
