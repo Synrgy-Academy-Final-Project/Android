@@ -1,37 +1,18 @@
 package com.synrgyacademy.data.mapper
 
-import com.synrgyacademy.data.local.model.AirplaneEntity
+import com.synrgyacademy.data.local.model.HistorySearchingEntity
 import com.synrgyacademy.data.remote.response.AirplaneServicesItem
 import com.synrgyacademy.data.remote.response.AirportListItem
 import com.synrgyacademy.data.remote.response.AuthData
-import com.synrgyacademy.data.remote.response.LoginData
 import com.synrgyacademy.data.remote.response.MinimumPriceItem
 import com.synrgyacademy.data.remote.response.ScheduleData
-import com.synrgyacademy.domain.model.airport.AirplaneDataModel
 import com.synrgyacademy.domain.model.airport.AirportDataModel
+import com.synrgyacademy.domain.model.airport.HistoryDataModel
 import com.synrgyacademy.domain.model.airport.MinimumDataModel
 import com.synrgyacademy.domain.model.airport.ScheduleDataModel
 import com.synrgyacademy.domain.model.airport.ScheduleServicesItem
 import com.synrgyacademy.domain.model.auth.AuthDataModel
-import com.synrgyacademy.domain.model.auth.LoginDataModel
-import com.synrgyacademy.domain.model.auth.UserData
 
-
-// Remote Response
-fun LoginData.toLoginDataModel(): LoginDataModel =
-    LoginDataModel(
-        roles = roles ?: emptyList(),
-        fullName = fullName.orEmpty(),
-        type = type.orEmpty(),
-        email = email.orEmpty(),
-        token = token.orEmpty()
-    )
-
-fun LoginDataModel.toUserData(): UserData =
-    UserData(
-        name = fullName,
-        token = token
-    )
 
 fun AuthData.toAuthDataModel(): AuthDataModel =
     AuthDataModel(
@@ -68,7 +49,11 @@ fun List<ScheduleData>.toScheduleDataModel(): List<ScheduleDataModel> =
             airplaneFlightTimeId = it.airplaneFlightTimeId.orEmpty(),
             flightTime = it.flightTime.orEmpty(),
             departureCode = it.departureCode.orEmpty(),
+            departureCityCode = it.departureCityCode.orEmpty(),
+            departureNameAirport = it.departureNameAirport.orEmpty(),
             arrivalCode = it.arrivalCode.orEmpty(),
+            arrivalCityCode = it.arrivalCityCode.orEmpty(),
+            arrivalNameAirport = it.arrivalNameAirport.orEmpty(),
             departureTime = it.departureTime.orEmpty(),
             arrivalTime = it.arrivalTime.orEmpty(),
             totalPrice = it.totalPrice ?: 0
@@ -98,44 +83,13 @@ fun List<MinimumPriceItem>.toMinimumDataModel(): List<MinimumDataModel> =
 
 
 // Room Database
-
-fun AirplaneEntity.toAirplaneDataModel(): AirplaneDataModel =
-    AirplaneDataModel(
+fun HistoryDataModel.toHistoryEntity(): HistorySearchingEntity =
+    HistorySearchingEntity(
         id = id,
-        fromCity = fromCity,
-        toCity = toCity,
-        date = date,
-        passengerNumber = passengerNumber,
-        adultNumber = adultNumber,
-        childNumber = childNumber,
-        infantNumber = infantNumber,
+        departureData = departureData,
+        arrivalData = arrivalData,
+        departureDate = departureDate,
+        searchingDate = searchingDate,
+        passenger = passenger,
         airplaneClass = airplaneClass
     )
-
-fun AirplaneDataModel.toAirplaneEntity(): AirplaneEntity =
-    AirplaneEntity(
-        id = id,
-        fromCity = fromCity,
-        toCity = toCity,
-        date = date,
-        passengerNumber = passengerNumber,
-        adultNumber = adultNumber,
-        childNumber = childNumber,
-        infantNumber = infantNumber,
-        airplaneClass = airplaneClass
-    )
-
-fun List<AirplaneEntity>.toAirplaneDataModel(): List<AirplaneDataModel> =
-    map {
-        AirplaneDataModel(
-            id = it.id,
-            fromCity = it.fromCity,
-            toCity = it.toCity,
-            date = it.date,
-            passengerNumber = it.passengerNumber,
-            adultNumber = it.adultNumber,
-            childNumber = it.childNumber,
-            infantNumber = it.infantNumber,
-            airplaneClass = it.airplaneClass
-        )
-    }
