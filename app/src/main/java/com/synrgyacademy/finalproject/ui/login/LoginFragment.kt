@@ -12,9 +12,11 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.synrgyacademy.data.local.pref.SessionManager
 import com.synrgyacademy.data.local.utils.dataStore
+import com.synrgyacademy.finalproject.MainActivity
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.FragmentLoginBinding
-import com.synrgyacademy.finalproject.ui.register.RegisterViewModel
+import com.synrgyacademy.finalproject.ui.profile.NotificationState
+import com.synrgyacademy.finalproject.utils.NotificationUtils.createNotification
 import com.synrgyacademy.finalproject.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
@@ -52,10 +54,23 @@ class LoginFragment : Fragment() {
 
                 is LoginState.Success -> {
                     binding.loginProgressBar.visibility = View.GONE
-
-                    findNavController().popBackStack(R.id.main_nav_graph, false)
-                    findNavController().navigate(R.id.ticket_navigation, null)
-                    requireContext().showToast(getString(R.string.login_berhasil))
+                    viewModel.getNotification()
+                    viewModel.getNotification.observe(viewLifecycleOwner) { notificationState ->
+                        if (notificationState is NotificationState.Success) {
+                            if (notificationState.data) {
+                                createNotification(
+                                    requireContext(),
+                                    "Login",
+                                    "Kamu berhasil login",
+                                    "Selamat datang di Fly.id!",
+                                    MainActivity::class.java
+                                )
+                            }
+                            findNavController().popBackStack(R.id.main_nav_graph, false)
+                            findNavController().navigate(R.id.ticket_navigation, null)
+                            requireContext().showToast(getString(R.string.login_berhasil))
+                        }
+                    }
                 }
             }
         }
@@ -125,7 +140,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

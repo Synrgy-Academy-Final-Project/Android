@@ -8,8 +8,12 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.synrgyacademy.finalproject.MainActivity
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.FragmentVerifyAccountBinding
+import com.synrgyacademy.finalproject.ui.profile.NotificationState
+import com.synrgyacademy.finalproject.utils.NotificationUtils.createNotification
+import com.synrgyacademy.finalproject.utils.StringUtils.censorEmail
 import com.synrgyacademy.finalproject.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import `in`.aabhasjindal.otptextview.OTPListener
@@ -47,7 +51,8 @@ class VerifyAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.reqOtpSubtitle.text = getString(R.string.text_reset_password_subtitle, arguments?.getString("email"))
+        val censorEmail = arguments?.getString("email")?.censorEmail()
+        binding.reqOtpSubtitle.text = getString(R.string.text_reset_password_subtitle, censorEmail)
 
         viewModel.verifyAccountState.observe(viewLifecycleOwner) { result ->
             when (result) {
@@ -59,8 +64,22 @@ class VerifyAccountFragment : Fragment() {
 
                 is VerifyAccountState.Success -> {
                     requireContext().showToast("Anda berhasil verifikasi akun")
-                    findNavController().popBackStack(R.id.main_nav_graph, false)
-                    findNavController().navigate(R.id.ticket_navigation, null)
+                    viewModel.getNotification()
+                    viewModel.getNotification.observe(viewLifecycleOwner) { notificationState ->
+                        if (notificationState is NotificationState.Success) {
+                            if (notificationState.data) {
+                                createNotification(
+                                    requireContext(),
+                                    "Login",
+                                    "Kamu berhasil login",
+                                    "Selamat datang di Fly.id!",
+                                    MainActivity::class.java
+                                )
+                            }
+                            findNavController().popBackStack(R.id.main_nav_graph, false)
+                            findNavController().navigate(R.id.ticket_navigation, null)
+                        }
+                    }
                 }
             }
         }

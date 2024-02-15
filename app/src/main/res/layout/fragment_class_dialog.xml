@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.ticket.ClassDialogFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="360dp"
-        android:layout_height="196dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_rounded_white"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,20 +34,9 @@
             android:layout_marginTop="16dp"
             android:text="@string/text_economic"
             android:textColor="@color/neutral_09"
-            app:layout_constraintEnd_toStartOf="@id/rb_group"
+            app:layout_constraintEnd_toStartOf="@+id/rb_group"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_class_title" />
-
-        <TextView
-            android:id="@+id/tv_economic_premium_class"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/text_economic_premium"
-            android:textColor="@color/neutral_09"
-            app:layout_constraintEnd_toStartOf="@id/rb_group"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_economic_class" />
 
         <TextView
             android:id="@+id/tv_bisnis_class"
@@ -59,7 +47,7 @@
             android:textColor="@color/neutral_09"
             app:layout_constraintEnd_toStartOf="@+id/rb_group"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_economic_premium_class" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_economic_class" />
 
         <TextView
             android:id="@+id/tv_main_class"
@@ -68,7 +56,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/text_main_class"
             android:textColor="@color/neutral_09"
-            app:layout_constraintEnd_toStartOf="@+id/rb_group"
+            app:layout_constraintEnd_toEndOf="@+id/tv_bisnis_class"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_bisnis_class" />
 
@@ -76,9 +64,7 @@
             android:id="@+id/rb_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_class_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_class_title">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -87,13 +73,6 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/rb_economic_premium"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_marginBottom="10dp" />
-
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rb_business"
@@ -107,7 +86,7 @@
                 android:layout_height="24dp" />
 
         </RadioGroup>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

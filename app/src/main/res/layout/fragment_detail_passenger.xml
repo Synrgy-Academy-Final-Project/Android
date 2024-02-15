@@ -162,7 +162,7 @@
                     style="@style/OpenSansRegular14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_passenger_email"
+                    android:text="@string/text_passenger_email_input_passenger"
                     app:layout_constraintBottom_toBottomOf="@+id/ic_email"
                     app:layout_constraintStart_toStartOf="@+id/text_phone_booker"
                     app:layout_constraintTop_toTopOf="@+id/ic_email" />
