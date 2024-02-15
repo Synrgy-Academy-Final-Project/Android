@@ -169,4 +169,15 @@
         <item name="android:radius">4dp</item>
     </style>
 
+    <style name="FloatingShapeCircle" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="FloatingCircle" parent="Widget.Design.FloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/FloatingShapeCircle</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="backgroundTint">@color/primary_blue</item>
+        <item name="borderWidth">1dp</item>
+    </style>
 </resources>
