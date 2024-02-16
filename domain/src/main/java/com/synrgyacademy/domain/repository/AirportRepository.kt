@@ -4,7 +4,6 @@ import com.synrgyacademy.domain.model.airport.AirportDataModel
 import com.synrgyacademy.domain.model.airport.HistoryDataModel
 import com.synrgyacademy.domain.model.airport.HistoryTransactionDataModel
 import com.synrgyacademy.domain.model.airport.MinimumDataModel
-import com.synrgyacademy.domain.model.airport.PopularPlacesDataModel
 import com.synrgyacademy.domain.model.airport.PromotionsDataModel
 import com.synrgyacademy.domain.model.airport.ScheduleDataModel
 import com.synrgyacademy.domain.model.airport.TransactionDataModel
@@ -30,7 +29,7 @@ interface AirportRepository {
         minimumPriceQuery: MinimumPriceQuery
     ): List<MinimumDataModel>
 
-    suspend fun getAllPromotions() : List<PromotionsDataModel>
+    suspend fun getAllPromotions(): List<PromotionsDataModel>
 
     suspend fun getPromotions(
         code: String,
@@ -50,8 +49,6 @@ interface AirportRepository {
     suspend fun getUserDetailByToken(
         token: String
     ): UserData
-
-    suspend fun getPopularPlaces(): List<PopularPlacesDataModel>
 
     suspend fun getEticketAttachFile(
         token: String,

@@ -3,7 +3,6 @@ package com.synrgyacademy.finalproject.ui.ticket
 import com.synrgyacademy.domain.model.airport.AirportDataModel
 import com.synrgyacademy.domain.model.airport.FilterDataModel
 import com.synrgyacademy.domain.model.airport.MinimumDataModel
-import com.synrgyacademy.domain.model.airport.PopularPlacesDataModel
 import com.synrgyacademy.domain.model.airport.PromotionsDataModel
 import com.synrgyacademy.domain.model.airport.ScheduleDataModel
 
@@ -23,12 +22,6 @@ sealed interface MinimumPriceState {
     data object Loading : MinimumPriceState
     data class Success(val data: List<MinimumDataModel>) : MinimumPriceState
     data class Error(val error: String) : MinimumPriceState
-}
-
-sealed interface PopularPlaceState {
-    data object Loading : PopularPlaceState
-    data class Success(val data: List<PopularPlacesDataModel>) : PopularPlaceState
-    data class Error(val error: String) : PopularPlaceState
 }
 
 sealed interface AllPromotionsState {

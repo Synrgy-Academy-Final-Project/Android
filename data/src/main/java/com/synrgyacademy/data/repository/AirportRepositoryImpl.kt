@@ -12,7 +12,6 @@ import com.synrgyacademy.domain.model.query.GetScheduleFlightQuery
 import com.synrgyacademy.domain.model.airport.HistoryDataModel
 import com.synrgyacademy.domain.model.airport.HistoryTransactionDataModel
 import com.synrgyacademy.domain.model.airport.MinimumDataModel
-import com.synrgyacademy.domain.model.airport.PopularPlacesDataModel
 import com.synrgyacademy.domain.model.airport.PromotionsDataModel
 import com.synrgyacademy.domain.model.airport.ScheduleDataModel
 import com.synrgyacademy.domain.model.airport.TransactionDataModel
@@ -152,7 +151,4 @@ class AirportRepositoryImpl @Inject constructor(
             throw e
         }
 
-    override suspend fun getPopularPlaces(): List<PopularPlacesDataModel> {
-        return safeApiRequest { api.getPopularPlaces() }
-    }
 }

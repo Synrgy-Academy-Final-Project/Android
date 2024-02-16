@@ -2,7 +2,6 @@ package com.synrgyacademy.finalproject.ui.transaction
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -131,6 +130,10 @@ class DetailTransactionFragment : Fragment() {
                     NotLoginDialogFragment().show(childFragmentManager, NotLoginDialogFragment.TAG)
                 }
             }
+        }
+
+        binding.icCircleProfile.setOnClickListener {
+            findNavController().navigate(R.id.editProfileFragment)
         }
 
         binding.webview.webViewClient = object : WebViewClient() {
@@ -368,7 +371,6 @@ class DetailTransactionFragment : Fragment() {
                 }
 
                 is TransactionState.Success -> {
-                    Log.d("URL", state.data.redirectUrl)
                     binding.webview.visibility = View.VISIBLE
                     binding.webview.settings.javaScriptEnabled = true
 

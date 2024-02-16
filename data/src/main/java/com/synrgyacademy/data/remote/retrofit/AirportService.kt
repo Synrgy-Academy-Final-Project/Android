@@ -12,7 +12,6 @@ import com.synrgyacademy.data.remote.response.airport.PromotionResponse
 import com.synrgyacademy.data.remote.response.airport.ScheduleResponse
 import com.synrgyacademy.data.remote.response.airport.TransactionResponse
 import com.synrgyacademy.data.remote.response.airport.UserDetailResponse
-import com.synrgyacademy.domain.model.airport.PopularPlacesDataModel
 import com.synrgyacademy.domain.request.TransactionRequest
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -40,8 +39,6 @@ interface AirportService {
     suspend fun getMinimumPrice(
         @QueryMap minimumPriceQuery: Map<String, String>,
     ): Response<MinimumPriceResponse>
-
-    suspend fun getPopularPlaces(): Response<List<PopularPlacesDataModel>>
 
     @GET("promotions")
     suspend fun getAllPromotion() : Response<AllPromotionResponse>
