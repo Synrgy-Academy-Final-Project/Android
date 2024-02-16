@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            tools:text="@string/passenger_total" />
+            tools:text="@string/text_passenger_with_value" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/flight_separator"

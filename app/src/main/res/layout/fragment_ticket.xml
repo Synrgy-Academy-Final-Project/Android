@@ -192,6 +192,9 @@
                     android:layout_height="24dp"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
+                    app:trackTint="@color/white"
+                    app:thumbTint="@color/switch_thumb_color"
+                    app:trackDecorationTint="@color/primary_blue"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_pp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_pp" />
@@ -250,7 +253,7 @@
                         android:src="@drawable/ic_users" />
 
                     <TextView
-                        android:id="@+id/tv_passenger_total"
+                        android:id="@+id/tvPassengerTotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -295,6 +298,7 @@
                 android:textAppearance="@style/OpenSansBold14"
                 android:textStyle="bold"
                 app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium" />
+
         </LinearLayout>
 
         <TextView

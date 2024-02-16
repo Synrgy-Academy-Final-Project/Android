@@ -21,12 +21,8 @@
     <string name="login_navigate">Masuk aja!</string>
     <string name="register_btn_text">Daftar</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <!--    MENU-->
     <string name="menu_ticket_title">Tiket</string>
-    <string name="menu_promo_title">Promo</string>
     <string name="menu_order_title">Pesanan</string>
     <string name="menu_profile_title">Profil</string>
     <string name="menu_popular_places">Tempat Populer</string>
@@ -44,25 +40,22 @@
     <string name="text_search">Cari</string>
     <string name="text_latest_Search">Pencarian Terakhir</string>
     <string name="text_delete">Hapus</string>
-    <string name="text_get_promo">Dapatkan Promo Terbaik</string>
     <string name="text_promo">Promo</string>
     <string name="desc_get_promo">Dapatkan promo lainnya</string>
     <string name="symbol_bullet">•</string>
     <string name="text_adult">Dewasa</string>
     <string name="text_adult_age">(12 thn ke atas)</string>
     <string name="text_child">Anak-anak</string>
-    <string name="text_child_age">(2 - 11 thn)</string>
+    <string name="text_child_age">(2 – 11 thn)</string>
     <string name="text_baby">Bayi</string>
     <string name="text_baby_age"><![CDATA[(< 2 thn)]]></string>
     <string name="text_business">Bisnis</string>
-    <string name="text_economic_premium">Ekonomi Premium</string>
     <string name="text_economic">Ekonomi</string>
     <string name="text_class_title">Kelas</string>
     <string name="text_main_class">Kelas Utama</string>
     <string name="text_search_title">Bandara atau Kota Populer</string>
     <string name="text_cancel">Batalkan</string>
     <string name="hint_search_airport">Cari Bandara atau Kota</string>
-    <string name="login_failed_please_try_again">Login failed, please try again</string>
     <string name="email_tidak_boleh_kosong">Email tidak boleh kosong</string>
     <string name="password_tidak_boleh_kosong">Password tidak boleh kosong</string>
     <string name="password_minimal_8_karakter">Password minimal 8 karakter</string>
@@ -87,7 +80,6 @@
     <string name="text_batal">Batal</string>
     <string name="text_pilih_tanggal">Pilih tanggal</string>
     <string name="text_no_history_searching">Yahh, belum ada riwayat pencarian</string>
-    <string name="passenger_total">%1$d Penumpang</string>
 
     <!--  Detail Ticket  -->
     <string name="text_get_notification">Dapatkan Notifikasi</string>
@@ -144,10 +136,6 @@
     <string name="text_edit_profil">Edit Profil</string>
     <string name="text_notification">Notifikasi</string>
     <string name="text_notification_desc">Dapatkan notifikasi terkini</string>
-    <string name="text_pengembalian_dana">Pengembalian Dana</string>
-    <string name="text_perubahan_jadwal">Perubahan Jadwal</string>
-    <string name="text_perubahan_jadwal_desc">Cek status perubahan jadwalmu</string>
-    <string name="text_pengaturan">Pengaturan</string>
     <string name="text_keluar">Keluar</string>
     <string name="text_member">Anggota Fly.id</string>
     <string name="text_masuk">Masuk</string>
@@ -163,13 +151,12 @@
     <string name="text_siang">Siang</string>
     <string name="siang_time">12:00 – 14:59</string>
     <string name="text_sore">Sore</string>
-    <string name="sore_time">15:00 - 17:59</string>
+    <string name="sore_time">15:00 – 17:59</string>
     <string name="text_malam">Malam</string>
-    <string name="malam_time">18:00 - 23:59</string>
+    <string name="malam_time">18:00 – 23:59</string>
     <string name="text_harga">Harga</string>
     <string name="text_harga_min">harga min</string>
     <string name="text_harga_max">harga max</string>
-    <string name="text_maskapai">Maskapai</string>
     <string name="text_fasilitas">Fasilitas</string>
     <string name="text_bagasi">Bagasi</string>
     <string name="text_refund_reschedule"><![CDATA[Refund & Reschedule]]></string>
@@ -181,6 +168,7 @@
     <string name="text_transaction_wait">Mohon ditunggu ya…</string>
     <string name="text_transaction_process">Pembayaranmu sedang diproses</string>
     <string name="text_payment_success">Pembayaran berhasil</string>
+    <string name="text_payment_failed">Pembayaran gagal</string>
     <string name="text_eticket_available">E-tiketmu sudah terbit!\n Lihat dan selamat menikmati perjalananmu</string>
     <string name="text_oke">Oke</string>
 
@@ -206,15 +194,11 @@
     <string name="text_detail_order">Detail Pemesanan</string>
     <string name="text_detail_order_with_value">Detail Pemesanan %1$s</string>
     <string name="text_detail_order_subtitle">Data pemesan akan digunakan untuk mengirimkan semua e-tiket dari pesanan</string>
-    <string name="text_tuan">Tuan</string>
-    <string name="text_nyonya">Nyonya</string>
-    <string name="text_nona">Nona</string>
     <string name="text_filled_identity">Isi sesuai KTP/SIM/Paspor (tanpa tanda baca dan gelar)<font color="red">*</font></string>
     <string name="text_full_name">Nama Lengkap</string>
     <string name="text_email">Email</string>
     <string name="text_phone_number">Nomor Ponsel</string>
     <string name="text_phone_number_required">Nomor Ponsel<font color="red">*</font></string>
-    <string name="text_email_ticket">Email digunakan untuk mengirim e-tiket</string>
     <string name="text_detail_passenger">Detail Penumpang</string>
     <string name="text_child_two_until_eleven">Anak – anak usia 2 – 11 tahun<font color="red">*</font></string>
     <string name="text_full_name_user">%1$s %2$s</string>
@@ -224,8 +208,6 @@
     <string name="text_born_date_required">Tanggal Lahir<font color="red">*</font></string>
 
     <string name="text_same_as_booker">Sama dengan data pemesan</string>
-    <string name="text_pengembalian_dana_desc">Cek status pengembalian danamu</string>
-    <string name="text_pengaturan_desc">Lihat dan atur akun Anda</string>
     <string name="text_pusat_bantuan">Pusat Bantuan</string>
     <string name="text_pusat_bantuan_desc">Temukan jawaban dari pertanyaan Anda</string>
     <string name="text_hubungi_kami">Hubungi Kami</string>
@@ -251,8 +233,6 @@
     <string name="text_dewasa">Dewasa</string>
     <string name="text_anak">Anak</string>
     <string name="text_bayi">Bayi</string>
-    <string name="text_harga_dasar">Harga Dasar</string>
-    <string name="text_pajak">Pajak dan biaya \nlainnya</string>
     <string name="text_admin">Admin</string>
     <string name="text_diskon">Diskon</string>
     <string name="text_hint_cvv">***</string>
@@ -276,7 +256,6 @@
     <string name="text_available">Tersedia</string>
     <string name="text_tersisa">Tersisa %1$d</string>
     <string name="text_passenger_data">Data Penumpang</string>
-    <string name="text_passenger_email">Email \t\t\t\t\t\t\t\t:</string>
     <string name="text_passenger_email_input_passenger">Email \t\t\t\t\t\t:</string>
     <string name="text_booker">Pemesan \t\t\t:</string>
     <string name="text_passenger_phone_number">No ponsel \t\t:</string>
@@ -303,7 +282,6 @@
     <string name="text_order_code">Kode Pesanan %1$s</string>
     <string name="text_empty_order">Belum ada pesanan nih!</string>
     <string name="text_empty_order_desc">Pesan tiketmu sekarang juga</string>
-    <string name="text_payment_failed">Pembayaran Gagal</string>
     <string name="text_address_hint">Masukkan alamat lengkap</string>
     <string name="text_nik">NIK</string>
     <string name="text_nik_hint">Masukkan nomor NIK</string>
@@ -334,6 +312,9 @@
     <string name="text_notification_turn_on_desc">Dapatkan notifikasi terkini dari Fly.id untuk aktivitas akun dan notifikasi transaksi</string>
     <string name="text_not_login_order">Tidak bisa melihat history transaksi</string>
     <string name="text_not_login_order_desc">Login terlebih dahulu untuk melihat history transaksi</string>
+    <string name="text_zero">0</string>
+    <string name="text_one">1</string>
+    <string name="content_desc_fab">Floating Action Button to love the place</string>
 
     <string-array name="payment_methods_array">
         <item>Midtrans</item>
@@ -343,9 +324,5 @@
         <item>Laki-laki</item>
         <item>Perempuan</item>
     </string-array>
-
-    <array name="initial_slider_values">
-        <item>20.0</item>
-        <item>70.0</item>
-    </array>
+    <string name="text_new_airplane">Cari Penerbangan Baru</string>
 </resources>
