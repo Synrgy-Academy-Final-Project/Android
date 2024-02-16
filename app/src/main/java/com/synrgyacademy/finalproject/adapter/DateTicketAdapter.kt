@@ -23,12 +23,12 @@ class DateTicketAdapter(
         fun bind(data: MinimumDataModel) {
             binding.apply {
 
-                if (adapterPosition == 0 && selectedItem == -1) {
+                if (bindingAdapterPosition == 0 && selectedItem == -1) {
                     dateTicket.setTextColor(binding.root.context.getColor(R.color.primary_blue))
                     airlineSmallestPrice.setTextColor(binding.root.context.getColor(R.color.primary_blue))
                     bottomLine.visibility = View.VISIBLE
 
-                } else if (selectedItem == adapterPosition) {
+                } else if (selectedItem == bindingAdapterPosition) {
                     dateTicket.setTextColor(binding.root.context.getColor(R.color.primary_blue))
                     airlineSmallestPrice.setTextColor(binding.root.context.getColor(R.color.primary_blue))
                     bottomLine.visibility = View.VISIBLE
@@ -46,8 +46,8 @@ class DateTicketAdapter(
 
         init {
             binding.root.setOnClickListener {
-                selectedItem = adapterPosition
-                onclick?.invoke(getItem(adapterPosition))
+                selectedItem = bindingAdapterPosition
+                onclick?.invoke(getItem(bindingAdapterPosition))
                 notifyDataSetChanged()
             }
         }

@@ -38,7 +38,7 @@ class PassengerDetailAdapter(
 
         init {
             binding.root.setOnClickListener {
-                onclick?.invoke(getItem(adapterPosition))
+                onclick?.invoke(getItem(bindingAdapterPosition))
             }
         }
     }
