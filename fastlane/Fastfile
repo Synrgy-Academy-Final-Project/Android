@@ -51,7 +51,7 @@ platform :android do
         firebase_cli_token: "1//0gU23bcQ8fxyyCgYIARAAGBASNwF-L9IrZ1WO9otIOe0H072ra1K7elwpwU5bRs9OLIosVZBVDEn9kXH5nRU0EGsiyQF4zyDqNM8",
         debug: true,
         android_artifact_type: "APK",
-        testers: "beranjugaming@gmail.com",
+        testers: "kevinmalikf@gmail.com",
         android_artifact_path: ENV['GRADLE_APK_OUTPUT_PATH'],
         release_notes: "APK debug variant"
     )
