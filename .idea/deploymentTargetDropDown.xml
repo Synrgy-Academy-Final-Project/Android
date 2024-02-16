@@ -2,6 +2,9 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="LoginActivityTest">
+        <State />
+      </entry>
       <entry key="app">
         <State>
           <targetSelectedWithDropDown>
@@ -17,6 +20,9 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2024-01-31T10:57:31.344353600Z" />
         </State>
+      </entry>
+      <entry key="loginAndLogout()">
+        <State />
       </entry>
     </value>
   </component>

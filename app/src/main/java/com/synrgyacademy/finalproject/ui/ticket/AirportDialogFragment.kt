@@ -3,7 +3,6 @@ package com.synrgyacademy.finalproject.ui.ticket
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +30,7 @@ class AirportDialogFragment(private val sourceClick: String) : DialogFragment() 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAirportDialogBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -77,7 +76,6 @@ class AirportDialogFragment(private val sourceClick: String) : DialogFragment() 
                     binding.progressBar.visibility = View.GONE
 
                     airportAdapter.submitList(state.data)
-                    Log.d("DATA", "onViewCreated: ${state.data}")
                 }
             }
         }
@@ -93,10 +91,7 @@ class AirportDialogFragment(private val sourceClick: String) : DialogFragment() 
                 }
 
                 else -> {
-                    Log.d(
-                        "TAG",
-                        "onViewCreatedError: ${airport.airportCityCode} ${airport.airportCode}"
-                    )
+                    // No action needed here
                 }
             }
             dismiss()

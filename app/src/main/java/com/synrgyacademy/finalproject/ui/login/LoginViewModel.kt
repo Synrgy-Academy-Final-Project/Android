@@ -8,6 +8,8 @@ import com.synrgyacademy.common.Resource
 import com.synrgyacademy.domain.usecase.auth.ForgetPasswordUseCase
 import com.synrgyacademy.domain.usecase.auth.LoginUseCase
 import com.synrgyacademy.domain.usecase.auth.VerifyAccountUseCase
+import com.synrgyacademy.domain.usecase.filter.GetNotificationUseCase
+import com.synrgyacademy.finalproject.ui.profile.NotificationState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
@@ -18,7 +20,8 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
     private val forgetPasswordUseCase: ForgetPasswordUseCase,
-    private val verifyAccountUseCase: VerifyAccountUseCase
+    private val verifyAccountUseCase: VerifyAccountUseCase,
+    private val getNotificationUseCase: GetNotificationUseCase
 ) : ViewModel() {
 
     private var _sessionState = MutableLiveData<LoginState>()
@@ -29,6 +32,9 @@ class LoginViewModel @Inject constructor(
 
     private var _verifyAccountState = MutableLiveData<VerifyAccountState>()
     val verifyAccountState: LiveData<VerifyAccountState> get() = _verifyAccountState
+
+    private var _getNotification = MutableLiveData<NotificationState>()
+    val getNotification: MutableLiveData<NotificationState> get() = _getNotification
 
     fun login(email: String, password: String) {
         loginUseCase.invoke(email, password).onEach { result ->
@@ -54,8 +60,22 @@ class LoginViewModel @Inject constructor(
         verifyAccountUseCase.invoke(email, otp).onEach { result ->
             when (result) {
                 is Resource.Loading -> _verifyAccountState.value = VerifyAccountState.Loading
-                is Resource.Error -> _verifyAccountState.value = VerifyAccountState.Error(result.error)
-                is Resource.Success -> _verifyAccountState.value = VerifyAccountState.Success(result.data)
+                is Resource.Error -> _verifyAccountState.value =
+                    VerifyAccountState.Error(result.error)
+
+                is Resource.Success -> _verifyAccountState.value =
+                    VerifyAccountState.Success(result.data)
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getNotification() {
+        getNotificationUseCase().onEach { result ->
+            when (result) {
+                is Resource.Loading -> _getNotification.value = NotificationState.Loading
+                is Resource.Error -> _getNotification.value = NotificationState.Error(result.error)
+                is Resource.Success -> _getNotification.value =
+                    NotificationState.Success(result.data)
             }
         }.launchIn(viewModelScope)
     }

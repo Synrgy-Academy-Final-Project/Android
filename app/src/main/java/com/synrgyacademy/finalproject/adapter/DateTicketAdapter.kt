@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.synrgyacademy.domain.model.airport.MinimumDataModel
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.ItemDateBinding
-import com.synrgyacademy.finalproject.utils.toIdrFormat
-import com.synrgyacademy.finalproject.utils.toIndonesiaDateVersion
+import com.synrgyacademy.finalproject.utils.DateUtils.DDMMYYYYStriptoEEEddMMM
+import com.synrgyacademy.finalproject.utils.CurrencyUtils.toIdrFormat
 
 class DateTicketAdapter(
     var onclick: ((MinimumDataModel) -> Unit)? = null
@@ -18,17 +18,17 @@ class DateTicketAdapter(
 
     private var selectedItem: Int = -1
 
-    inner class AirportViewHolder(private val binding: ItemDateBinding) :
+    inner class DateTicketViewHolder(private val binding: ItemDateBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: MinimumDataModel) {
             binding.apply {
 
-                if (adapterPosition == 0 && selectedItem == -1) {
+                if (bindingAdapterPosition == 0 && selectedItem == -1) {
                     dateTicket.setTextColor(binding.root.context.getColor(R.color.primary_blue))
                     airlineSmallestPrice.setTextColor(binding.root.context.getColor(R.color.primary_blue))
                     bottomLine.visibility = View.VISIBLE
 
-                } else if (selectedItem == adapterPosition) {
+                } else if (selectedItem == bindingAdapterPosition) {
                     dateTicket.setTextColor(binding.root.context.getColor(R.color.primary_blue))
                     airlineSmallestPrice.setTextColor(binding.root.context.getColor(R.color.primary_blue))
                     bottomLine.visibility = View.VISIBLE
@@ -39,15 +39,15 @@ class DateTicketAdapter(
                     bottomLine.visibility = View.GONE
                 }
 
-                dateTicket.text = data.date.toIndonesiaDateVersion()
+                dateTicket.text = data.date.DDMMYYYYStriptoEEEddMMM()
                 airlineSmallestPrice.text = data.price.toIdrFormat()
             }
         }
 
         init {
             binding.root.setOnClickListener {
-                selectedItem = adapterPosition
-                onclick?.invoke(getItem(adapterPosition))
+                selectedItem = bindingAdapterPosition
+                onclick?.invoke(getItem(bindingAdapterPosition))
                 notifyDataSetChanged()
             }
         }
@@ -57,7 +57,7 @@ class DateTicketAdapter(
         parent: ViewGroup,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        return AirportViewHolder(
+        return DateTicketViewHolder(
             ItemDateBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -68,7 +68,7 @@ class DateTicketAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = getItem(position)
-        (holder as AirportViewHolder).bind(data)
+        (holder as DateTicketViewHolder).bind(data)
     }
 
     companion object {

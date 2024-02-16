@@ -2,7 +2,6 @@ package com.synrgyacademy.finalproject.ui.login
 
 import com.synrgyacademy.domain.model.auth.AuthDataModel
 import com.synrgyacademy.domain.model.auth.LoginDataModel
-import com.synrgyacademy.domain.model.auth.UserData
 
 sealed interface LoginState {
     data object Loading : LoginState

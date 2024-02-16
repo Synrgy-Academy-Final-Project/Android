@@ -7,4 +7,14 @@ data class AuthDataModel(
     val message: String,
     val type: String,
     val email: String,
-)
+) {
+    fun toLoginDataModel(): LoginDataModel {
+        return LoginDataModel(
+            roles = roles,
+            fullName = fullName,
+            type = type,
+            email = email,
+            token = token
+        )
+    }
+}

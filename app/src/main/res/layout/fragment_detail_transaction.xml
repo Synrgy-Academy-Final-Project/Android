@@ -3,10 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/detail_transaction_layout"
     android:layout_height="match_parent"
     tools:context=".ui.transaction.DetailTransactionFragment">
 
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:elevation="3dp"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -65,9 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 app:cardCornerRadius="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/header_picture">
+                app:layout_constraintTop_toBottomOf="@+id/header_picture"
+                tools:layout_editor_absoluteX="16dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -121,25 +133,28 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/flight_from_airport"
                         style="@style/TextRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="3dp"
                         android:textColor="#8C8D89"
                         android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/flight_start"
+                        app:layout_constraintEnd_toStartOf="@+id/flight_to_arrow"
                         app:layout_constraintStart_toStartOf="@+id/flight_from_city"
                         app:layout_constraintTop_toBottomOf="@+id/flight_from_city"
-                        tools:text="Soekarno Hatta IA" />
+                        tools:text="Soekarno–Hatta International Airport" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/flight_start"
                         style="@style/OpenSansSemiBold14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="12dp"
                         android:layout_marginBottom="12dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/flight_from_airport"
-                        app:layout_constraintTop_toBottomOf="@+id/flight_from_airport"
+                        app:layout_constraintStart_toStartOf="parent"
                         tools:text="08:00 AM" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -181,27 +196,30 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/flight_to_airport"
                         style="@style/TextRegular"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="end"
                         android:textColor="#8C8D89"
                         android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/flight_end"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/flight_to_arrow"
                         app:layout_constraintTop_toBottomOf="@+id/flight_to_city"
-                        tools:text="Yogyakarta IA" />
+                        tools:text="Sultan Mahmud Badaruddin Ii International" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/flight_end"
                         style="@style/TextSemiBold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
                         android:layout_marginBottom="12dp"
                         android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/flight_to_airport"
-                        app:layout_constraintTop_toBottomOf="@+id/flight_to_airport"
                         tools:text="09:00 AM" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -265,9 +283,9 @@
                         android:layout_margin="12dp"
                         android:background="@drawable/bg_btn_white"
                         android:padding="9dp"
-                        android:textSize="16sp"
                         android:text="@string/text_oke"
                         android:textColor="@color/primary_blue"
+                        android:textSize="16sp"
                         app:backgroundTint="@null"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -334,25 +352,43 @@
                         tools:text="Rp1500.000 x 1" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_adult"
+                        android:id="@+id/tv_anak"
                         style="@style/OpenSansSemiBold16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
                         android:text="@string/text_anak"
-                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_dewasa" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tv_adult_price"
+                        android:id="@+id/tv_anak_price"
                         style="@style/OpenSansSemiBold16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
-                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="@+id/view_header_harga"
-                        app:layout_constraintTop_toTopOf="@+id/tv_adult"
+                        app:layout_constraintTop_toTopOf="@+id/tv_anak"
+                        tools:text="Rp100.000 x 1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_bayi"
+                        style="@style/OpenSansSemiBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:text="@string/text_bayi"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_anak" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_bayi_price"
+                        style="@style/OpenSansSemiBold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/view_header_harga"
+                        app:layout_constraintTop_toTopOf="@+id/tv_bayi"
                         tools:text="Rp1500.000 x 1" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -361,9 +397,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="@string/text_harga_dasar"
+                        android:text="@string/text_total_tiket"
                         app:layout_constraintStart_toStartOf="@+id/tv_dewasa"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_adult" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_bayi" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_harga_dasar_price"
@@ -380,9 +416,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="@string/text_pajak"
-                        app:layout_constraintStart_toStartOf="@id/tv_harga_dasar"
-                        app:layout_constraintTop_toBottomOf="@id/tv_harga_dasar" />
+                        android:text="@string/text_admin"
+                        app:layout_constraintStart_toStartOf="@+id/tv_diskon"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_diskon" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_tax_and_other_price"
@@ -392,7 +428,7 @@
                         app:layout_constraintBottom_toBottomOf="@id/tv_tax_and_other"
                         app:layout_constraintEnd_toEndOf="@id/tv_harga_dasar_price"
                         app:layout_constraintTop_toTopOf="@id/tv_tax_and_other"
-                        tools:text="Rp.500.000" />
+                        tools:text="Rp.15.000" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_diskon"
@@ -401,8 +437,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="@string/text_diskon"
-                        app:layout_constraintStart_toStartOf="@id/tv_tax_and_other"
-                        app:layout_constraintTop_toBottomOf="@id/tv_tax_and_other" />
+                        app:layout_constraintStart_toStartOf="@+id/tv_harga_dasar"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_harga_dasar" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_diskon_value"
@@ -422,7 +458,7 @@
                         android:layout_marginTop="16dp"
                         android:text="@string/text_total_harga"
                         app:layout_constraintStart_toStartOf="@id/tv_tax_and_other"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_diskon" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_tax_and_other" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_price_before_diskon_value"
@@ -435,12 +471,13 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_final_price"
-                        style="@style/OpenSansBold16"
+                        style="@style/OpenSansBold20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="16dp"
                         android:textColor="@color/primary_blue"
+                        android:textSize="22sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/tv_price_before_diskon_value"
                         app:layout_constraintTop_toBottomOf="@+id/tv_price_before_diskon_value"
@@ -488,7 +525,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:paddingBottom="16dp">
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_payment_with_title"
@@ -530,6 +568,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/bg_spinner"
+                        android:padding="4dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/tv_metode_pembayaran"
                         app:layout_constraintTop_toBottomOf="@+id/tv_metode_pembayaran" />
@@ -654,7 +693,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="16dp"
                         app:hintEnabled="false"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/cvv_layout"

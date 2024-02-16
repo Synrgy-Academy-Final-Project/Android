@@ -4,11 +4,11 @@ import com.synrgyacademy.data.remote.request.ChangePasswordRequest
 import com.synrgyacademy.data.remote.request.LoginRequest
 import com.synrgyacademy.data.remote.request.OTPRequest
 import com.synrgyacademy.data.remote.request.RegisterRequest
-import com.synrgyacademy.data.remote.response.AccountVerificationResponse
-import com.synrgyacademy.data.remote.response.LoginResponse
-import com.synrgyacademy.data.remote.response.RegenerateOTPResponse
-import com.synrgyacademy.data.remote.response.RegisterResponse
-import com.synrgyacademy.data.remote.response.VerifiedOTP
+import com.synrgyacademy.data.remote.response.auth.AccountVerificationResponse
+import com.synrgyacademy.data.remote.response.auth.LoginResponse
+import com.synrgyacademy.data.remote.response.auth.RegenerateOTPResponse
+import com.synrgyacademy.data.remote.response.auth.RegisterResponse
+import com.synrgyacademy.data.remote.response.auth.VerifiedOTP
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.PATCH

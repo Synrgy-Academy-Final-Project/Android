@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_view_filter"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_filter"
+        style="@style/OpenSansSemiBold16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/text_filter"
+        app:layout_constraintBottom_toBottomOf="@+id/back_button"
+        app:layout_constraintEnd_toStartOf="@+id/tv_reset"
+        app:layout_constraintStart_toEndOf="@+id/back_button"
+        app:layout_constraintTop_toTopOf="@+id/back_button" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_reset"
+        style="@style/OpenSansSemiBold16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/text_reset"
+        android:textColor="@color/primary_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/back_button" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/divider_top"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/dotted_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_filter" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view_filter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_simpan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/departure_time"
+                style="@style/OpenSansSemiBold16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_departure_time"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/morning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_rounded_10_greylight"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp"
+                app:layout_constraintEnd_toStartOf="@id/noon"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/departure_time">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/OpenSansRegular16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_pagi" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/OpenSansRegular16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pagi_time" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/noon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/bg_rounded_10_greylight"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/morning"
+                app:layout_constraintTop_toTopOf="@+id/morning">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/OpenSansRegular16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_siang" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/OpenSansRegular16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/siang_time" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/afternoon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_rounded_10_greylight"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/morning"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/morning"
+                app:layout_constraintTop_toBottomOf="@+id/morning">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/OpenSansRegular16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_sore" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/OpenSansRegular16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sore_time" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/night"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_10_greylight"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/afternoon"
+                app:layout_constraintEnd_toEndOf="@+id/noon"
+                app:layout_constraintStart_toStartOf="@+id/noon"
+                app:layout_constraintTop_toTopOf="@+id/afternoon">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/OpenSansRegular16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_malam" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/OpenSansRegular16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/malam_time" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/price_title"
+                style="@style/OpenSansSemiBold16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_harga"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/night" />
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/rangeSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price_title"
+                app:rsb_gravity="center"
+                app:rsb_max="10000000"
+                app:rsb_min="0"
+                app:rsb_mode="range"
+                app:rsb_progress_color="@color/primary_blue"
+                app:rsb_thumb_drawable="@drawable/ic_thumb_seekbar"
+                app:rsb_thumb_height="15dp"
+                app:rsb_thumb_width="15dp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/harga_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/rangeSeekBar"
+                app:layout_constraintStart_toStartOf="@+id/rangeSeekBar"
+                app:layout_constraintTop_toBottomOf="@+id/rangeSeekBar">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/harga_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rounded_10_greylight"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/harga_min_title"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_harga_min"
+                        android:textColor="@color/neutral_06" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/harga_min_value"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_total_price"
+                        android:textColor="@color/black" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/harga_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rounded_10_greylight"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/harga_max_title"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_harga_max"
+                        android:textColor="@color/neutral_06" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/harga_max_value"
+                        style="@style/OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_total_price"
+                        android:textColor="@color/black" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/fasilitas_title"
+                style="@style/OpenSansSemiBold16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_fasilitas"
+                app:layout_constraintStart_toStartOf="@+id/harga_container"
+                app:layout_constraintTop_toBottomOf="@+id/harga_container" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_bagasi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_bagasi"
+                app:layout_constraintEnd_toStartOf="@+id/ic_bagasi"
+                app:layout_constraintStart_toStartOf="@+id/fasilitas_title"
+                app:layout_constraintTop_toBottomOf="@+id/fasilitas_title" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_bagasi"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_shopping_bag"
+                app:layout_constraintBottom_toBottomOf="@+id/checkbox_bagasi"
+                app:layout_constraintEnd_toEndOf="@+id/harga_container"
+                app:layout_constraintTop_toTopOf="@+id/checkbox_bagasi" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_entertainment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_entertainment"
+                app:layout_constraintEnd_toStartOf="@+id/ic_bagasi"
+                app:layout_constraintStart_toStartOf="@+id/fasilitas_title"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_bagasi" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_entertainment"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_youtube_square"
+                app:layout_constraintBottom_toBottomOf="@+id/checkbox_entertainment"
+                app:layout_constraintEnd_toEndOf="@+id/ic_bagasi"
+                app:layout_constraintTop_toTopOf="@+id/checkbox_entertainment" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_food"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_meal"
+                app:layout_constraintEnd_toStartOf="@+id/ic_bagasi"
+                app:layout_constraintStart_toStartOf="@+id/fasilitas_title"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_entertainment" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_food"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_utensils"
+                app:layout_constraintBottom_toBottomOf="@+id/checkbox_food"
+                app:layout_constraintEnd_toEndOf="@+id/ic_entertainment"
+                app:layout_constraintTop_toTopOf="@+id/checkbox_food" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_usb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_usb"
+                app:layout_constraintEnd_toStartOf="@+id/ic_bagasi"
+                app:layout_constraintStart_toStartOf="@+id/fasilitas_title"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_food" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_usb"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_usb"
+                app:layout_constraintBottom_toBottomOf="@+id/checkbox_usb"
+                app:layout_constraintEnd_toEndOf="@+id/ic_food"
+                app:layout_constraintTop_toTopOf="@+id/checkbox_usb" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_wifi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_wifi"
+                app:layout_constraintEnd_toStartOf="@+id/ic_bagasi"
+                app:layout_constraintStart_toStartOf="@+id/fasilitas_title"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_usb" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_wifi"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_wifi"
+                app:layout_constraintBottom_toBottomOf="@+id/checkbox_wifi"
+                app:layout_constraintEnd_toEndOf="@+id/ic_usb"
+                app:layout_constraintTop_toTopOf="@+id/checkbox_wifi" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/refund_title"
+                style="@style/OpenSansSemiBold16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_refund_reschedule"
+                app:layout_constraintStart_toStartOf="@id/checkbox_wifi"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_wifi" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_refund"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_refund"
+                app:layout_constraintEnd_toStartOf="@+id/ic_bagasi"
+                app:layout_constraintStart_toStartOf="@+id/fasilitas_title"
+                app:layout_constraintTop_toBottomOf="@+id/refund_title" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_reschedule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_reschedule"
+                app:layout_constraintEnd_toStartOf="@+id/ic_bagasi"
+                app:layout_constraintStart_toStartOf="@+id/fasilitas_title"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_refund" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_saved_filter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_saved_filter"
+                android:textColor="@color/primary_blue"
+                app:layout_constraintEnd_toStartOf="@+id/ic_bagasi"
+                app:layout_constraintStart_toStartOf="@+id/fasilitas_title"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_reschedule" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btn_simpan"
+        style="@style/ButtonApp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
+        android:text="@string/text_simpan"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nested_scroll_view_filter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

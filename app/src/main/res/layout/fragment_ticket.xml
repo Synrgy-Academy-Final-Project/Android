@@ -24,9 +24,9 @@
             android:id="@+id/tv_search_ticket"
             style="@style/OpenSansBold16"
             android:layout_width="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginStart="16dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="70dp"
             android:text="@string/text_check_ticket"
             android:textColor="@color/neutral_01"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,12 +37,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            app:tint="@color/white"
             android:contentDescription="@string/desc_notification"
             android:src="@drawable/ic_bell"
             app:layout_constraintBottom_toBottomOf="@+id/iv_message"
             app:layout_constraintEnd_toStartOf="@+id/iv_message"
-            app:layout_constraintTop_toTopOf="@+id/iv_message" />
+            app:layout_constraintTop_toTopOf="@+id/iv_message"
+            app:tint="@color/white" />
 
         <ImageView
             android:id="@+id/iv_message"
@@ -129,6 +129,7 @@
                     app:layout_constraintTop_toBottomOf="@id/view_1" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_swap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primary_blue"
@@ -139,6 +140,7 @@
                     app:layout_constraintTop_toTopOf="@+id/cl_destination"
                     app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
                     app:tint="@color/neutral_01" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -190,6 +192,9 @@
                     android:layout_height="24dp"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
+                    app:trackTint="@color/white"
+                    app:thumbTint="@color/switch_thumb_color"
+                    app:trackDecorationTint="@color/primary_blue"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_pp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_pp" />
@@ -248,10 +253,11 @@
                         android:src="@drawable/ic_users" />
 
                     <TextView
+                        android:id="@+id/tvPassengerTotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="@string/text_passenger" />
+                        android:text="@string/text_passenger_with_value" />
                 </LinearLayout>
 
                 <View
@@ -292,6 +298,7 @@
                 android:textAppearance="@style/OpenSansBold14"
                 android:textStyle="bold"
                 app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium" />
+
         </LinearLayout>
 
         <TextView
@@ -304,7 +311,7 @@
             app:layout_constraintStart_toStartOf="@+id/ll_search_form"
             app:layout_constraintTop_toBottomOf="@+id/ll_search_form" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_delete_search_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -319,22 +326,23 @@
             style="@style/OpenSansRegular14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:layout_marginVertical="24dp"
             android:elevation="2dp"
             android:text="@string/text_no_history_searching"
-            app:layout_constraintBottom_toBottomOf="@+id/rv_search_history"
-            app:layout_constraintEnd_toEndOf="@+id/tv_delete_search_history"
-            app:layout_constraintStart_toStartOf="@+id/tv_latest_search"
-            app:layout_constraintTop_toTopOf="@+id/rv_search_history" />
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tv_popular_place"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_latest_search" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_search_history"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/tv_delete_search_history"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_latest_search"
             app:layout_constraintTop_toBottomOf="@+id/tv_latest_search"
             tools:listitem="@layout/item_search_history" />
@@ -346,8 +354,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/menu_popular_places"
-            app:layout_constraintStart_toStartOf="@+id/rv_search_history"
+            app:layout_constraintStart_toStartOf="@+id/tv_latest_search"
             app:layout_constraintTop_toBottomOf="@+id/rv_search_history" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/primary_blue"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tv_popular_place"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_search_form" />
 
         <ImageView
             android:id="@+id/iv_more_promo"

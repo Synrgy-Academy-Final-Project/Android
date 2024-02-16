@@ -10,6 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:elevation="3dp"
+            android:visibility="gone"
+            android:indeterminateTint="@color/primary_blue"
+            android:layout_width="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_container"
             android:layout_width="0dp"
@@ -62,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:visibility="gone"
             android:text="@string/text_photo_change"
             android:textColor="@color/primary_blue"
             app:layout_constraintEnd_toEndOf="@+id/profile_image"
@@ -93,10 +106,42 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name_edit_text"
                 style="@style/EditTextEditProfile"
-                android:inputType="textPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/name_register_hint" />
+                android:hint="@string/name_register_hint"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/address_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/text_address"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/address_title"
+            app:layout_constraintTop_toBottomOf="@+id/address_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_address_hint"
+                android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,7 +154,7 @@
             android:text="@string/text_phone_number"
             android:textColor="@color/neutral_07"
             app:layout_constraintStart_toStartOf="@+id/name_input"
-            app:layout_constraintTop_toBottomOf="@+id/name_input" />
+            app:layout_constraintTop_toBottomOf="@+id/address_input" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phone_input"
@@ -159,8 +204,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text"
                 style="@style/EditTextEditProfile"
+                android:background="@drawable/bg_rounded_10_greylight"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:enabled="false"
                 android:hint="@string/email_register_hint"
                 android:inputType="textEmailAddress" />
 
@@ -178,10 +225,11 @@
             app:layout_constraintTop_toBottomOf="@+id/email_input" />
 
         <Spinner
-            android:id="@+id/spinner_metode_pembayaran"
+            android:id="@+id/spinner_gender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:padding="4dp"
             android:background="@drawable/bg_spinner"
             app:layout_constraintEnd_toEndOf="@+id/email_input"
             app:layout_constraintStart_toStartOf="@+id/gender_title"
@@ -196,7 +244,7 @@
             android:text="@string/text_born_date"
             android:textColor="@color/neutral_07"
             app:layout_constraintStart_toStartOf="@+id/name_input"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_metode_pembayaran" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner_gender" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/born_date_input"
@@ -216,6 +264,9 @@
                 style="@style/EditTextEditProfile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:focusable="false"
                 android:hint="@string/text_born_date_hint"
                 android:inputType="date" />
 
@@ -238,9 +289,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="16dp"
-            app:hintEnabled="false"
             app:endIconDrawable="@drawable/ic_flag"
             app:endIconMode="custom"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/nationality_title"
             app:layout_constraintTop_toBottomOf="@+id/nationality_title">
@@ -255,19 +306,147 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/nik_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_nik"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/nationality_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nik_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/nik_title"
+            app:layout_constraintTop_toBottomOf="@+id/nik_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nik_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_nik_hint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/visa_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_visa"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/nik_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/visa_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:hintEnabled="false"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/visa_title"
+            app:layout_constraintTop_toBottomOf="@+id/visa_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/visa_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_visa_hint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/passport_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_passport"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/visa_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passport_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/passport_title"
+            app:layout_constraintTop_toBottomOf="@+id/passport_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passport_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_passport_hint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/resident_permit_title"
+            style="@style/OpenSansSemiBold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_resident_permit"
+            android:textColor="@color/neutral_07"
+            app:layout_constraintStart_toStartOf="@+id/name_input"
+            app:layout_constraintTop_toBottomOf="@+id/passport_input" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/resident_permit_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:hintEnabled="false"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/resident_permit_title"
+            app:layout_constraintTop_toBottomOf="@+id/resident_permit_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/resident_permit_edit_text"
+                style="@style/EditTextEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/text_resident_permit_hint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/save_button"
             style="@style/ButtonApp"
             android:layout_width="0dp"
-            android:layout_marginVertical="16dp"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:padding="13dp"
             android:text="@string/text_simpan"
             android:textSize="16sp"
-            android:padding="13dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/nationality_input"
             app:layout_constraintStart_toStartOf="@+id/nationality_input"
-            app:layout_constraintTop_toBottomOf="@+id/nationality_input" />
+            app:layout_constraintTop_toBottomOf="@+id/resident_permit_input" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

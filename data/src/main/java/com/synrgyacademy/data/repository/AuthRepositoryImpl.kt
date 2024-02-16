@@ -2,17 +2,18 @@ package com.synrgyacademy.data.repository
 
 import com.synrgyacademy.data.local.pref.SessionManager
 import com.synrgyacademy.data.mapper.toAuthDataModel
-import com.synrgyacademy.data.mapper.toLoginDataModel
-import com.synrgyacademy.data.mapper.toUserData
 import com.synrgyacademy.data.remote.request.ChangePasswordRequest
 import com.synrgyacademy.data.remote.request.LoginRequest
 import com.synrgyacademy.data.remote.request.OTPRequest
 import com.synrgyacademy.data.remote.request.RegisterRequest
 import com.synrgyacademy.data.remote.retrofit.AuthService
 import com.synrgyacademy.data.remote.util.SafeApiRequest
+import com.synrgyacademy.domain.model.airport.FilterDataModel
 import com.synrgyacademy.domain.model.auth.AuthDataModel
 import com.synrgyacademy.domain.model.auth.LoginDataModel
+import com.synrgyacademy.domain.model.auth.UserDataDataModel
 import com.synrgyacademy.domain.repository.AuthRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
@@ -41,7 +42,7 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun verifyAccount(email: String, otp: String) : AuthDataModel {
+    override suspend fun verifyAccount(email: String, otp: String): AuthDataModel {
         val otpRequest = OTPRequest(otp = otp)
         val response = safeApiRequest { authService.verifyAccount(email, otpRequest) }
         return response.data!!.toAuthDataModel()
@@ -59,7 +60,7 @@ class AuthRepositoryImpl @Inject constructor(
         return response.data!!.toLoginDataModel()
     }
 
-    override suspend fun isLogin(): Boolean = sessionManager.isLogin().first()
+    override suspend fun isLogin(): Flow<Boolean> = sessionManager.isLogin()
     override suspend fun logout() = sessionManager.logout()
 
     override suspend fun createSession() = sessionManager.createSession()
@@ -68,14 +69,26 @@ class AuthRepositoryImpl @Inject constructor(
         sessionManager.saveUser(userData.toUserData())
     }
 
+    override suspend fun getUserData(): Flow<UserDataDataModel> = sessionManager.getUser()
+
+    override suspend fun getFilterData(): FilterDataModel = sessionManager.getSavedFilter().first()
+
+    override suspend fun saveFilterData(filterDataModel: FilterDataModel) = sessionManager.savedFilter(filterDataModel)
+
+    override suspend fun deleteFilterData() = sessionManager.deletedFilter()
+
+    override suspend fun saveNotification(isActive: Boolean) = sessionManager.saveNotification(isActive)
+
+    override suspend fun getNotification(): Boolean = sessionManager.getNotification().first()
+
     override suspend fun forgotPassword(email: String) {
         safeApiRequest {
             authService.forgotPassword(email)
         }
     }
 
-    override suspend fun verifiedOTP(email: String, otp: String) : String {
-        val response = safeApiRequest {  authService.verifiedOTP(email, otp) }
+    override suspend fun verifiedOTP(email: String, otp: String): String {
+        val response = safeApiRequest { authService.verifiedOTP(email, otp) }
         return response.data!!.token!!
     }
 
@@ -88,7 +101,7 @@ class AuthRepositoryImpl @Inject constructor(
         safeApiRequest {
             authService.changePassword(
                 email,
-                ChangePasswordRequest(token, newPassword, confirmationPassword)
+                ChangePasswordRequest("Bearer $token", newPassword, confirmationPassword)
             )
         }
     }
