@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.FragmentTransactionSuccessBinding
 import com.synrgyacademy.finalproject.utils.CurrencyUtils.toIdrFormatWithoutRp
+import com.synrgyacademy.finalproject.utils.PDFUtils.openPDFContent
 import com.synrgyacademy.finalproject.utils.StringUtils.cleanAndUppercase
 import com.synrgyacademy.finalproject.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -59,18 +60,27 @@ class TransactionSuccessFragment : Fragment() {
                 }
 
                 is HistoryTransactionState.Success -> {
-                    if(result.data.transactionStatus == "Pembayaran Berhasil") {
+                    if (result.data.transactionStatus == "Pembayaran Berhasil") {
                         binding.apply {
                             progressBar.visibility = View.GONE
 
-                            if(arguments?.getString("from") != "order") viewModel.getETicketViaEmail(tokenUser, orderId)
+                            if (arguments?.getString("from") != "order") viewModel.getETicketViaEmail(
+                                tokenUser,
+                                orderId
+                            )
 
                             Glide.with(requireContext())
                                 .load(result.data.urlCompany)
                                 .into(icAirplaneLogo)
 
-                            textPaymentSuccess.text = "Pembayaran Berhasil"
-                            icSuccess.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_success, null))
+                            textPaymentSuccess.text = getString(R.string.text_payment_success)
+                            icSuccess.setImageDrawable(
+                                ResourcesCompat.getDrawable(
+                                    resources,
+                                    R.drawable.ic_success,
+                                    null
+                                )
+                            )
 
                             departureDate.text = result.data.departureDate
                             flightFromCity.text = result.data.departureCityCode
@@ -89,18 +99,24 @@ class TransactionSuccessFragment : Fragment() {
                                 R.string.text_total_price,
                                 result.data.totalPrice?.toIdrFormatWithoutRp()
                             )
-                            textStatusValue.text =
-                                result.data.transactionStatus ?: "Pembayaran Gagal"
+                            textStatusValue.text = result.data.transactionStatus
                         }
                     } else {
                         binding.apply {
                             progressBar.visibility = View.GONE
-                            textPaymentSuccess.text = "Pembayaran Gagal"
-                            icSuccess.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_gagal, null))
+                            textPaymentSuccess.text = getString(R.string.text_payment_failed)
+                            icSuccess.setImageDrawable(
+                                ResourcesCompat.getDrawable(
+                                    resources,
+                                    R.drawable.ic_gagal,
+                                    null
+                                )
+                            )
 
                             Glide.with(requireContext())
                                 .load(result.data.urlCompany)
                                 .into(icAirplaneLogo)
+
                             departureDate.text = result.data.departureDate
                             flightFromCity.text = result.data.departureCityCode
                             flightToCity.text = result.data.arrivalCityCode
@@ -118,15 +134,38 @@ class TransactionSuccessFragment : Fragment() {
                                 R.string.text_total_price,
                                 result.data.totalPrice?.toIdrFormatWithoutRp()
                             )
-                            textStatusValue.text = "Pembayaran Gagal"
+                            textStatusValue.text = getString(R.string.text_payment_failed)
                         }
                     }
+                }
+            }
+        }
+
+        viewModel.eTicketPDF.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is EticketPDFState.Loading -> {
+                    // do nothing
+                }
+
+                is EticketPDFState.Error -> {
+                    // do nothing
+                }
+
+                is EticketPDFState.Success -> {
+                    openPDFContent(requireContext(), result.data.byteStream(), "E-Ticket")
                 }
             }
         }
     }
 
     private fun onClick() {
+        binding.btnDownloadInvoice.setOnClickListener {
+            val orderId = arguments?.getString("orderId")!!
+            val tokenUser = arguments?.getString("token")!!
+
+            viewModel.getETicketPDF(tokenUser, orderId)
+        }
+
         binding.buttonBackToHome.setOnClickListener {
             findNavController().apply {
                 popBackStack(R.id.ticket_navigation, true)

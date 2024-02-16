@@ -17,6 +17,7 @@ import com.synrgyacademy.finalproject.adapter.PopularPlacesAdapter
 import com.synrgyacademy.finalproject.databinding.FragmentTicketBinding
 import com.synrgyacademy.finalproject.ui.passenger.PassengerState
 import com.synrgyacademy.finalproject.ui.passenger.UserDataState
+import com.synrgyacademy.finalproject.ui.popular.TourismState
 import com.synrgyacademy.finalproject.utils.DateUtils.getCurrentDDMMYYYY
 import com.synrgyacademy.finalproject.utils.DateUtils.getCurrentDateEEEDDMMM
 import com.synrgyacademy.finalproject.utils.DateUtils.getCurrentYYYYMMDDHHMMSS
@@ -43,10 +44,6 @@ class TicketFragment : Fragment(), ClassDialogFragment.OnClassSelectedListener {
 
     private var isSwapped = false
 
-    override fun onClassSelected(selectedClass: String) {
-        // Update the TextView with the selected class data
-        binding.tvClass.text = selectedClass
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -90,8 +87,20 @@ class TicketFragment : Fragment(), ClassDialogFragment.OnClassSelectedListener {
         }
 
         viewModel.getPopularPlaces()
-        viewModel.popularPlace.observe(viewLifecycleOwner) { state ->
-            popularPlacesAdapter.submitList(state)
+        viewModel.tourismData.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is TourismState.Loading -> {
+                    // do nothing
+                }
+
+                is TourismState.Error -> {
+                    requireContext().showToast(state.error)
+                }
+
+                is TourismState.Success -> {
+                    popularPlacesAdapter.submitList(state.data)
+                }
+            }
         }
 
         historyViewModel.getAllHistory()
@@ -243,6 +252,13 @@ class TicketFragment : Fragment(), ClassDialogFragment.OnClassSelectedListener {
                 }
             }
 
+            tvSelectedDate.setOnClickListener {
+                showDatePicker { (displayDate, sendDate) ->
+                    tvSelectedDate.text = displayDate
+                    tvSelectedDate.tag = sendDate
+                }
+            }
+
             ivCalendarBack.setOnClickListener {
                 showDatePicker { (displayDate, sendDate) ->
                     tvSelectedDateBack.text = displayDate
@@ -269,6 +285,14 @@ class TicketFragment : Fragment(), ClassDialogFragment.OnClassSelectedListener {
                 ) {
                     historyViewModel.deleteAllHistory()
                 }
+            }
+
+            ivNotification.setOnClickListener {
+                findNavController().navigate(R.id.notificationFragment)
+            }
+
+            ivMessage.setOnClickListener {
+                findNavController().navigate(R.id.contactUsFragment)
             }
 
             btnSearch.setOnClickListener {
@@ -369,6 +393,11 @@ class TicketFragment : Fragment(), ClassDialogFragment.OnClassSelectedListener {
     ): View {
         _binding = FragmentTicketBinding.inflate(layoutInflater, container, false)
         return binding.root
+    }
+
+    override fun onClassSelected(selectedClass: String) {
+        // Update the TextView with the selected class data
+        binding.tvClass.text = selectedClass
     }
 
     override fun onDestroyView() {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -11,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.adapter.PopularPlacesVerticalAdapter
 import com.synrgyacademy.finalproject.databinding.FragmentPopularPlacesBinding
-import com.synrgyacademy.finalproject.ui.ticket.AirportViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +20,7 @@ class PopularPlacesFragment : Fragment() {
     private var _binding: FragmentPopularPlacesBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: AirportViewModel by viewModels<AirportViewModel>()
+    private val viewModel: PopularViewModel by viewModels<PopularViewModel>()
     private val popularPlacesAdapter: PopularPlacesVerticalAdapter by lazy { PopularPlacesVerticalAdapter() }
 
     override fun onCreateView(
@@ -53,12 +53,35 @@ class PopularPlacesFragment : Fragment() {
             })
         }
 
+        binding.svPopularPlaces.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.searchTourism(query.toString())
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.searchTourism(newText.toString())
+                return false
+            }
+        })
     }
 
     private fun setData() {
-        viewModel.getPopularPlaces()
-        viewModel.popularPlace.observe(viewLifecycleOwner) {
-            popularPlacesAdapter.submitList(it)
+        viewModel.getAllTourism()
+        viewModel.getTourism.observe(viewLifecycleOwner) {
+            when (it) {
+                is TourismState.Loading -> {
+                    // do nothing
+                }
+
+                is TourismState.Error -> {
+                    // do nothing
+                }
+
+                is TourismState.Success -> {
+                    popularPlacesAdapter.submitList(it.data)
+                }
+            }
         }
     }
 

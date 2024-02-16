@@ -149,6 +149,10 @@ class InputPassengerFragment : Fragment() {
             }
         }
 
+        binding.icCircleProfile.setOnClickListener {
+            findNavController().navigate(R.id.editProfileFragment)
+        }
+
         binding.backButton.setOnClickListener {
             findNavController().popBackStack()
             viewModel.deletedPassenger()

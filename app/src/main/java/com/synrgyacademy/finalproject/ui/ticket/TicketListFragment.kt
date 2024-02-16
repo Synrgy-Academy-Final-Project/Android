@@ -43,7 +43,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 
 @AndroidEntryPoint
-class TicketListFragment : Fragment() {
+class TicketListFragment : Fragment(), NewFlightDialogFragment.OnScheduleSearchListener {
 
     private var _binding: FragmentTicketListBinding? = null
     private val binding get() = _binding!!
@@ -74,24 +74,30 @@ class TicketListFragment : Fragment() {
     }
 
     private fun onClick() {
-        binding.backButton.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
-        }
+        binding.apply {
+            backButton.setOnClickListener {
+                findNavController().popBackStack()
+            }
 
-        binding.filterButton.setOnClickListener {
-            showSideSheet()
-        }
+            filterButton.setOnClickListener {
+                showSideSheet()
+            }
 
-        binding.tvFilter.setOnClickListener {
-            showSideSheet()
-        }
+            tvFilter.setOnClickListener {
+                showSideSheet()
+            }
 
-        binding.promoButton.setOnClickListener {
-            showPromotions()
-        }
+            promoButton.setOnClickListener {
+                showPromotions()
+            }
 
-        binding.tvPromo.setOnClickListener {
-            showPromotions()
+            tvPromo.setOnClickListener {
+                showPromotions()
+            }
+
+            flightDropdown.setOnClickListener {
+                NewFlightDialogFragment().show(childFragmentManager, NewFlightDialogFragment.TAG)
+            }
         }
     }
 
@@ -122,7 +128,7 @@ class TicketListFragment : Fragment() {
 
         val totalPassenger =
             (getPassenger?.adult ?: 0) + (getPassenger?.child ?: 0) + (getPassenger?.infant ?: 0)
-        binding.flightPersonCount.text = getString(R.string.passenger_total, totalPassenger)
+        binding.flightPersonCount.text = getString(R.string.text_passenger_with_value, totalPassenger)
 
         if (getDeparture != null && getArrival != null && getDateFlight != null && getClass != null) {
             viewModel.getScheduleFlight(
@@ -504,5 +510,45 @@ class TicketListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onSchedule(
+        departureData: AirportDataModel,
+        arrivalData: AirportDataModel,
+        date: String,
+        classType: String,
+        passengerTotal: PassengerTotal
+    ) {
+        viewModel.getScheduleFlight(
+            GetScheduleFlightQuery(
+                departureData.airportCode,
+                arrivalData.airportCode,
+                date,
+                classType
+            )
+        )
+
+        viewModel.scheduleState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is ScheduleState.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                is ScheduleState.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                }
+                is ScheduleState.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    ticketAdapter.submitList(state.data)
+                }
+            }
+        }
+
+        val passengerValue = passengerTotal.adult + passengerTotal.child + passengerTotal.infant
+        binding.apply {
+            flightsFrom.text = departureData.airportCityCode
+            flightsTo.text = arrivalData.airportCityCode
+            flightClass.text = classType
+            flightPersonCount.text = getString(R.string.text_passenger_with_value, passengerValue)
+        }
     }
 }

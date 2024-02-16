@@ -145,6 +145,14 @@ class ProfileFragment : Fragment() {
                     })
             }
 
+            ivBell.setOnClickListener {
+                findNavController().navigate(R.id.notificationFragment)
+            }
+
+            ivSetting.setOnClickListener {
+                findNavController().navigate(R.id.helpCentreFragment)
+            }
+
             btnMasuk.setOnClickListener {
                 findNavController().navigate(R.id.loginFragment)
             }
