@@ -4,6 +4,7 @@ package com.synrgyacademy.data.remote.di
 import com.synrgyacademy.data.BuildConfig
 import com.synrgyacademy.data.remote.retrofit.AirportService
 import com.synrgyacademy.data.remote.retrofit.AuthService
+import com.synrgyacademy.data.remote.retrofit.TourismService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,7 +39,8 @@ object RemoteModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(
+    @Named("backend_java")
+    fun provideRetrofitBackendJava(
         client: OkHttpClient
     ): Retrofit {
         val baseUrl = BuildConfig.API_KEY
@@ -51,15 +53,33 @@ object RemoteModule {
 
     @Provides
     @Singleton
+    @Named("backend_fsw")
+    fun provideRetrofitBackendFSW(
+        client: OkHttpClient
+    ): Retrofit {
+        val baseUrl = BuildConfig.API_KEY_FSW
+        return Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+    }
+
+    @Provides
+    @Singleton
     fun provideAuthService(
-        retrofit: Retrofit
+        @Named("backend_java") retrofit: Retrofit
     ): AuthService = retrofit.create(AuthService::class.java)
 
     @Provides
     @Singleton
     fun provideAirportService(
-        retrofit: Retrofit
+        @Named("backend_java") retrofit: Retrofit
     ): AirportService = retrofit.create(AirportService::class.java)
 
-
+    @Provides
+    @Singleton
+    fun provideTourismService(
+        @Named("backend_fsw") retrofit: Retrofit
+    ): TourismService = retrofit.create(TourismService::class.java)
 }
