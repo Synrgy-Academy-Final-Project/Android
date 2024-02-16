@@ -1,6 +1,5 @@
 package com.synrgyacademy.domain.usecase.auth
 
-import android.util.Log
 import com.synrgyacademy.common.Resource
 import com.synrgyacademy.domain.model.auth.AuthDataModel
 import com.synrgyacademy.domain.repository.AuthRepository

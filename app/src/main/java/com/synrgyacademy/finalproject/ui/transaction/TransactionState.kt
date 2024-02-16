@@ -3,6 +3,7 @@ package com.synrgyacademy.finalproject.ui.transaction
 import com.synrgyacademy.domain.model.airport.HistoryTransactionDataModel
 import com.synrgyacademy.domain.model.airport.PromotionsDataModel
 import com.synrgyacademy.domain.model.airport.TransactionDataModel
+import okhttp3.ResponseBody
 
 sealed interface TransactionState {
     data object Loading : TransactionState
@@ -26,4 +27,10 @@ sealed interface EticketState {
     data object Loading : EticketState
     data class Success(val data: String) : EticketState
     data class Error(val error: String) : EticketState
+}
+
+sealed interface EticketPDFState {
+    data object Loading : EticketPDFState
+    data class Success(val data: ResponseBody) : EticketPDFState
+    data class Error(val error: String) : EticketPDFState
 }
