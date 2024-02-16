@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.synrgyacademy.common.Resource
 import com.synrgyacademy.domain.request.TransactionRequest
 import com.synrgyacademy.domain.usecase.airport.AddTransactionUseCase
+import com.synrgyacademy.domain.usecase.airport.GetEticketAttachFile
 import com.synrgyacademy.domain.usecase.airport.GetEticketByEmail
 import com.synrgyacademy.domain.usecase.airport.GetHistoryTransactionById
 import com.synrgyacademy.domain.usecase.airport.GetPromotionsUseCase
@@ -23,6 +24,7 @@ class TransactionViewModel @Inject constructor(
     private val addTransactionUseCase: AddTransactionUseCase,
     private val getHistoryTransactionById: GetHistoryTransactionById,
     private val getEticketByEmail: GetEticketByEmail,
+    private val getEticketAttachFile: GetEticketAttachFile,
     private val getNotificationUseCase: GetNotificationUseCase
 ) : ViewModel() {
 
@@ -38,6 +40,11 @@ class TransactionViewModel @Inject constructor(
     private var _eTicketByEmail = MutableLiveData<EticketState>()
 
     private var _getNotification = MutableLiveData<NotificationState>()
+
+
+    private var _eTicketPDF = MutableLiveData<EticketPDFState>()
+    val eTicketPDF: MutableLiveData<EticketPDFState> get() = _eTicketPDF
+
     val getNotification: MutableLiveData<NotificationState> get() = _getNotification
 
     fun getPromotion(coupon: String) {
@@ -84,6 +91,16 @@ class TransactionViewModel @Inject constructor(
                 is Resource.Loading -> _eTicketByEmail.value = EticketState.Loading
                 is Resource.Error -> _eTicketByEmail.value = EticketState.Error(result.error)
                 is Resource.Success -> _eTicketByEmail.value = EticketState.Success(result.data)
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getETicketPDF(token: String, idTransaction: String) {
+        getEticketAttachFile(token, idTransaction).onEach { result ->
+            when (result) {
+                is Resource.Loading -> _eTicketPDF.value = EticketPDFState.Loading
+                is Resource.Error -> _eTicketPDF.value = EticketPDFState.Error(result.error)
+                is Resource.Success -> _eTicketPDF.value = EticketPDFState.Success(result.data)
             }
         }.launchIn(viewModelScope)
     }
