@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="1" />
+                android:text="@string/text_one" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/ib_add_adult_count"
@@ -139,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="0" />
+                android:text="@string/text_zero" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/ib_add_child_count"
@@ -200,7 +200,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="0" />
+                android:text="@string/text_zero" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/ib_add_baby_count"

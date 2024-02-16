@@ -25,9 +25,11 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "API_KEY", "\"https://fly-id-1999ce14c36e.herokuapp.com/\"")
+            buildConfigField("String", "API_KEY_FSW", "\"https://backend-fsw.fly.dev/api/v1/\"")
         }
         debug {
             buildConfigField("String", "API_KEY", "\"https://fly-id-1999ce14c36e.herokuapp.com/\"")
+            buildConfigField("String", "API_KEY_FSW", "\"https://backend-fsw.fly.dev/api/v1/\"")
         }
     }
     compileOptions {
@@ -64,9 +66,13 @@ dependencies {
     // prefs
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+    // testing
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:5.8.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
 
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 

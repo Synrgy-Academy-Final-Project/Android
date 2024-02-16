@@ -4,6 +4,7 @@ plugins {
     id("com.google.gms.google-services")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -51,10 +52,13 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
 
     // firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-crashlytics")
 
     // splash core
     implementation("androidx.core:core-splashscreen:1.0.1")
@@ -74,6 +78,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation("androidx.test.espresso:espresso-intents:3.5.1")
 
     // otp view
     implementation("com.github.aabhasr1:OtpView:v1.1.2-ktx")
@@ -86,6 +91,12 @@ dependencies {
 
     // glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    // notification
+    implementation("io.karn:notify:1.4.0")
+
+    // pdf viewer
+    implementation("com.github.afreakyelf:Pdf-Viewer:v2.0.5")
 }
 kapt {
     correctErrorTypes = true

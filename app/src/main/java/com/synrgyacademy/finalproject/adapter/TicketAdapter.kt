@@ -9,15 +9,15 @@ import com.bumptech.glide.Glide
 import com.synrgyacademy.domain.model.airport.ScheduleDataModel
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.ItemTicketBinding
-import com.synrgyacademy.finalproject.utils.convertDepartureArrivalTIme
-import com.synrgyacademy.finalproject.utils.convertFlightTime
-import com.synrgyacademy.finalproject.utils.numberToPrice
+import com.synrgyacademy.finalproject.utils.CurrencyUtils.toIdrFormatWithoutRp
+import com.synrgyacademy.finalproject.utils.StringUtils.convertDepartureArrivalTime
+import com.synrgyacademy.finalproject.utils.StringUtils.convertFlightTime
 
 class TicketAdapter(
     var onclick: ((ScheduleDataModel) -> Unit)? = null
 ) : ListAdapter<ScheduleDataModel, RecyclerView.ViewHolder>(DIFF_UTIL) {
 
-    inner class AirportViewHolder(private val binding: ItemTicketBinding) :
+    inner class TicketViewHolder(private val binding: ItemTicketBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ScheduleDataModel) {
             binding.apply {
@@ -26,7 +26,7 @@ class TicketAdapter(
                     .load(data.urlLogo)
                     .into(airlineLogo)
 
-                flightPrice.text = numberToPrice(data.totalPrice)
+                flightPrice.text = itemView.context.getString(R.string.text_total_price_with_slash, data.totalPrice.toIdrFormatWithoutRp())
 
                 if (data.capacity > 20) {
                     flightSeat.apply {
@@ -40,17 +40,17 @@ class TicketAdapter(
                     }
                 }
 
-                flightFrom.text = data.departureCode
-                flightTo.text = data.arrivalCode
-                flightStart.text = data.departureTime.convertDepartureArrivalTIme()
-                flightEnd.text = data.arrivalTime.convertDepartureArrivalTIme()
+                flightFrom.text = data.departureCityCode
+                flightTo.text = data.arrivalCityCode
+                flightStart.text = data.departureTime.convertDepartureArrivalTime()
+                flightEnd.text = data.arrivalTime.convertDepartureArrivalTime()
                 flightDuration.text = data.flightTime.convertFlightTime()
             }
         }
 
         init {
             binding.root.setOnClickListener {
-                onclick?.invoke(getItem(adapterPosition))
+                onclick?.invoke(getItem(bindingAdapterPosition))
             }
         }
     }
@@ -59,7 +59,7 @@ class TicketAdapter(
         parent: ViewGroup,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        return AirportViewHolder(
+        return TicketViewHolder(
             ItemTicketBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -70,7 +70,7 @@ class TicketAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = getItem(position)
-        (holder as AirportViewHolder).bind(data)
+        (holder as TicketViewHolder).bind(data)
     }
 
     companion object {

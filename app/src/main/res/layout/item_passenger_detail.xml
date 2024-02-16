@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/text_detail_order"
+        android:text="@string/text_detail_order_with_value"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,32 +44,97 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
-        tools:text="Aria"
+        tools:text="Kevin Malik Fajar"
         app:layout_constraintBottom_toBottomOf="@+id/text_name_booker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_name_booker"
         app:layout_constraintTop_toTopOf="@+id/text_name_booker" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ic_phone"
+        android:id="@+id/ic_born"
         android:layout_width="wrap_content"
-        android:layout_marginEnd="5dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="5dp"
         android:src="@drawable/ic_calendar_check"
         app:layout_constraintEnd_toEndOf="@+id/ic_user_check"
         app:layout_constraintStart_toStartOf="@+id/ic_user_check"
         app:layout_constraintTop_toBottomOf="@+id/text_name_booker_value" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_phone_booker"
+        android:id="@+id/text_born_booker"
         style="@style/OpenSansRegular14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="@string/tools_born_date"
-        app:layout_constraintBottom_toBottomOf="@+id/ic_phone"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_born"
         app:layout_constraintStart_toStartOf="@+id/text_name_booker"
+        app:layout_constraintTop_toTopOf="@+id/ic_born" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_born_booker_value"
+        style="@style/OpenSansRegular14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        tools:text="5 Maret 2003"
+        app:layout_constraintBottom_toBottomOf="@+id/text_born_booker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/text_name_booker_value"
+        app:layout_constraintTop_toTopOf="@+id/text_born_booker" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ic_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_male"
+        app:layout_constraintEnd_toEndOf="@+id/ic_born"
+        app:layout_constraintStart_toStartOf="@+id/ic_born"
+        app:layout_constraintTop_toBottomOf="@+id/ic_born" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_gender_booker"
+        style="@style/OpenSansRegular14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_gender_with_tab"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_gender"
+        app:layout_constraintStart_toStartOf="@+id/text_born_booker"
+        app:layout_constraintTop_toTopOf="@+id/ic_gender" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_gender_booker_value"
+        style="@style/OpenSansRegular14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_gender_booker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/text_born_booker_value"
+        app:layout_constraintTop_toTopOf="@+id/text_gender_booker"
+        tools:text="Laki-laki" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ic_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_phone_alt"
+        app:layout_constraintEnd_toEndOf="@+id/ic_user_check"
+        app:layout_constraintStart_toStartOf="@+id/ic_user_check"
+        app:layout_constraintTop_toBottomOf="@+id/ic_gender" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_phone_booker"
+        style="@style/OpenSansRegular14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_passenger_phone_number_more_tab"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_phone"
+        app:layout_constraintStart_toStartOf="@+id/text_gender_booker"
         app:layout_constraintTop_toTopOf="@+id/ic_phone" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -78,10 +143,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        tools:text="08123456789"
         app:layout_constraintBottom_toBottomOf="@+id/text_phone_booker"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/text_name_booker_value"
-        app:layout_constraintTop_toTopOf="@+id/text_phone_booker" />
+        app:layout_constraintStart_toStartOf="@+id/text_gender_booker_value"
+        app:layout_constraintTop_toTopOf="@+id/text_phone_booker"
+        tools:text="08123456789" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

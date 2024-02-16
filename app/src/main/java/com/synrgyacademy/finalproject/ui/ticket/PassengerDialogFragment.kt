@@ -35,7 +35,7 @@ class PassengerDialogFragment : DialogFragment() {
         binding.ibDecreaseBabyCount.isEnabled = babyCount > 0
 
         binding.ibDecreaseAdultCount.setOnClickListener {
-           adultCount--
+            adultCount--
             binding.tvAdultCount.text = adultCount.toString()
             binding.ibDecreaseAdultCount.isEnabled = adultCount > 1
         }
@@ -59,6 +59,7 @@ class PassengerDialogFragment : DialogFragment() {
             binding.tvChildCount.text = childCount.toString()
             binding.ibDecreaseChildCount.isEnabled = childCount > 0
         }
+
         binding.ibAddBabyCount.setOnClickListener {
             babyCount++
             binding.tvBabyCount.text = babyCount.toString()

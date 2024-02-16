@@ -6,14 +6,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.synrgyacademy.common.Resource
 import com.synrgyacademy.domain.model.airport.AirportDataModel
-import com.synrgyacademy.domain.model.airport.PassengerTotal
-import com.synrgyacademy.domain.usecase.airport.DeleteAllHistoryUseCase
+import com.synrgyacademy.domain.model.airport.FilterDataModel
+import com.synrgyacademy.domain.model.passenger.PassengerTotal
+import com.synrgyacademy.domain.model.query.GetScheduleFlightQuery
+import com.synrgyacademy.domain.model.query.MinimumPriceQuery
 import com.synrgyacademy.domain.usecase.airport.GetAirportUseCase
-import com.synrgyacademy.domain.usecase.airport.GetAllHistoryUseCase
-import com.synrgyacademy.domain.usecase.airport.GetHistorySearchingByIdUseCase
+import com.synrgyacademy.domain.usecase.airport.GetAllPromotionsUseCase
 import com.synrgyacademy.domain.usecase.airport.GetMinimumPriceUseCase
 import com.synrgyacademy.domain.usecase.airport.GetScheduleFlightUseCase
-import com.synrgyacademy.domain.usecase.airport.InsertHistorySearchingUseCase
+import com.synrgyacademy.domain.usecase.filter.GetFilterSearchUseCase
+import com.synrgyacademy.domain.usecase.filter.SavedFilterUseCase
+import com.synrgyacademy.domain.usecase.tourism.GetAllTourismUseCase
+import com.synrgyacademy.finalproject.ui.popular.TourismState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
@@ -25,10 +29,10 @@ class AirportViewModel @Inject constructor(
     private val getAirportUseCase: GetAirportUseCase,
     private val getScheduleFlightUseCase: GetScheduleFlightUseCase,
     private val getMinimumPriceUseCase: GetMinimumPriceUseCase,
-    private val insertHistorySearchingUseCase: InsertHistorySearchingUseCase,
-    private val getAllHistoryUseCase: GetAllHistoryUseCase,
-    private val getHistorySearchingByIdUseCase: GetHistorySearchingByIdUseCase,
-    private val deleteAllHistoryUseCase: DeleteAllHistoryUseCase
+    private val getAllPromotionsUseCase: GetAllPromotionsUseCase,
+    private val getFilterSearchUseCase: GetFilterSearchUseCase,
+    private val savedFilterUseCase: SavedFilterUseCase,
+    private val getAllTourismUseCase: GetAllTourismUseCase
 ) : ViewModel() {
 
     private val _airportData = MutableLiveData<AirportState>()
@@ -48,6 +52,17 @@ class AirportViewModel @Inject constructor(
 
     private val _minimumPrice = MutableLiveData<MinimumPriceState>()
     val minimumPrice: LiveData<MinimumPriceState> get() = _minimumPrice
+
+    private val _allPromotion = MutableLiveData<AllPromotionsState>()
+    val allPromotion: LiveData<AllPromotionsState> get() = _allPromotion
+
+    private val _getFilter = MutableLiveData<GetFilterState>()
+    val getFilter: LiveData<GetFilterState> get() = _getFilter
+
+    private val _savedFilter = MutableLiveData<FilterState>()
+
+    private val _tourismData = MutableLiveData<TourismState>()
+    val tourismData: LiveData<TourismState> get() = _tourismData
 
     fun setArrivalData(data: AirportDataModel) {
         arrivalData.value = data
@@ -71,18 +86,8 @@ class AirportViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
-    fun getScheduleFlight(
-        departureCode: String,
-        arrivalCode: String,
-        departureDate: String,
-        airplaneClass: String
-    ) {
-        getScheduleFlightUseCase(
-            departureCode = departureCode,
-            arrivalCode = arrivalCode,
-            departureDate = departureDate,
-            airplaneClass = airplaneClass
-        ).onEach { result ->
+    fun getScheduleFlight(getScheduleFlightQuery: GetScheduleFlightQuery) {
+        getScheduleFlightUseCase(getScheduleFlightQuery).onEach { result ->
             when (result) {
                 is Resource.Loading -> _scheduleData.value = ScheduleState.Loading
                 is Resource.Error -> _scheduleData.value = ScheduleState.Error(result.error)
@@ -91,20 +96,52 @@ class AirportViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
-    fun getMinimumPrice(
-        fromAirportCode: String,
-        toAirportCode: String,
-        departureDate: String
-    ) {
-        getMinimumPriceUseCase(
-            fromAirportCode = fromAirportCode,
-            toAirportCode = toAirportCode,
-            departureDate = departureDate
-        ).onEach { result ->
+    fun getPopularPlaces() {
+        getAllTourismUseCase().onEach { result ->
+            when (result) {
+                is Resource.Loading -> _tourismData.value = TourismState.Loading
+                is Resource.Error -> _tourismData.value = TourismState.Error(result.error)
+                is Resource.Success -> _tourismData.value = TourismState.Success(result.data)
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getAllPromotions() {
+        getAllPromotionsUseCase().onEach { result ->
+            when (result) {
+                is Resource.Loading -> _allPromotion.value = AllPromotionsState.Loading
+                is Resource.Error -> _allPromotion.value = AllPromotionsState.Error(result.error)
+                is Resource.Success -> _allPromotion.value = AllPromotionsState.Success(result.data)
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getMinimumPrice(minimumPriceQuery: MinimumPriceQuery) {
+        getMinimumPriceUseCase(minimumPriceQuery).onEach { result ->
             when (result) {
                 is Resource.Loading -> _minimumPrice.value = MinimumPriceState.Loading
                 is Resource.Error -> _minimumPrice.value = MinimumPriceState.Error(result.error)
                 is Resource.Success -> _minimumPrice.value = MinimumPriceState.Success(result.data)
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getFilterSearch() {
+        getFilterSearchUseCase().onEach { result ->
+            when (result) {
+                is Resource.Loading -> _getFilter.value = GetFilterState.Loading
+                is Resource.Error -> _getFilter.value = GetFilterState.Error(result.error)
+                is Resource.Success -> _getFilter.value = GetFilterState.Success(result.data)
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun savedFilter(data: FilterDataModel) {
+        savedFilterUseCase(data).onEach { result ->
+            when (result) {
+                is Resource.Loading -> _savedFilter.value = FilterState.Loading
+                is Resource.Error -> _savedFilter.value = FilterState.Error(result.error)
+                is Resource.Success -> _savedFilter.value = FilterState.Success
             }
         }.launchIn(viewModelScope)
     }

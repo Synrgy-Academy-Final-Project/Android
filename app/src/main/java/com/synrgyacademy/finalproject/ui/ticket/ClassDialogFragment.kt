@@ -42,7 +42,6 @@ class ClassDialogFragment : DialogFragment() {
         binding.rbGroup.setOnCheckedChangeListener { _, checkedId ->
             val selectedClass = when (checkedId) {
                 R.id.rb_economic -> "Economic"
-                R.id.rb_economic_premium -> "Premium Economic"
                 R.id.rb_business -> "Business"
                 R.id.rb_main -> "First Class"
                 else -> ""
@@ -56,7 +55,7 @@ class ClassDialogFragment : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentClassDialogBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.NotificationFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_container"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/help_centre_title"
+        style="@style/OpenSansSemiBold20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/text_notification_setting"
+        android:textColor="@color/neutral_01"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="27dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/help_centre_title" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/turn_on_notification_title"
+        style="@style/OpenSansSemiBold16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/text_notification_turn_on"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_container" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/turn_on_notification_subtitle"
+        style="@style/OpenSansRegular14"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_notification_turn_on_desc"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/turn_on_notification_title"
+        app:layout_constraintTop_toBottomOf="@+id/turn_on_notification_title" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:scaleX="0.7"
+        app:trackTint="@color/white"
+        app:thumbTint="@color/switch_thumb_color"
+        android:scaleY="0.7"
+        app:trackDecorationTint="@color/primary_blue"
+        app:layout_constraintBottom_toBottomOf="@+id/turn_on_notification_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/turn_on_notification_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

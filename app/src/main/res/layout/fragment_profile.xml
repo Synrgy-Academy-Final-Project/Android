@@ -146,12 +146,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
             android:gravity="center_horizontal"
-            tools:text="Kevin Malik Fajar"
             android:textColor="@color/neutral_07"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_profile"
+            tools:text="Kevin Malik Fajar"
             tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -160,12 +160,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            tools:text="kevinmalikfajar@gmail.com"
             android:textColor="@color/neutral_07"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="kevinmalikfajar@gmail.com"
             tools:visibility="visible" />
 
         <com.google.android.material.button.MaterialButton
@@ -269,198 +269,6 @@
 
             <View
                 android:id="@+id/divider_1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/neutral_01" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/iv_refund"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="24dp"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:src="@drawable/ic_money_check_edit"
-                    android:tint="@color/primary_blue"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_refund"
-                    style="@style/OpenSansSemiBold14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/text_pengembalian_dana"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toTopOf="@id/tv_refund_desc"
-                    app:layout_constraintStart_toEndOf="@+id/iv_refund"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_refund_desc"
-                    style="@style/OpenSansRegular14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_pengembalian_dana_desc"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_refund"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_refund" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/tv_arrow_right_refund"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/ic_angle_right"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:id="@+id/divider_2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/neutral_01" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/iv_reschedule"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="24dp"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:src="@drawable/ic_calendar_edit"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_reschedule"
-                    style="@style/OpenSansSemiBold14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/text_perubahan_jadwal"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toTopOf="@id/tv_reschedule_desc"
-                    app:layout_constraintStart_toEndOf="@+id/iv_reschedule"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_reschedule_desc"
-                    style="@style/OpenSansRegular14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_perubahan_jadwal_desc"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_reschedule"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_reschedule" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/tv_arrow_right_reschedule"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/ic_angle_right"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/ll_user_help"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/bg_blue_soft"
-            android:orientation="vertical"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/ll_ticket_configuration"
-            app:layout_constraintStart_toStartOf="@+id/ll_ticket_configuration"
-            app:layout_constraintTop_toBottomOf="@+id/ll_ticket_configuration"
-            tools:visibility="visible">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_settings_app"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/iv_settings_app"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="24dp"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:src="@drawable/ic_setting"
-                    android:tint="@color/primary_blue"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_settings_app"
-                    style="@style/OpenSansSemiBold14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/text_pengaturan"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toTopOf="@id/tv_settings_app_desc"
-                    app:layout_constraintStart_toEndOf="@+id/iv_settings_app"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_settings_app_desc"
-                    style="@style/OpenSansRegular14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_pengaturan_desc"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_settings_app"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_settings_app" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/tv_arrow_right_settings_app"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/ic_angle_right"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:id="@+id/divider_3"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/neutral_01" />
@@ -588,6 +396,21 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_user_help"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_blue_soft"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/ll_ticket_configuration"
+            app:layout_constraintStart_toStartOf="@+id/ll_ticket_configuration"
+            app:layout_constraintTop_toBottomOf="@+id/ll_ticket_configuration"
+            tools:visibility="visible">
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

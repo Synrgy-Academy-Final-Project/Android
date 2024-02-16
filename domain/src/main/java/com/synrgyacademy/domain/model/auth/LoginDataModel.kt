@@ -6,4 +6,9 @@ data class LoginDataModel(
     val type: String,
     val email: String,
     val token: String
-)
+) {
+    fun toUserData() = UserDataDataModel(
+        email = email,
+        token = token
+    )
+}

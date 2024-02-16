@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.FragmentNotLoginDialogBinding
 
@@ -29,6 +30,20 @@ class NotLoginDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        onClick()
+    }
+
+    private fun onClick() {
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.loginFragment)
+            dismiss()
+        }
+
+        binding.btnRegister.setOnClickListener {
+            findNavController().navigate(R.id.registerFragment)
+            dismiss()
+        }
     }
 
     override fun onDestroy() {

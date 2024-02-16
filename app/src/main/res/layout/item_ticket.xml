@@ -47,12 +47,11 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/flight_start"
-            style="@style/TextSemiBold"
+            style="@style/OpenSansSemiBold16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="12dp"
-            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/flight_from"
             app:layout_constraintTop_toBottomOf="@+id/flight_from"
@@ -60,12 +59,10 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/flight_price"
-            style="@style/TextBold"
+            style="@style/OpenSansBold20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans_semibold"
             android:textColor="@color/primary_blue"
-            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/flight_person"
             app:layout_constraintTop_toTopOf="@+id/airline_name"
             tools:text="Rp1.500.000/" />
@@ -77,11 +74,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/open_sans_bold"
+            android:text="@string/text_person_short"
             android:textColor="@color/neutral_06"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/flight_arrow"
-            app:layout_constraintTop_toTopOf="@+id/airline_name"
-            tools:text="org" />
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/flight_price"
+            app:layout_constraintEnd_toStartOf="@+id/flight_arrow" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/flight_arrow"
@@ -153,17 +150,15 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/flight_end"
-            style="@style/TextSemiBold"
+            style="@style/OpenSansSemiBold16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="12dp"
-            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/flight_to"
             app:layout_constraintTop_toBottomOf="@+id/flight_to"
             tools:text="09:00 AM" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -14,6 +14,7 @@ import com.synrgyacademy.finalproject.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import `in`.aabhasjindal.otptextview.OTPListener
 import androidx.activity.addCallback
+import com.synrgyacademy.finalproject.utils.StringUtils.censorEmail
 
 
 @AndroidEntryPoint
@@ -26,7 +27,7 @@ class ConfirmationOtpFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentConfirmationOtpBinding.inflate(inflater, container, false)
 
@@ -43,8 +44,8 @@ class ConfirmationOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.reqOtpSubtitle.text =
-            getString(R.string.text_reset_password_subtitle, arguments?.getString("email"))
+        val censorEmail = arguments?.getString("email")?.censorEmail()
+        binding.reqOtpSubtitle.text = getString(R.string.text_reset_password_subtitle, censorEmail)
 
         viewModel.resetState.observe(viewLifecycleOwner) { result ->
             when (result) {
