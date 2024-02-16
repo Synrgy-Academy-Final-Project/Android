@@ -52,6 +52,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
 
     // firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
@@ -92,6 +94,9 @@ dependencies {
 
     // notification
     implementation("io.karn:notify:1.4.0")
+
+    // pdf viewer
+    implementation("com.github.afreakyelf:Pdf-Viewer:v2.0.5")
 }
 kapt {
     correctErrorTypes = true

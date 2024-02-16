@@ -25,9 +25,11 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "API_KEY", "\"https://fly-id-1999ce14c36e.herokuapp.com/\"")
+            buildConfigField("String", "API_KEY_FSW", "\"https://backend-fsw.fly.dev/api/v1/\"")
         }
         debug {
             buildConfigField("String", "API_KEY", "\"https://fly-id-1999ce14c36e.herokuapp.com/\"")
+            buildConfigField("String", "API_KEY_FSW", "\"https://backend-fsw.fly.dev/api/v1/\"")
         }
     }
     compileOptions {
