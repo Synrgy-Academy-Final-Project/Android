@@ -140,15 +140,6 @@ class TicketListFragment : Fragment(), NewFlightDialogFragment.OnScheduleSearchL
                     getClass
                 )
             )
-
-            viewModel.getMinimumPrice(
-                minimumPriceQuery = MinimumPriceQuery(
-                    getDeparture.airportCode,
-                    getArrival.airportCode,
-                    getDateFlight,
-                    getClass
-                )
-            )
         }
 
         viewModel.scheduleState.observe(viewLifecycleOwner) { state ->
@@ -163,8 +154,20 @@ class TicketListFragment : Fragment(), NewFlightDialogFragment.OnScheduleSearchL
 
                 is ScheduleState.Success -> {
                     binding.progressBar.visibility = View.GONE
-
-                    ticketAdapter.submitList(state.data)
+                    if (state.data.isEmpty()) {
+                        binding.tvErrorMessage.visibility = View.VISIBLE
+                    } else {
+                        binding.tvErrorMessage.visibility = View.GONE
+                        viewModel.getMinimumPrice(
+                            minimumPriceQuery = MinimumPriceQuery(
+                                getDeparture?.airportCode ?: "",
+                                getArrival?.airportCode ?: "",
+                                getDateFlight ?: "",
+                                getClass ?: ""
+                            )
+                        )
+                        ticketAdapter.submitList(state.data)
+                    }
                 }
             }
         }
@@ -176,10 +179,11 @@ class TicketListFragment : Fragment(), NewFlightDialogFragment.OnScheduleSearchL
                 }
 
                 is MinimumPriceState.Error -> {
-                    requireContext().showToast(state.error)
+                    binding.progressBar.visibility = View.GONE
                 }
 
                 is MinimumPriceState.Success -> {
+                    binding.progressBar.visibility = View.GONE
                     dateTicketAdapter.submitList(state.data)
                 }
             }
@@ -529,35 +533,6 @@ class TicketListFragment : Fragment(), NewFlightDialogFragment.OnScheduleSearchL
             )
         )
 
-        viewModel.getMinimumPrice(
-            minimumPriceQuery = MinimumPriceQuery(
-                departureData.airportCode,
-                arrivalData.airportCode,
-                date,
-                classType
-            )
-        )
-
-        viewModel.minimumPrice.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is MinimumPriceState.Loading -> {
-                    binding.progressBar.visibility = View.VISIBLE
-                }
-
-                is MinimumPriceState.Error -> {
-                    requireContext().showToast(state.error)
-                }
-
-                is MinimumPriceState.Success -> {
-                    dateTicketAdapter.selectedItem = 0
-                    dateTicketAdapter.submitList(state.data)
-                    binding.departureSchedule.post {
-                        dateTicketAdapter.notifyDataSetChanged()
-                    }
-                }
-            }
-        }
-
         viewModel.scheduleState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is ScheduleState.Loading -> {
@@ -570,7 +545,41 @@ class TicketListFragment : Fragment(), NewFlightDialogFragment.OnScheduleSearchL
 
                 is ScheduleState.Success -> {
                     binding.progressBar.visibility = View.GONE
-                    ticketAdapter.submitList(state.data)
+                    if (state.data.isEmpty()) {
+                        binding.tvErrorMessage.visibility = View.VISIBLE
+                    } else {
+                        binding.tvErrorMessage.visibility = View.GONE
+                        viewModel.getMinimumPrice(
+                            minimumPriceQuery = MinimumPriceQuery(
+                                departureData.airportCode,
+                                arrivalData.airportCode,
+                                date,
+                                classType
+                            )
+                        )
+                        ticketAdapter.submitList(state.data)
+                    }
+                }
+            }
+        }
+
+        viewModel.minimumPrice.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is MinimumPriceState.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+
+                is MinimumPriceState.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                }
+
+                is MinimumPriceState.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    dateTicketAdapter.selectedItem = 0
+                    dateTicketAdapter.submitList(state.data)
+                    binding.departureSchedule.post {
+                        dateTicketAdapter.notifyDataSetChanged()
+                    }
                 }
             }
         }
