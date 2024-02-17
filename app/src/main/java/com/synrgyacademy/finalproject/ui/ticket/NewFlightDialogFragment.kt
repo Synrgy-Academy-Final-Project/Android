@@ -220,6 +220,10 @@ class NewFlightDialogFragment : DialogFragment(), ClassDialogFragment.OnClassSel
             requireContext().showToast("Tanggal keberangkatan tidak boleh kurang dari hari ini")
             error++
         }
+        if (viewModel.departureDataState.value == viewModel.arrivalDataState.value) {
+            requireContext().showToast("Kota asal dan tujuan tidak boleh sama")
+            error++
+        }
         return error == 0
     }
 
