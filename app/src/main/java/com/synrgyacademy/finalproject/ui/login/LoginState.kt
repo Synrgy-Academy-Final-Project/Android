@@ -1,6 +1,5 @@
 package com.synrgyacademy.finalproject.ui.login
 
-import com.synrgyacademy.domain.model.auth.AuthDataModel
 import com.synrgyacademy.domain.model.auth.LoginDataModel
 
 sealed interface LoginState {
@@ -17,6 +16,12 @@ sealed interface ForgetPasswordState {
 
 sealed interface VerifyAccountState {
     data object Loading : VerifyAccountState
-    data class Success (val authData: AuthDataModel) : VerifyAccountState
+    data class Success (val authData: LoginDataModel) : VerifyAccountState
     data class Error(val error: String) : VerifyAccountState
+}
+
+sealed interface RefreshTokenState {
+    data object Loading : RefreshTokenState
+    data class Success (val authData: LoginDataModel) : RefreshTokenState
+    data class Error(val error: String) : RefreshTokenState
 }

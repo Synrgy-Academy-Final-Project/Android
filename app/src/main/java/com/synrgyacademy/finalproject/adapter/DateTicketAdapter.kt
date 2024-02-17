@@ -16,7 +16,7 @@ class DateTicketAdapter(
     var onclick: ((MinimumDataModel) -> Unit)? = null
 ) : ListAdapter<MinimumDataModel, RecyclerView.ViewHolder>(DIFF_UTIL) {
 
-    private var selectedItem: Int = -1
+    var selectedItem: Int = -1
 
     inner class DateTicketViewHolder(private val binding: ItemDateBinding) :
         RecyclerView.ViewHolder(binding.root) {

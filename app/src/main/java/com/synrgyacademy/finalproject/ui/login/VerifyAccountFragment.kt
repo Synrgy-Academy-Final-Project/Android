@@ -12,7 +12,7 @@ import com.synrgyacademy.finalproject.MainActivity
 import com.synrgyacademy.finalproject.R
 import com.synrgyacademy.finalproject.databinding.FragmentVerifyAccountBinding
 import com.synrgyacademy.finalproject.ui.profile.NotificationState
-import com.synrgyacademy.finalproject.utils.NotificationUtils.createNotification
+import com.synrgyacademy.finalproject.utils.NotificationUtils.createHeadsUpNotification
 import com.synrgyacademy.finalproject.utils.StringUtils.censorEmail
 import com.synrgyacademy.finalproject.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -68,11 +68,10 @@ class VerifyAccountFragment : Fragment() {
                     viewModel.getNotification.observe(viewLifecycleOwner) { notificationState ->
                         if (notificationState is NotificationState.Success) {
                             if (notificationState.data) {
-                                createNotification(
+                                createHeadsUpNotification(
                                     requireContext(),
-                                    "Login",
                                     "Kamu berhasil login",
-                                    "Selamat datang di Fly.id!",
+                                    "Selamat datang di Fly.id",
                                     MainActivity::class.java
                                 )
                             }

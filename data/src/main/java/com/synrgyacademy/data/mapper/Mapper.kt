@@ -3,7 +3,6 @@ package com.synrgyacademy.data.mapper
 import com.synrgyacademy.data.local.model.HistorySearchingEntity
 import com.synrgyacademy.data.remote.response.airport.AirplaneServicesItem
 import com.synrgyacademy.data.remote.response.airport.AirportListItem
-import com.synrgyacademy.data.remote.response.auth.AuthData
 import com.synrgyacademy.data.remote.response.airport.MinimumPriceItem
 import com.synrgyacademy.data.remote.response.airport.ScheduleData
 import com.synrgyacademy.domain.model.airport.AirportDataModel
@@ -11,18 +10,6 @@ import com.synrgyacademy.domain.model.airport.HistoryDataModel
 import com.synrgyacademy.domain.model.airport.MinimumDataModel
 import com.synrgyacademy.domain.model.airport.ScheduleDataModel
 import com.synrgyacademy.domain.model.airport.ScheduleServicesItem
-import com.synrgyacademy.domain.model.auth.AuthDataModel
-
-
-fun AuthData.toAuthDataModel(): AuthDataModel =
-    AuthDataModel(
-        token = token.orEmpty(),
-        email = email.orEmpty(),
-        roles = roles ?: emptyList(),
-        fullName = fullName.orEmpty(),
-        type = type.orEmpty(),
-        message = message.orEmpty()
-    )
 
 fun List<AirportListItem>.toAirportDataModel(): List<AirportDataModel> =
     map {

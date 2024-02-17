@@ -18,6 +18,15 @@ object ViewUtils {
                 }
                 WindowInsetsCompat.CONSUMED
             }
+        } else {
+            view.setOnApplyWindowInsetsListener { v, insets ->
+                v.layoutParams = (v.layoutParams as FrameLayout.LayoutParams).apply {
+                    leftMargin = insets.systemWindowInsetLeft
+                    bottomMargin = insets.systemWindowInsetBottom
+                    rightMargin = insets.systemWindowInsetRight
+                }
+                insets.consumeSystemWindowInsets()
+            }
         }
     }
 }

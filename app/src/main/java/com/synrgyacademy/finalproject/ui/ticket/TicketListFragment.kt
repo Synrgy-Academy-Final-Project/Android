@@ -128,7 +128,8 @@ class TicketListFragment : Fragment(), NewFlightDialogFragment.OnScheduleSearchL
 
         val totalPassenger =
             (getPassenger?.adult ?: 0) + (getPassenger?.child ?: 0) + (getPassenger?.infant ?: 0)
-        binding.flightPersonCount.text = getString(R.string.text_passenger_with_value, totalPassenger)
+        binding.flightPersonCount.text =
+            getString(R.string.text_passenger_with_value, totalPassenger)
 
         if (getDeparture != null && getArrival != null && getDateFlight != null && getClass != null) {
             viewModel.getScheduleFlight(
@@ -528,14 +529,45 @@ class TicketListFragment : Fragment(), NewFlightDialogFragment.OnScheduleSearchL
             )
         )
 
+        viewModel.getMinimumPrice(
+            minimumPriceQuery = MinimumPriceQuery(
+                departureData.airportCode,
+                arrivalData.airportCode,
+                date,
+                classType
+            )
+        )
+
+        viewModel.minimumPrice.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is MinimumPriceState.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+
+                is MinimumPriceState.Error -> {
+                    requireContext().showToast(state.error)
+                }
+
+                is MinimumPriceState.Success -> {
+                    dateTicketAdapter.selectedItem = 0
+                    dateTicketAdapter.submitList(state.data)
+                    binding.departureSchedule.post {
+                        dateTicketAdapter.notifyDataSetChanged()
+                    }
+                }
+            }
+        }
+
         viewModel.scheduleState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is ScheduleState.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                 }
+
                 is ScheduleState.Error -> {
                     binding.progressBar.visibility = View.GONE
                 }
+
                 is ScheduleState.Success -> {
                     binding.progressBar.visibility = View.GONE
                     ticketAdapter.submitList(state.data)

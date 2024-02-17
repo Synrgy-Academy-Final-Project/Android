@@ -1,7 +1,6 @@
 package com.synrgyacademy.data.repository
 
 import com.synrgyacademy.data.local.pref.SessionManager
-import com.synrgyacademy.data.mapper.toAuthDataModel
 import com.synrgyacademy.data.remote.request.ChangePasswordRequest
 import com.synrgyacademy.data.remote.request.LoginRequest
 import com.synrgyacademy.data.remote.request.OTPRequest
@@ -42,10 +41,10 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun verifyAccount(email: String, otp: String): AuthDataModel {
+    override suspend fun verifyAccount(email: String, otp: String): LoginDataModel {
         val otpRequest = OTPRequest(otp = otp)
         val response = safeApiRequest { authService.verifyAccount(email, otpRequest) }
-        return response.data!!.toAuthDataModel()
+        return response.data!!.toLoginDataModel()
     }
 
     override suspend fun login(
@@ -57,6 +56,11 @@ class AuthRepositoryImpl @Inject constructor(
             password = password
         )
         val response = safeApiRequest { authService.login(request) }
+        return response.data!!.toLoginDataModel()
+    }
+
+    override suspend fun refreshToken(refreshToken: String): LoginDataModel {
+        val response = safeApiRequest { authService.refreshToken(refreshToken) }
         return response.data!!.toLoginDataModel()
     }
 

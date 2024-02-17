@@ -17,9 +17,6 @@ data class LoginData(
 	@field:SerializedName("roles")
 	val roles: List<String>? = null,
 
-	@field:SerializedName("fullName")
-	val fullName: String? = null,
-
 	@field:SerializedName("type")
 	val type: String? = null,
 
@@ -27,15 +24,18 @@ data class LoginData(
 	val email: String? = null,
 
 	@field:SerializedName("token")
-	val token: String? = null
+	val token: String? = null,
+
+	@field:SerializedName("refreshToken")
+	val refreshToken: String? = null
 ) {
 	fun toLoginDataModel(): LoginDataModel {
 		return LoginDataModel(
 			roles = roles.orEmpty(),
-			fullName = fullName.orEmpty(),
 			type = type.orEmpty(),
 			email = email.orEmpty(),
-			token = token.orEmpty()
+			token = token.orEmpty(),
+			refreshToken = refreshToken.orEmpty()
 		)
 	}
 }

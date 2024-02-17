@@ -92,9 +92,6 @@ dependencies {
     // glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
-    // notification
-    implementation("io.karn:notify:1.4.0")
-
     // pdf viewer
     implementation("com.github.afreakyelf:Pdf-Viewer:v2.0.5")
 }
