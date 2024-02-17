@@ -38,6 +38,11 @@ interface AuthService {
         @Body loginRequest: LoginRequest
     ): Response<LoginResponse>
 
+    @POST("auth/refresh-token")
+    suspend fun refreshToken(
+        @Body refreshToken: String
+    ): Response<LoginResponse>
+
     @POST("auth/forgot-password")
     suspend fun forgotPassword(
         @Body email: String
