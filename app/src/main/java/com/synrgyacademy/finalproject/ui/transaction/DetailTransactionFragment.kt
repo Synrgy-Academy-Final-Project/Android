@@ -35,7 +35,7 @@ import com.synrgyacademy.finalproject.ui.passenger.UserDataState
 import com.synrgyacademy.finalproject.ui.profile.NotificationState
 import com.synrgyacademy.finalproject.utils.CurrencyUtils.toIdrFormatWithoutRp
 import com.synrgyacademy.finalproject.utils.DateUtils.DDMMYYYYStriptoEEEddMMM
-import com.synrgyacademy.finalproject.utils.NotificationUtils.createNotification
+import com.synrgyacademy.finalproject.utils.NotificationUtils
 import com.synrgyacademy.finalproject.utils.StringUtils.convertDepartureArrivalTime
 import com.synrgyacademy.finalproject.utils.StringUtils.convertFlightTime
 import com.synrgyacademy.finalproject.utils.StringUtils.yyyyMMddTHHmmssZtoDDMMMYYYY
@@ -160,9 +160,8 @@ class DetailTransactionFragment : Fragment() {
                         viewModel.getNotification.observe(viewLifecycleOwner) { notificationState ->
                             if (notificationState is NotificationState.Success) {
                                 if (notificationState.data) {
-                                    createNotification(
+                                    NotificationUtils.createHeadsUpNotification(
                                         requireContext(),
-                                        "Transaksi",
                                         "Transaksi berhasil",
                                         "Terima kasih telah melakukan transaksi di Fly.id!",
                                         MainActivity::class.java
