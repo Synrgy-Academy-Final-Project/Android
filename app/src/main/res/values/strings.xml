@@ -325,4 +325,5 @@
         <item>Perempuan</item>
     </string-array>
     <string name="text_new_airplane">Cari Penerbangan Baru</string>
+    <string name="text_error_empty_data">Maaf, data pesawat tidak ditemukan</string>
 </resources>
