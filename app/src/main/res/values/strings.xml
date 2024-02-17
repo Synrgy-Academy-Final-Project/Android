@@ -167,8 +167,8 @@
     <!--  Transaction Process Dialog  -->
     <string name="text_transaction_wait">Mohon ditunggu ya…</string>
     <string name="text_transaction_process">Pembayaranmu sedang diproses</string>
-    <string name="text_payment_success">Pembayaran berhasil</string>
-    <string name="text_payment_failed">Pembayaran gagal</string>
+    <string name="text_payment_success">Pembayaran Berhasil</string>
+    <string name="text_payment_failed">Pembayaran Gagal</string>
     <string name="text_eticket_available">E-tiketmu sudah terbit!\n Lihat dan selamat menikmati perjalananmu</string>
     <string name="text_oke">Oke</string>
 
