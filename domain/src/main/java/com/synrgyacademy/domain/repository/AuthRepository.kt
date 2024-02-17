@@ -10,8 +10,9 @@ interface AuthRepository {
 
     suspend fun register(fullName: String, email: String, password: String): AuthDataModel
     suspend fun regenerateOTP(email: String)
-    suspend fun verifyAccount(email: String, otp: String): AuthDataModel
+    suspend fun verifyAccount(email: String, otp: String): LoginDataModel
     suspend fun login(email: String, password: String): LoginDataModel
+    suspend fun refreshToken(refreshToken: String): LoginDataModel
     suspend fun isLogin(): Flow<Boolean>
     suspend fun logout()
     suspend fun createSession()
