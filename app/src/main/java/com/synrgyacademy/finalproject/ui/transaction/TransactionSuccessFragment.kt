@@ -104,6 +104,7 @@ class TransactionSuccessFragment : Fragment() {
                     } else {
                         binding.apply {
                             progressBar.visibility = View.GONE
+                            btnDownloadInvoice.visibility = View.GONE
                             textPaymentSuccess.text = getString(R.string.text_payment_failed)
                             icSuccess.setImageDrawable(
                                 ResourcesCompat.getDrawable(
@@ -135,6 +136,13 @@ class TransactionSuccessFragment : Fragment() {
                                 result.data.totalPrice?.toIdrFormatWithoutRp()
                             )
                             textStatusValue.text = getString(R.string.text_payment_failed)
+                            textStatusValue.setTextColor(
+                                ResourcesCompat.getColor(
+                                    resources,
+                                    R.color.secondary_danger,
+                                    null
+                                )
+                            )
                         }
                     }
                 }
